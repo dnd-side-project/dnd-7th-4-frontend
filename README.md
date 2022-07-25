@@ -4,8 +4,8 @@
 
 ## 🧑🏻‍💻 Developer
 
-|      | 이동현 [@L2HYUNN](https://github.com/L2HYUNN)  | 김해나 [@kimhn0605](https://github.com/kimhn0605)|
-|------|------|---|
+|      | 이동현 [@L2HYUNN](https://github.com/L2HYUNN)  | 김해나 [@kimhn0605](https://github.com/kimhn0605)  | 이지아 [@zeroto99](https://github.com/zeroto99)|
+|------|------|---|---|
 
 
 ## 🗺 Architecture
