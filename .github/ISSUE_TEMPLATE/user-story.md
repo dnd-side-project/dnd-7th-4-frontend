@@ -1,3 +1,12 @@
+---
+name: User story
+about: Describe this issue template's purpose here.
+title: ''
+labels: Story
+assignees: ''
+
+---
+
 # User Stories
 [사용자 유형]인 나는 
 [무엇을 하길] 원한다.
@@ -26,5 +35,3 @@
 
 * > Here goes a quote from an email
 * Here goes whatever useful information can exist…
-
-
