@@ -1,8 +1,8 @@
 import * as S from '../Location.style';
 import { useState, useEffect } from 'react';
 import { useRecoilValue } from 'recoil';
-import locationValueAtom from '@Recoil/location';
-import locationEditAtom from '@Recoil/location';
+import locationValueAtom from '@Recoil/location/locationValue';
+import locationEditAtom from '@Recoil/location/locationEdit';
 
 const LocationResult = () => {
   const [pinned, setPinned] = useState([]);
@@ -10,13 +10,6 @@ const LocationResult = () => {
 
   const value = useRecoilValue(locationValueAtom);
   const edit = useRecoilValue(locationEditAtom);
-
-  // 제대로 실행 x
-  const onRemoveItem = (id) => {
-    if (edit === true) {
-      setPinned(pinned.filter((pin) => pin.id !== id));
-    }
-  };
 
   // PinnedPlaces, SearchPlace 임시 더미 데이터
   useEffect(() => {
@@ -94,7 +87,6 @@ const LocationResult = () => {
                 temp={place.temp}
                 value={value}
                 edit={edit}
-                onClick={onRemoveItem}
               >
                 <S.LocationPinnedName>{place.name}</S.LocationPinnedName>
                 <S.LocationPinnedTemp>{place.temp}</S.LocationPinnedTemp>
