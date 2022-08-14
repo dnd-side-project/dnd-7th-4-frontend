@@ -4,6 +4,7 @@ import ExamplePage from '@Pages/ExamplePage';
 import LocationPage from '@Pages/LocationPage';
 import LoginPage from '@Pages/LoginPage';
 import Auth from '../Auth';
+import Alram from '@Pages/Alram';
 
 function Router() {
   return (
@@ -12,6 +13,7 @@ function Router() {
         <Route path="/" element={<HomePage />} />
         <Route path="/location" element={<LocationPage />} />
         <Route path="/example" element={<ExamplePage />} />
+        <Route path="/alram" element={<Alram />} />
         <Route path="/login" element={<LoginPage />} />
         <Route path="/oauth/kakao/callback" element={<Auth />} />
       </Routes>
