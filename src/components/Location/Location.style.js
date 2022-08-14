@@ -16,7 +16,7 @@ const LocationHeader = styled.div`
   border-bottom: 0.01rem solid #e8e8e8;
   box-sizing: border-box;
 `;
-const LocationTitle = styled.h1`
+const LocationTitle = styled.header`
   position: absolute;
   top: 4.9rem;
   width: 12rem;
@@ -86,7 +86,7 @@ const LocationSearchBtn = styled.button`
   background: #5d9eff;
   color: #fefdfe;
   &:hover {
-    color: green;
+    color: black;
   }
 `;
 const LocationInput = styled.input.attrs(() => ({
@@ -107,7 +107,7 @@ const LocationInput = styled.input.attrs(() => ({
   line-height: 1.7rem;
   outline: none;
 `;
-const LocationResult = styled.div`
+const LocationResult = styled.main`
   display: flex;
   flex-direction: column;
   position: absolute;
@@ -181,9 +181,6 @@ const LocationSearchPlace = styled.div`
   width: 30.9rem;
   height: 2.4rem;
   margin-bottom: 1.7rem;
-  /* ${({ value }) => {
-    return !value ? `display: show` : null;
-  }} */
 `;
 const LocationSearchPlaceName = styled.h1`
   display: flex;

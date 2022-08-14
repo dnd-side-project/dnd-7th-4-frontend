@@ -1,14 +1,11 @@
 import * as S from '../Location.style';
-import { BiSearchAlt2 } from 'react-icons/bi';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
-import locationValueAtom from '@Recoil/location';
-import locationEditAtom from '@Recoil/location';
+import { useRecoilState } from 'recoil';
+import locationValueAtom from '@Recoil/location/locationValue';
+import locationEditAtom from '@Recoil/location/locationEdit';
 
 const LocationSearch = () => {
-  const value = useRecoilValue(locationValueAtom);
-  const setValue = useSetRecoilState(locationValueAtom);
-  const edit = useRecoilValue(locationEditAtom);
-  const setEdit = useSetRecoilState(locationEditAtom);
+  const [value, setValue] = useRecoilState(locationValueAtom);
+  const [edit, setEdit] = useRecoilState(locationEditAtom);
 
   const onSubmit = (e) => {
     e.preventDefault();
@@ -19,7 +16,6 @@ const LocationSearch = () => {
     setValue(e.target.value);
   };
 
-  // 버튼 클릭하면 인풋값에 edit 이 들어감 -> 해결해야 함!!
   const onClickEdit = () => {
     setEdit((prevEdit) => !prevEdit);
   };
@@ -34,9 +30,7 @@ const LocationSearch = () => {
         <S.LocationSearchWrapper>
           <S.LocationForm onSubmit={onSubmit}>
             <S.LocationInput onChange={onChange} value={value} />
-            <S.LocationSearchBtn>
-              <BiSearchAlt2 />
-            </S.LocationSearchBtn>
+            <S.LocationSearchBtn>icon</S.LocationSearchBtn>
           </S.LocationForm>
         </S.LocationSearchWrapper>
       </S.LocationSearchDiv>
