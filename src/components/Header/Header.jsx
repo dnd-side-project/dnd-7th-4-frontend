@@ -16,7 +16,7 @@ const Header = () => {
       <S.HearderNav>
         <S.HeaderList>
           <li>
-            <Link to={'/example'}>위치 페이지</Link>
+            <Link to={'/Location'}>위치 페이지</Link>
           </li>
           <li>
             <S.HeaderList sub>
