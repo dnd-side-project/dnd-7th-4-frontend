@@ -5,6 +5,7 @@ import alram from '@Assets/alarm.svg';
 // import social from "@Assets/social.svg"
 
 // 유저의 로그인 상태, 카카오톡 알림 설정 유무에 따라 Alram 화면이 변화한다.
+// 주석 추가
 const Alram = () => {
   return (
     <>
