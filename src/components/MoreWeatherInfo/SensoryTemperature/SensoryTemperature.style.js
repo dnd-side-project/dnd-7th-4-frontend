@@ -39,4 +39,4 @@ const Info = styled.div`
   margin-top: 3.2rem;
 `;
 
-export { Wrapper, Title, Texts, Text, Info };
+export { Info, Text, Texts, Title, Wrapper };

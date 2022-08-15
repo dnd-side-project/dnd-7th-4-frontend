@@ -62,4 +62,4 @@ const ImgText = styled.span`
   font-weight: 500;
 `;
 
-export { Wrapper, Title, Texts, Text, Infos, Info, Img, ImgTitle, ImgText };
+export { Img, ImgText, ImgTitle, Info, Infos, Text, Texts, Title, Wrapper };

@@ -32,4 +32,4 @@ const HeaderButton = styled.button`
   }
 `;
 
-export { HearderNav, HeaderList, HeaderButton };
+export { HeaderButton, HeaderList, HearderNav };

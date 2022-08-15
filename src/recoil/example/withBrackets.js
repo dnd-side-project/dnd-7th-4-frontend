@@ -1,4 +1,5 @@
 import { selector } from 'recoil';
+
 import exampleAtom from './atom';
 
 const exampleWithBrackets = selector({

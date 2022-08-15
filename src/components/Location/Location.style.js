@@ -46,9 +46,7 @@ const LocationEditBtn = styled.button`
   line-height: 1.7rem;
   text-align: center;
   letter-spacing: 0.01rem;
-  ${({ edit }) => {
-    return edit ? `background: red` : null;
-  }};
+  ${({ edit }) => (edit ? `background: red` : null)};
 `;
 const LocationSearchDiv = styled.div`
   display: flex;
@@ -123,9 +121,7 @@ const LocationPinnedPlace = styled.div`
   border-radius: 2rem;
   background: #ffffff;
   box-shadow: 0rem 0rem 0.7rem rgba(0, 0, 0, 0.2);
-  ${({ value }) => {
-    return value ? `display: hidden` : null;
-  }};
+  ${({ value }) => (value ? `display: hidden` : null)};
 `;
 const LocationPinnedName = styled.h1`
   display: flex;
@@ -222,22 +218,22 @@ const LocationSearchPlaceTemp = styled.h1`
 `;
 
 export {
-  LocationWrapper,
-  LocationHeader,
-  LocationTitle,
   LocationEditBtn,
-  LocationSearchDiv,
-  LocationSearchWrapper,
   LocationForm,
-  LocationSearchBtn,
+  LocationHeader,
   LocationInput,
-  LocationResult,
-  LocationPinnedPlace,
   LocationPinnedName,
+  LocationPinnedPlace,
   LocationPinnedTemp,
   LocationPinnedWord,
+  LocationResult,
+  LocationSearchBtn,
+  LocationSearchDiv,
   LocationSearchPlace,
-  LocationSearchPlaceName,
   LocationSearchPlaceIcon,
+  LocationSearchPlaceName,
   LocationSearchPlaceTemp,
+  LocationSearchWrapper,
+  LocationTitle,
+  LocationWrapper,
 };

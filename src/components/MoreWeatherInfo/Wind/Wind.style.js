@@ -39,4 +39,4 @@ const Img = styled.img`
   margin-top: 2.3rem;
 `;
 
-export { Wrapper, Title, Texts, Text, Img };
+export { Img, Text, Texts, Title, Wrapper };

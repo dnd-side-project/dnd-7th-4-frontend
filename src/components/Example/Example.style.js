@@ -22,4 +22,4 @@ const ExampleInput = styled.input``;
 const ExampleList = styled.ul``;
 const ExampleListItem = styled.li``;
 
-export { ExampleWrapper, ExampleTitle, ExampleText, ExampleForm, ExampleInput, ExampleList, ExampleListItem };
+export { ExampleForm, ExampleInput, ExampleList, ExampleListItem, ExampleText, ExampleTitle, ExampleWrapper };

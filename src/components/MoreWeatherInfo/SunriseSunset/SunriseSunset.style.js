@@ -45,4 +45,4 @@ const Time = styled.div`
 const Sunrise = styled.span``;
 const Sunset = styled.span``;
 
-export { Wrapper, Title, Texts, Text, Img, Time, Sunrise, Sunset };
+export { Img, Sunrise, Sunset, Text, Texts, Time, Title, Wrapper };
