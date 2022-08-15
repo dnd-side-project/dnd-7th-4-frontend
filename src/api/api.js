@@ -13,14 +13,4 @@ const fetchTestInfo = async () => {
   }
 };
 
-// axios.get();
-
-// axios.post();
-
-// axios.put();
-
-// axios.patch();
-
-// axios.delete();
-
 export { fetchTestInfo };
