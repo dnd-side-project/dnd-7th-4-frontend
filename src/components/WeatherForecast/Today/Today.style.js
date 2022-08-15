@@ -66,4 +66,4 @@ const TimelineSubList = styled.ul`
   }
 `;
 
-export { InfList, InfListItem, CommentDiv, CommentTitle, CommentSubTitle, TimelineList, TimelineSubList };
+export { CommentDiv, CommentSubTitle, CommentTitle, InfList, InfListItem, TimelineList, TimelineSubList };
