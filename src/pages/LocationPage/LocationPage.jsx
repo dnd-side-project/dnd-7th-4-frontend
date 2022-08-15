@@ -1,11 +1,5 @@
 import Location from '@Components/Location';
 
-function LocationPage() {
-  return (
-    <>
-      <Location></Location>
-    </>
-  );
-}
+const LocationPage = () => <Location />;
 
 export default LocationPage;

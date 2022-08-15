@@ -1,14 +1,12 @@
 import * as S from './Location.style';
-import LocationSearch from './LocationSearch/LocationSearch';
 import LocationResult from './LocationResult/LocationResult';
+import LocationSearch from './LocationSearch/LocationSearch';
 
-const Location = () => {
-  return (
-    <S.LocationWrapper>
-      <LocationSearch></LocationSearch>
-      <LocationResult></LocationResult>
-    </S.LocationWrapper>
-  );
-};
+const Location = () => (
+  <S.LocationWrapper>
+    <LocationSearch />
+    <LocationResult />
+  </S.LocationWrapper>
+);
 
 export default Location;
