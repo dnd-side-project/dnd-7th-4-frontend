@@ -1,4 +1,6 @@
 import * as S from './Home.style';
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
 import Header from '@Components/Header';
 import WeatherForecast from '@Components/WeatherForecast';
 
@@ -14,4 +16,4 @@ const Home = () => {
   );
 };
 
-export default Home;
+export default memo(Home, isEqual);
