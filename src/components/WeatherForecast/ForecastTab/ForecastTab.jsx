@@ -1,4 +1,6 @@
 import * as S from './ForecastTab.style';
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
 import { useSetRecoilState } from 'recoil';
 import tabMenuAtom from '@Recoil/tabMenu';
 
@@ -20,4 +22,4 @@ const ForecastTab = () => {
   );
 };
 
-export default ForecastTab;
+export default memo(ForecastTab, isEqual);

@@ -1,4 +1,6 @@
 import * as S from './Today.style';
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
 import partlyCloudy from '@Assets/partlyCloudy.png';
 
 const Today = () => {
@@ -77,4 +79,4 @@ const Today = () => {
   );
 };
 
-export default Today;
+export default memo(Today, isEqual);

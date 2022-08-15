@@ -1,5 +1,6 @@
 import * as S from './SlideMenu.style';
-import { useRef } from 'react';
+import { useEffect, useRef, memo } from 'react';
+import isEqual from 'react-fast-compare';
 // import { useSetRecoilState } from 'recoil';
 import { useRecoilState } from 'recoil';
 import slideMenuAtom from '@Recoil/slideMenu';
@@ -11,6 +12,11 @@ const SlideMenu = () => {
   const [slide, setSlide] = useRecoilState(slideMenuAtom);
 
   const bgRef = useRef();
+
+  // CHECK:: 2번 렌더되는지 확인
+  useEffect(() => {
+    console.log('슬라이드메뉴 마운트');
+  }, []);
 
   return (
     <S.Background
@@ -56,4 +62,4 @@ const SlideMenu = () => {
   );
 };
 
-export default SlideMenu;
+export default memo(SlideMenu, isEqual);
