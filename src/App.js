@@ -1,3 +1,5 @@
+import '@Styles/font.css';
+
 import Router from '@Routes/Router';
 import DefaultTheme from '@Styles/DefaultTheme';
 import GlobalStyle from '@Styles/GlobalStyle';
