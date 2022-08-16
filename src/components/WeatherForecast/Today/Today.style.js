@@ -38,7 +38,7 @@ const CommentDiv = styled.div`
 
 const CommentTitle = styled.p`
   font-size: 2.2rem;
-  font-weight: bold;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
   padding: 5.9rem 5.6rem 1.7rem;
 `;
 
