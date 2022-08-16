@@ -52,4 +52,4 @@ const Button = styled.button`
   color: white;
 `;
 
-export { Container, Wrapper, Title, Text, Button };
+export { Button, Container, Text, Title, Wrapper };

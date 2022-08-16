@@ -1,11 +1,5 @@
 import Example from '@Components/Example';
 
-function ExamplePage() {
-  return (
-    <>
-      <Example></Example>
-    </>
-  );
-}
+const ExamplePage = () => <Example />;
 
 export default ExamplePage;

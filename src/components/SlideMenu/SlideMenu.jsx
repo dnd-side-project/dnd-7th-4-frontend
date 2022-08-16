@@ -1,10 +1,12 @@
-import * as S from './SlideMenu.style';
-import { useEffect, useRef, memo } from 'react';
-import isEqual from 'react-fast-compare';
-// import { useSetRecoilState } from 'recoil';
-import { useRecoilState } from 'recoil';
-import slideMenuAtom from '@Recoil/slideMenu';
 import userProfile from '@Assets/default-profile.png';
+import slideMenuAtom from '@Recoil/slideMenu';
+import { memo, useEffect, useRef } from 'react';
+import isEqual from 'react-fast-compare';
+import { useRecoilState } from 'recoil';
+
+import * as S from './SlideMenu.style';
+
+// import { useSetRecoilState } from 'recoil';
 
 // CHECK:: api나 세부 디자인이 안나온 관계로 전체적인 틀만 작업함, 데이터 고려나 세부 스타일링 안함
 const SlideMenu = () => {
@@ -15,6 +17,7 @@ const SlideMenu = () => {
 
   // CHECK:: 2번 렌더되는지 확인
   useEffect(() => {
+    // eslint-disable-next-line no-console
     console.log('슬라이드메뉴 마운트');
   }, []);
 
@@ -51,7 +54,7 @@ const SlideMenu = () => {
           <li>
             <ul>
               <li>카톡 날씨알리미</li>
-              <li></li>
+              <li />
             </ul>
           </li>
           <S.MenuItem>카톡 날씨알리미란?</S.MenuItem>

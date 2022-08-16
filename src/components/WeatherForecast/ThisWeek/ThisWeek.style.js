@@ -55,4 +55,4 @@ const ThisWeekSubList = styled.ul`
   }
 `;
 
-export { SummaryTitle, CommentDiv, CommentTitle, ThisWeekList, ThisWeekSubList };
+export { CommentDiv, CommentTitle, SummaryTitle, ThisWeekList, ThisWeekSubList };

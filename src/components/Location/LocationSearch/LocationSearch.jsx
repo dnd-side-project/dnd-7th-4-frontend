@@ -1,7 +1,8 @@
-import * as S from '../Location.style';
-import { useRecoilState } from 'recoil';
-import locationValueAtom from '@Recoil/location/locationValue';
 import locationEditAtom from '@Recoil/location/locationEdit';
+import locationValueAtom from '@Recoil/location/locationValue';
+import { useRecoilState } from 'recoil';
+
+import * as S from '../Location.style';
 
 const LocationSearch = () => {
   const [value, setValue] = useRecoilState(locationValueAtom);

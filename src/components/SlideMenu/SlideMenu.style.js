@@ -1,5 +1,5 @@
-import styled from 'styled-components';
 import arrowRight from '@Assets/arrow-right.png';
+import styled from 'styled-components';
 
 const Background = styled.div`
   position: absolute;
@@ -81,4 +81,4 @@ const MenuItem = styled.li`
   }
 `;
 
-export { Background, Menu, MenuList, MenuItem, UserState, LoginInf, NoLoginTxt, LoginToKaKao };
+export { Background, LoginInf, LoginToKaKao, Menu, MenuItem, MenuList, NoLoginTxt, UserState };
