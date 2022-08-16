@@ -1,0 +1,34 @@
+@font-face {
+  font-family: Pretendard;
+  src: local('Pretendard Light'), local('Pretendard-Light'),
+  url(@Assets/font/Pretendard-Light.woff2) format('woff2');
+  font-weight: 300;
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: local('Pretendard Regular'), local('Pretendard-Regular'),
+  url(@Assets/font/Pretendard-Regular.woff2) format('woff2');
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: local('Pretendard Medium'), local('Pretendard-Medium'),
+  url(@Assets/font/Pretendard-Medium.woff2) format('woff2');
+  font-weight: 500;
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: local('Pretendard SemiBold'), local('Pretendard-SemiBold'),
+  url(@Assets/font/Pretendard-SemiBold.woff2) format('woff2');
+  font-weight: 600;
+}
+
+@font-face {
+  font-family: Pretendard;
+  src: local('Pretendard Bold'), local('Pretendard-Bold'),
+  url(@Assets/font/Pretendard-Bold.woff2) format('woff2');
+  font-weight: 700;
+}
