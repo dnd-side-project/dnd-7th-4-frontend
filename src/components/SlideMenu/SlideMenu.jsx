@@ -1,4 +1,4 @@
-import userProfile from '@Assets/default-profile.png';
+import defaultProfile from '@Assets/icon/default-profile.svg';
 import slideMenuAtom from '@Recoil/slideMenu';
 import { memo, useEffect, useRef } from 'react';
 import isEqual from 'react-fast-compare';
@@ -32,7 +32,7 @@ const SlideMenu = () => {
         {/* CHECK:: 로그인 전, 로그인 후 구분해서 렌더 */}
         <S.UserState flex>
           <li>
-            <img src={userProfile} alt="사용자 프로필" />
+            <img src={defaultProfile} alt="사용자 프로필" />
           </li>
           <li>
             {/* CHECK:: 로그인 전, 로그인 후 텍스트 내용, 폰트 크기, 색상 다름 

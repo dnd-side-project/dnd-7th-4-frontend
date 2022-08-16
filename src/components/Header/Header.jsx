@@ -1,6 +1,6 @@
-import alarm from '@Assets/alarm.png';
-import navMenu from '@Assets/nav-menu.png';
-import share from '@Assets/share.png';
+import kakaotalk from '@Assets/icon/kakaotalk.svg';
+import menu from '@Assets/icon/menu.svg';
+import share from '@Assets/icon/share.svg';
 import SlideMenu from '@Components/SlideMenu';
 import slideMenuAtom from '@Recoil/slideMenu';
 import { memo, useCallback } from 'react';
@@ -27,7 +27,7 @@ const Header = () => {
             <S.HeaderList sub>
               <li>
                 <Link to="/alram">
-                  <img src={alarm} alt="알림 페이지" />
+                  <img src={kakaotalk} alt="알림 페이지" />
                 </Link>
               </li>
               <li>
@@ -37,7 +37,7 @@ const Header = () => {
               </li>
               <li>
                 <S.HeaderButton onClick={() => setSlide(true)}>
-                  <img src={navMenu} alt="슬라이드 메뉴 버튼" />
+                  <img src={menu} alt="슬라이드 메뉴 버튼" />
                 </S.HeaderButton>
               </li>
             </S.HeaderList>

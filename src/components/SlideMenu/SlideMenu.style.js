@@ -1,4 +1,4 @@
-import arrowRight from '@Assets/arrow-right.png';
+import arrowRight from '@Assets/icon/back.svg';
 import styled from 'styled-components';
 
 const Background = styled.div`
