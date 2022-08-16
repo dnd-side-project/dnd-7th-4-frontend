@@ -1,4 +1,6 @@
 import partlyCloudy from '@Assets/partlyCloudy.png';
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
 
 import * as S from './ThisWeek.style';
 
@@ -150,4 +152,4 @@ const ThisWeek = () => (
   </>
 );
 
-export default ThisWeek;
+export default memo(ThisWeek, isEqual);

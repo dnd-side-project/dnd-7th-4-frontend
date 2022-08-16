@@ -9,6 +9,7 @@ const fetchTestInfo = async () => {
     const response = await axios.get(`${TEST_URL}/api/users/2`);
     return response.data;
   } catch (error) {
+    // eslint-disable-next-line no-console
     console.log('Error: ', error);
   }
 };
