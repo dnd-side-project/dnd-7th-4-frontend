@@ -1,4 +1,4 @@
-import partlyCloudy from '@Assets/partlyCloudy.png';
+// import partlyCloudy from '@Assets/partlyCloudy.png';
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 
@@ -20,12 +20,8 @@ const ThisWeek = () => (
               <li>7.24</li>
             </ul>
           </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
           <li>28/22</li>
         </S.ThisWeekSubList>
       </li>
@@ -37,12 +33,8 @@ const ThisWeek = () => (
               <li>7.24</li>
             </ul>
           </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
           <li>28/22</li>
         </S.ThisWeekSubList>
       </li>
@@ -54,12 +46,8 @@ const ThisWeek = () => (
               <li>7.24</li>
             </ul>
           </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
           <li>28/22</li>
         </S.ThisWeekSubList>
       </li>
@@ -71,12 +59,8 @@ const ThisWeek = () => (
               <li>7.24</li>
             </ul>
           </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
           <li>28/22</li>
         </S.ThisWeekSubList>
       </li>
@@ -88,12 +72,8 @@ const ThisWeek = () => (
               <li>7.24</li>
             </ul>
           </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
           <li>28/22</li>
         </S.ThisWeekSubList>
       </li>
@@ -105,12 +85,8 @@ const ThisWeek = () => (
               <li>7.24</li>
             </ul>
           </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
           <li>28/22</li>
         </S.ThisWeekSubList>
       </li>
@@ -122,12 +98,8 @@ const ThisWeek = () => (
               <li>7.24</li>
             </ul>
           </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
           <li>28/22</li>
         </S.ThisWeekSubList>
       </li>
@@ -139,12 +111,8 @@ const ThisWeek = () => (
               <li>7.24</li>
             </ul>
           </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
-          <li>
-            <img src={partlyCloudy} alt="날씨 이모티콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
+          <li>{/* <img src={partlyCloudy} alt="날씨 이모티콘" /> */}</li>
           <li>28/22</li>
         </S.ThisWeekSubList>
       </li>

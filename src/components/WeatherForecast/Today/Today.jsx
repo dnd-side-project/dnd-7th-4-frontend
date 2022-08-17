@@ -1,4 +1,4 @@
-import partlyCloudy from '@Assets/partlyCloudy.png';
+// import partlyCloudy from '@Assets/partlyCloudy.png';
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 
@@ -23,54 +23,42 @@ const Today = () => (
       <li>
         <S.TimelineSubList>
           <li>지금</li>
-          <li>
-            <img src={partlyCloudy} alt="구름 조금 아이콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="구름 조금 아이콘" /> */}</li>
           <li>29º</li>
         </S.TimelineSubList>
       </li>
       <li>
         <S.TimelineSubList>
           <li>오후 3시</li>
-          <li>
-            <img src={partlyCloudy} alt="구름 조금 아이콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="구름 조금 아이콘" /> */}</li>
           <li>29º</li>
         </S.TimelineSubList>
       </li>
       <li>
         <S.TimelineSubList>
           <li>오후 3시</li>
-          <li>
-            <img src={partlyCloudy} alt="구름 조금 아이콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="구름 조금 아이콘" /> */}</li>
           <li>29º</li>
         </S.TimelineSubList>
       </li>
       <li>
         <S.TimelineSubList>
           <li>오후 3시</li>
-          <li>
-            <img src={partlyCloudy} alt="구름 조금 아이콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="구름 조금 아이콘" /> */}</li>
           <li>29º</li>
         </S.TimelineSubList>
       </li>
       <li>
         <S.TimelineSubList>
           <li>오후 3시</li>
-          <li>
-            <img src={partlyCloudy} alt="구름 조금 아이콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="구름 조금 아이콘" /> */}</li>
           <li>29º</li>
         </S.TimelineSubList>
       </li>
       <li>
         <S.TimelineSubList>
           <li>오후 3시</li>
-          <li>
-            <img src={partlyCloudy} alt="구름 조금 아이콘" />
-          </li>
+          <li>{/* <img src={partlyCloudy} alt="구름 조금 아이콘" /> */}</li>
           <li>29º</li>
         </S.TimelineSubList>
       </li>
