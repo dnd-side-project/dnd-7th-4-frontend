@@ -14,6 +14,7 @@ const Background = styled.div`
 
 // CHECK:: div가 최선인가?
 const Menu = styled.div`
+  color: #000;
   width: 26rem;
   height: 100%;
   background-color: #fff;
