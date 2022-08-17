@@ -1,3 +1,4 @@
+import MoreWeatherInfo from '@Components/MoreWeatherInfo';
 import Alram from '@Pages/Alram';
 import ExamplePage from '@Pages/ExamplePage';
 import Home from '@Pages/Home';
@@ -16,6 +17,7 @@ const Router = () => (
       <Route path="/alram" element={<Alram />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/oauth/kakao/callback" element={<Auth />} />
+      <Route path="/more-weather" element={<MoreWeatherInfo />} />
     </Routes>
   </Routers>
 );
