@@ -3,7 +3,7 @@ import { atom } from 'recoil';
 
 const tabMenuAtom = atom({
   key: 'tabMenuAtom',
-  default: 0,
+  default: '오늘',
 });
 
 export default tabMenuAtom;

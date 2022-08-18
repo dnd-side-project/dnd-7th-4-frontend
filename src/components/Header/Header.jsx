@@ -1,5 +1,6 @@
 import alarm from '@Assets/icon/alarm.svg';
 import navMenu from '@Assets/icon/menu.svg';
+
 import share from '@Assets/icon/share.svg';
 import SlideMenu from '@Components/SlideMenu';
 import slideMenuAtom from '@Recoil/slideMenu';
@@ -37,7 +38,7 @@ const Header = () => {
               </li>
               <li>
                 <S.HeaderButton onClick={() => setSlide(true)}>
-                  <img src={navMenu} alt="슬라이드 메뉴 버튼" />
+                  {/* <img src={navMenu} alt="슬라이드 메뉴 버튼" /> */}
                 </S.HeaderButton>
               </li>
             </S.HeaderList>
