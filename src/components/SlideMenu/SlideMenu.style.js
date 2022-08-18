@@ -1,4 +1,4 @@
-import arrowRight from '@Assets/arrow-right.png';
+// import arrowRight from '@Assets/arrow-right.png';
 import styled from 'styled-components';
 
 const Background = styled.div`
@@ -77,7 +77,6 @@ const MenuItem = styled.li`
     top: 2rem;
     width: 0.4rem;
     height: 0.8rem;
-    background: url(${arrowRight}) center;
   }
 `;
 

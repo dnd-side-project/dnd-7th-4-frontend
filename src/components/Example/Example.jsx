@@ -1,8 +1,9 @@
-import * as S from './Example.style';
-import { useRecoilValue } from 'recoil';
 import exampleAtom, { withBrackets, withParens } from '@Recoil/example';
+import { useRecoilValue } from 'recoil';
 
-function Example() {
+import * as S from './Example.style';
+
+const Example = () => {
   const example = useRecoilValue(exampleAtom);
   const exampleBrackets = useRecoilValue(withBrackets);
   const exampleParens = useRecoilValue(withParens);
@@ -14,6 +15,6 @@ function Example() {
       <S.ExampleText>{exampleParens}</S.ExampleText>
     </S.ExampleWrapper>
   );
-}
+};
 
 export default Example;

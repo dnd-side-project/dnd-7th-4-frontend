@@ -13,7 +13,7 @@ const ForecastTabList = styled.ul`
     padding: 0.7rem;
   }
 
-  & > li > button:focus {
+  & > li > button.on {
     background: #fff;
   }
 `;

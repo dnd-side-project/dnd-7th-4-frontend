@@ -1,33 +1,37 @@
-import * as S from './Header.style';
-import { Link } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import alarm from '@Assets/icon/alarm.svg';
+import navMenu from '@Assets/icon/menu.svg';
+import share from '@Assets/icon/share.svg';
 import SlideMenu from '@Components/SlideMenu';
 import slideMenuAtom from '@Recoil/slideMenu';
-import alarm from '@Assets/alarm.png';
-import share from '@Assets/share.png';
-import navMenu from '@Assets/nav-menu.png';
+import { memo, useCallback } from 'react';
+import isEqual from 'react-fast-compare';
+import { Link } from 'react-router-dom';
+import { useRecoilState } from 'recoil';
+
+import * as S from './Header.style';
 
 const Header = () => {
-  // CHECK:: slide의 상태를 참조해서 슬라이드 메뉴를 렌더할 예정이라 useRecoilState 사용
   const [slide, setSlide] = useRecoilState(slideMenuAtom);
 
-  // CHECK:: 위치, 알림, 공유 페이지는 아직 작업 전이라 임의로 /example 연결해둠
+  const renderSlideMenu = useCallback(() => <SlideMenu />, []);
+
+  // CHECK:: 공유 페이지는 아직 작업 전이라 임의로 /example 연결해둠
   return (
     <>
       <S.HearderNav>
         <S.HeaderList>
           <li>
-            <Link to={'/Location'}>위치 페이지</Link>
+            <Link to="/location">위치 페이지</Link>
           </li>
           <li>
             <S.HeaderList sub>
               <li>
-                <Link to={'/example'}>
+                <Link to="/alram">
                   <img src={alarm} alt="알림 페이지" />
                 </Link>
               </li>
               <li>
-                <Link to={'/example'}>
+                <Link to="/example">
                   <img src={share} alt="공유 페이지" />
                 </Link>
               </li>
@@ -41,9 +45,9 @@ const Header = () => {
         </S.HeaderList>
       </S.HearderNav>
 
-      {slide && <SlideMenu />}
+      {slide && renderSlideMenu()}
     </>
   );
 };
 
-export default Header;
+export default memo(Header, isEqual);

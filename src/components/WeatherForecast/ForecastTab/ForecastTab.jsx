@@ -1,23 +1,28 @@
-import * as S from './ForecastTab.style';
-import { useSetRecoilState } from 'recoil';
 import tabMenuAtom from '@Recoil/tabMenu';
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
+import { useRecoilState } from 'recoil';
+
+import * as S from './ForecastTab.style';
 
 const ForecastTab = () => {
-  const setActive = useSetRecoilState(tabMenuAtom);
+  const [active, setActive] = useRecoilState(tabMenuAtom);
+  const content = ['오늘', '내일', '이번주'];
 
   return (
     <S.ForecastTabList>
-      <li>
-        <button onClick={() => setActive(0)}>오늘</button>
-      </li>
-      <li>
-        <button onClick={() => setActive(1)}>내일</button>
-      </li>
-      <li>
-        <button onClick={() => setActive(2)}>이번주</button>
-      </li>
+      {content.map((item, idx) => (
+        // CHECK:: content 배열의 요소들이 변경되거나 재배치될 일이 없기 때문에 index를 key값으로 사용했다. 옳은 선택인지?
+        // eslint-disable-next-line react/no-array-index-key
+        <li key={idx}>
+          {/* eslint-disable-next-line react/button-has-type */}
+          <button className={active === idx ? 'on' : null} onClick={() => setActive(idx)}>
+            {item}
+          </button>
+        </li>
+      ))}
     </S.ForecastTabList>
   );
 };
 
-export default ForecastTab;
+export default memo(ForecastTab, isEqual);

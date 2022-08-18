@@ -1,7 +1,9 @@
+import '@Styles/font.css';
+
 import Router from '@Routes/Router';
 import DefaultTheme from '@Styles/DefaultTheme';
 import GlobalStyle from '@Styles/GlobalStyle';
-import { ReactQueryDevtools } from 'react-query/devtools';
+import { ReactQueryDevtools } from '@tanstack/react-query-devtools';
 import { ThemeProvider } from 'styled-components';
 
 const App = () => (

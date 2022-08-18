@@ -6,6 +6,8 @@ import { useRecoilValue } from 'recoil';
 import locationValueAtom from '@Recoil/location/locationValue';
 import locationEditAtom from '@Recoil/location/locationEdit';
 
+import * as S from '../Location.style';
+
 const LocationResult = () => {
   const [pinned, setPinned] = useState([]);
   const [places, setPlaces] = useState([]);
@@ -77,34 +79,32 @@ const LocationResult = () => {
   }, []);
 
   return (
-    <>
-      <S.LocationResult>
-        {!value
-          ? // 검색 이전 띄워주는 창 (저장된 장소 리스트)
-            pinned.map((place) => (
-              <S.LocationPinnedPlace
-                key={place.id}
-                name={place.name}
-                word={place.word}
-                temp={place.temp}
-                value={value}
-                edit={edit}
-              >
-                <S.LocationPinnedName>{place.name}</S.LocationPinnedName>
-                <S.LocationPinnedTemp>{place.temp}</S.LocationPinnedTemp>
-                <S.LocationPinnedWord>{place.word}</S.LocationPinnedWord>
-              </S.LocationPinnedPlace>
-            ))
-          : // 장소 검색 결과 띄워주는 창
-            places.map((result) => (
-              <S.LocationSearchPlace key={result.id} name={result.name} icon={result.icon} temp={result.temp}>
-                <S.LocationSearchPlaceName>{result.name}</S.LocationSearchPlaceName>
-                <S.LocationSearchPlaceIcon>{result.icon}</S.LocationSearchPlaceIcon>
-                <S.LocationSearchPlaceTemp>{result.temp}</S.LocationSearchPlaceTemp>
-              </S.LocationSearchPlace>
-            ))}
-      </S.LocationResult>
-    </>
+    <S.LocationResult>
+      {!value
+        ? // 검색 이전 띄워주는 창 (저장된 장소 리스트)
+          pinned.map((place) => (
+            <S.LocationPinnedPlace
+              key={place.id}
+              name={place.name}
+              word={place.word}
+              temp={place.temp}
+              value={value}
+              edit={edit}
+            >
+              <S.LocationPinnedName>{place.name}</S.LocationPinnedName>
+              <S.LocationPinnedTemp>{place.temp}</S.LocationPinnedTemp>
+              <S.LocationPinnedWord>{place.word}</S.LocationPinnedWord>
+            </S.LocationPinnedPlace>
+          ))
+        : // 장소 검색 결과 띄워주는 창
+          places.map((result) => (
+            <S.LocationSearchPlace key={result.id} name={result.name} icon={result.icon} temp={result.temp}>
+              <S.LocationSearchPlaceName>{result.name}</S.LocationSearchPlaceName>
+              <S.LocationSearchPlaceIcon>{result.icon}</S.LocationSearchPlaceIcon>
+              <S.LocationSearchPlaceTemp>{result.temp}</S.LocationSearchPlaceTemp>
+            </S.LocationSearchPlace>
+          ))}
+    </S.LocationResult>
   );
 };
 
