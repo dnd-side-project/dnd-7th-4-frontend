@@ -1,10 +1,10 @@
-import * as S from '../Location.style';
-import { memo } from 'react';
-import isEqual from 'react-fast-compare';
-import { useState, useEffect } from 'react';
-import { useRecoilValue } from 'recoil';
-import locationValueAtom from '@Recoil/location/locationValue';
 import locationEditAtom from '@Recoil/location/locationEdit';
+import locationValueAtom from '@Recoil/location/locationValue';
+import { memo, useEffect, useState } from 'react';
+import isEqual from 'react-fast-compare';
+import { useRecoilValue } from 'recoil';
+
+import * as S from '../Location.style';
 
 const LocationResult = () => {
   const [pinned, setPinned] = useState([]);

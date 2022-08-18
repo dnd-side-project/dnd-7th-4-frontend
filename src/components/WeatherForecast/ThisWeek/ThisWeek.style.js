@@ -1,58 +1,64 @@
 import styled from 'styled-components';
-
-const SummaryTitle = styled.p`
-  font-size: 1.5rem;
-  text-align: center;
-  margin: 2.6rem 0;
-`;
+// import sunnyGround from '@Assets/image/sunny-ground.svg';
 
 const CommentDiv = styled.div`
-  width: 31rem;
-  height: 9rem;
-  border-radius: 2rem;
-  background: rgba(0, 0, 0, 0.6);
-  margin: 0 auto;
+  width: 30rem;
+  border-radius: 3rem;
+  background: rgba(115, 194, 239, 0.3);
+  margin: 3.8rem auto 0;
   color: #fff;
   text-align: center;
   font-size: 1.4rem;
+  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
 `;
 
 const CommentTitle = styled.p`
   font-size: 1.8rem;
   font-weight: bold;
-  padding: 2.6rem 0 0.8rem;
+  padding: 2.3rem 1.1rem;
 `;
 
-const ThisWeekList = styled.ul`
+const WeekList = styled.ul`
+  font-size: 1.4rem;
   width: 31rem;
   border-radius: 2rem;
-  background: rgba(0, 0, 0, 0.6);
-  margin: 1.4rem auto;
+  background: rgba(0, 0, 0, 0.1);
+  margin: 2.9rem auto;
+  padding: 1.1rem 0 1.4rem 0;
 
   & > li {
-    border-bottom: 1px solid white;
-    padding: 1rem;
+    padding: 1.2rem;
   }
 
-  & > li:first-child {
-    padding-top: 1.6rem;
+  & > li:not(:last-child) {
+    border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
 `;
 
-const ThisWeekSubList = styled.ul`
+const DayList = styled.ul`
   display: flex;
   flex-direction: row;
   align-items: center;
   gap: 3rem;
+  font-size: 1.6rem;
 
   li > img {
     width: 2.4rem;
   }
 
-  li:last-child {
+  & > li:last-child {
     flex: 1;
     text-align: right;
   }
 `;
 
-export { CommentDiv, CommentTitle, SummaryTitle, ThisWeekList, ThisWeekSubList };
+const DateList = styled.ul`
+  text-align: center;
+  font-weight: ${({ theme }) => theme.fontWeights.bold};
+`;
+
+const DateItem = styled.li`
+  font-size: ${(props) => (props.size ? '1.2rem' : '1.4rem')};
+`;
+
+export { CommentDiv, CommentTitle, DateItem, DateList, DayList, WeekList };

@@ -1,31 +1,17 @@
-// import * as S from './WeatherForecast.style';
-import tabMenuAtom from '@Recoil/tabMenu';
-import { memo, useMemo } from 'react';
+// import { fetchTestInfo } from '@Apis/api';
+// import tabMenuAtom from '@Recoil/tabMenu';
+// import { useQuery } from '@tanstack/react-query';
+import { memo } from 'react';
 import isEqual from 'react-fast-compare';
-import { useRecoilValue } from 'recoil';
 
+import Days from './Days';
 import ForecastTab from './ForecastTab';
-import ThisWeek from './ThisWeek';
-import Today from './Today';
-import Tomorrow from './Tomorrow';
+// import * as S from './WeatherForecast.style';
 
-const content = {
-  오늘: <Today />,
-  내일: <Tomorrow />,
-  이번주: <ThisWeek />,
-};
-
-const WeatherForecast = () => {
-  const active = useRecoilValue(tabMenuAtom);
-
-  const getContent = useMemo(() => content[active], [active]);
-
-  return (
-    <main>
-      <ForecastTab />
-      <section>{getContent}</section>
-    </main>
-  );
-};
-
+const WeatherForecast = () => (
+  <main>
+    <ForecastTab />
+    <Days />
+  </main>
+);
 export default memo(WeatherForecast, isEqual);
