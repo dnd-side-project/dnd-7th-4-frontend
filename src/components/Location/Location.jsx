@@ -1,4 +1,6 @@
 import * as S from './Location.style';
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
 import LocationSearch from './LocationSearch/LocationSearch';
 import LocationResult from './LocationResult/LocationResult';
 
@@ -11,4 +13,4 @@ const Location = () => {
   );
 };
 
-export default Location;
+export default memo(Location, isEqual);
