@@ -1,3 +1,4 @@
+// eslint-disable-next-line
 import userProfile from '@Assets/icon/default-profile.svg';
 
 import slideMenuAtom from '@Recoil/slideMenu';
