@@ -1,3 +1,6 @@
+import { memo } from 'react';
+import { isEqual } from 'react-fast-compare';
+
 import * as S from './AirPollution.style';
 
 const AirPollution = (airPollution) => {
@@ -25,4 +28,4 @@ const AirPollution = (airPollution) => {
   );
 };
 
-export default AirPollution;
+export default memo(AirPollution, isEqual);

@@ -1,4 +1,5 @@
-// import userProfile from '@Assets/default-profile.png';
+import userProfile from '@Assets/icon/default-profile.svg';
+
 import slideMenuAtom from '@Recoil/slideMenu';
 import { memo, useEffect, useRef } from 'react';
 import isEqual from 'react-fast-compare';

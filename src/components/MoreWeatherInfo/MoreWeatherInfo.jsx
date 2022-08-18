@@ -1,5 +1,7 @@
 import { weatherWithSelect } from '@Recoil/weather';
 import { useRecoilValue } from 'recoil';
+import { memo } from 'react';
+import { isEqual } from 'react-fast-compare';
 
 import AirPollution from './AirPollution';
 import Humidity from './Humidity';
@@ -24,4 +26,4 @@ const MoreWeatherInfo = () => {
   );
 };
 
-export default MoreWeatherInfo;
+export default memo(MoreWeatherInfo, isEqual);
