@@ -6,8 +6,6 @@ import { useRecoilValue } from 'recoil';
 import locationValueAtom from '@Recoil/location/locationValue';
 import locationEditAtom from '@Recoil/location/locationEdit';
 
-import * as S from '../Location.style';
-
 const LocationResult = () => {
   const [pinned, setPinned] = useState([]);
   const [places, setPlaces] = useState([]);
