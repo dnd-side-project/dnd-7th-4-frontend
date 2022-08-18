@@ -1,5 +1,7 @@
 import locationEditAtom from '@Recoil/location/locationEdit';
 import locationValueAtom from '@Recoil/location/locationValue';
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
 import { useRecoilState } from 'recoil';
 
 import * as S from '../Location.style';
@@ -39,4 +41,4 @@ const LocationSearch = () => {
   );
 };
 
-export default LocationSearch;
+export default memo(LocationSearch, isEqual);

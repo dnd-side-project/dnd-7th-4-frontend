@@ -1,17 +1,13 @@
-/* eslint-disable consistent-return */
 import axios from 'axios';
 
-// const BASE_URL = 'https://weathertogo.shop';
-const TEST_URL = 'https://reqres.in';
+const BASE_URL = 'https://weathertogo.shop';
 
-const fetchTestInfo = async () => {
-  try {
-    const response = await axios.get(`${TEST_URL}/api/users/2`);
-    return response.data;
-  } catch (error) {
-    // eslint-disable-next-line no-console
-    console.log('Error: ', error);
-  }
+// eslint-disable-next-line consistent-return
+const getData = async (location) => {
+  const res = await axios.get(`${BASE_URL}/main`, {
+    params: location,
+  });
+  return res.data;
 };
 
-export { fetchTestInfo };
+export { getData };

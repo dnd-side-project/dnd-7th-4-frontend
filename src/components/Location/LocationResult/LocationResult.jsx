@@ -1,6 +1,7 @@
 import locationEditAtom from '@Recoil/location/locationEdit';
 import locationValueAtom from '@Recoil/location/locationValue';
-import { useEffect, useState } from 'react';
+import { memo, useEffect, useState } from 'react';
+import isEqual from 'react-fast-compare';
 import { useRecoilValue } from 'recoil';
 
 import * as S from '../Location.style';
@@ -105,4 +106,4 @@ const LocationResult = () => {
   );
 };
 
-export default LocationResult;
+export default memo(LocationResult, isEqual);
