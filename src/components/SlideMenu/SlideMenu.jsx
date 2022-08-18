@@ -1,4 +1,4 @@
-import userProfile from '@Assets/default-profile.png';
+// import userProfile from '@Assets/default-profile.png';
 import slideMenuAtom from '@Recoil/slideMenu';
 import { memo, useEffect, useRef } from 'react';
 import isEqual from 'react-fast-compare';
@@ -31,9 +31,7 @@ const SlideMenu = () => {
       <S.Menu className={slide && 'in'}>
         {/* CHECK:: 로그인 전, 로그인 후 구분해서 렌더 */}
         <S.UserState flex>
-          <li>
-            <img src={userProfile} alt="사용자 프로필" />
-          </li>
+          <li>{/* <img src={userProfile} alt="사용자 프로필" /> */}</li>
           <li>
             {/* CHECK:: 로그인 전, 로그인 후 텍스트 내용, 폰트 크기, 색상 다름 
                 CHECK:: 카카오로 로그인 클릭 시 카카오톡 화면으로 넘어가는건지? 그럼 버튼을 통해 api 호출 

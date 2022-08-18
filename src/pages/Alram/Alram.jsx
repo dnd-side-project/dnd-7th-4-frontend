@@ -1,5 +1,5 @@
-import alram from '@Assets/alarm.svg';
-import exit from '@Assets/exit-button.svg';
+import alram from '@Assets/icon/alarm.svg';
+import exit from '@Assets/icon/exit-button.svg';
 
 import * as S from './Alram.style';
 // import check from '@Assets/check-circle.svg';
