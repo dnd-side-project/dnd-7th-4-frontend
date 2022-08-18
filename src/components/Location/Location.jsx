@@ -1,8 +1,9 @@
-import * as S from './Location.style';
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
-import LocationSearch from './LocationSearch/LocationSearch';
+
+import * as S from './Location.style';
 import LocationResult from './LocationResult/LocationResult';
+import LocationSearch from './LocationSearch/LocationSearch';
 
 const Location = () => (
   <S.LocationWrapper>
