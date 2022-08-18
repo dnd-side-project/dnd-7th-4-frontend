@@ -1,6 +1,7 @@
 import * as S from './AirPollution.style';
 
-function AirPollution() {
+const AirPollution = (airPollution) => {
+  console.log(airPollution);
   return (
     <S.Wrapper>
       <S.Title>미세먼지</S.Title>
@@ -10,18 +11,18 @@ function AirPollution() {
       </S.Texts>
       <S.Infos>
         <S.Info>
-          <S.Img></S.Img>
+          <S.Img />
           <S.ImgTitle>좋음</S.ImgTitle>
           <S.ImgText>미세먼지</S.ImgText>
         </S.Info>
         <S.Info>
-          <S.Img></S.Img>
+          <S.Img />
           <S.ImgTitle>나쁨</S.ImgTitle>
           <S.ImgText>초미세먼지</S.ImgText>
         </S.Info>
       </S.Infos>
     </S.Wrapper>
   );
-}
+};
 
 export default AirPollution;
