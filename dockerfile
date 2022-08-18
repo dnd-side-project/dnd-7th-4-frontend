@@ -7,7 +7,7 @@ COPY package-lock.json ./
 
 RUN npm install -g npm@8.18.0
 
-RUN npm install --legacy-peer-deps
+RUN npm install --force
 
 COPY ./ ./ 
 
