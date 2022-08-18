@@ -1,4 +1,4 @@
-import kakaotalk from '@Assets/icon/kakaotalk.svg';
+import kakaotalk from '@Assets/icon/kakaotalk.png';
 import menu from '@Assets/icon/menu-white.svg';
 import share from '@Assets/icon/share-white.svg';
 import SlideMenu from '@Components/SlideMenu';
