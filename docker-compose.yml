@@ -16,7 +16,7 @@ services:
   certbot:
     container_name: certbot
     image: certbot/certbot
-    restart: "on-fauilure"
+    restart: "on-failure"
     volumes:
       - ./data/certbot/conf:/etc/letsencrypt
       - ./data/certbot/www:/var/www/certbot
