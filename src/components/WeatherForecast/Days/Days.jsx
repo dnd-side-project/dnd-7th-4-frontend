@@ -24,6 +24,7 @@ const getTime = (item) => {
 const Days = () => {
   const tabName = useRecoilValue(tabMenuAtom);
   const content = useRecoilValue(weatherWithSelect);
+  console.log(content);
 
   if (tabName !== '이번주') {
     return (
@@ -43,7 +44,12 @@ const Days = () => {
                 <S.Item sign>º</S.Item>
               </S.Wrapper>
             </S.InfListItem>
-            <S.InfListItem diff>어제 {content['전날기온차이']}º</S.InfListItem>
+            <S.InfListItem diff>
+              {String(content['전날기온차이']).includes('-')
+                ? content['전날기온차이']
+                : `어제 +${content['전날기온차이']}`}
+              º
+            </S.InfListItem>
           </S.InfList>
           <S.CommentWrapper>
             <S.Comment>
