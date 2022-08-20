@@ -39,7 +39,7 @@ const ThisWeek = () => {
             <S.DayList>
               <li>
                 <S.DateList>
-                  <S.DateItem>{getDate(item).split('/')[0]}</S.DateItem>
+                  <S.DateItem>{item === '0' ? '오늘' : getDate(item).split('/')[0]}</S.DateItem>
                   <S.DateItem size="true">{getDate(item).split('/')[1]}</S.DateItem>
                 </S.DateList>
               </li>

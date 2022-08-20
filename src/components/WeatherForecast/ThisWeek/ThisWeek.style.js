@@ -71,7 +71,7 @@ const DateList = styled.ul`
 `;
 
 const DateItem = styled.li`
-  ${(props) => (props.size ? 'font-size: 1.2rem; margin-top: 0.3rem; font-weight: 500;' : 'font-size: 1.4rem')};
+  ${(props) => (props.size ? 'font-size: 1.2rem; margin-top: 0.4rem; font-weight: 500;' : 'font-size: 1.4rem')};
 `;
 
 const Percent = styled.span`
