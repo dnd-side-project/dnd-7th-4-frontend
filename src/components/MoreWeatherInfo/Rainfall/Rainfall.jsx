@@ -1,16 +1,26 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+/* eslint-disable unused-imports/no-unused-vars */
 import { memo } from 'react';
 import { isEqual } from 'react-fast-compare';
 
 import * as S from './Rainfall.style';
 
-const Rainfall = () => (
+const Rainfall = ({ data, status }) => (
   <S.Wrapper>
-    <S.Title>강수 15mm</S.Title>
-    <S.Texts>
-      <S.Text>우비도 우산도</S.Text>
-      <S.Text>무용지물</S.Text>
-    </S.Texts>
-    {/* <S.Img></S.Img> */}
+    <S.Comments>
+      <S.Comment>{data?.코멘트}</S.Comment>
+    </S.Comments>
+    <S.Infos>
+      <S.Info>
+        <S.InfoTitle>강수</S.InfoTitle>
+        <S.InfoTexts>
+          <S.InfoText>{status}</S.InfoText>
+          <S.InfoUnit>mm</S.InfoUnit>
+        </S.InfoTexts>
+      </S.Info>
+      <S.Img src={data?.이미지url} alt="강수 아이콘" />
+    </S.Infos>
   </S.Wrapper>
 );
 
