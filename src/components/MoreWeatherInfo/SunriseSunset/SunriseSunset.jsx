@@ -17,8 +17,8 @@ const SunriseSunset = ({ data, status }) => (
         <S.InfoTitle>일몰</S.InfoTitle>
       </S.Info>
       <S.Info>
-        <S.InfoTexts>{status?.일출}</S.InfoTexts>
-        <S.InfoTexts>{status?.일몰}</S.InfoTexts>
+        <S.InfoTexts>{`${status?.일출.slice(0, 2)}:${status?.일출.slice(2, 4)}`}</S.InfoTexts>
+        <S.InfoTexts>{`${status?.일몰.slice(0, 2)}:${status?.일몰.slice(2, 4)}`}</S.InfoTexts>
       </S.Info>
     </S.Infos>
   </S.Wrapper>
