@@ -45,7 +45,7 @@ const Days = () => {
             </S.InfListItem>
             <S.InfListItem diff>
               {String(content['전날기온차이']).includes('-')
-                ? content['전날기온차이']
+                ? `어제 ${content['전날기온차이']}`
                 : `어제 +${content['전날기온차이']}`}
               º
             </S.InfListItem>
