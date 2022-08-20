@@ -22,18 +22,31 @@ const CommentTitle = styled.p`
 const WeekList = styled.ul`
   font-size: 1.4rem;
   width: 31rem;
-  border-radius: 2rem;
-  background: rgba(0, 0, 0, 0.1);
+  background: rgba(0, 0, 0, 0.11);
+  border-radius: 2.4rem;
   margin: 2.9rem auto;
-  padding: 1.1rem 0 1.4rem 0;
+  padding: 1.2rem 0 1rem 0;
 
-  & > li {
-    padding: 1.2rem;
+  & > li:not(:first-child) {
+    padding: 1rem 1.6rem 1rem 1.4rem;
   }
 
   & > li:not(:last-child) {
     border-bottom: 1px solid rgba(255, 255, 255, 0.2);
   }
+
+  & > li:first-child {
+    border-bottom: 0;
+  }
+`;
+
+const StandardList = styled.ul`
+  display: flex;
+  flex-direction: row;
+  margin-left: 8rem;
+  gap: 5.5rem;
+  ${({ theme }) => theme.fonts.cap};
+  opacity: 0.5;
 `;
 
 const DayList = styled.ul`
@@ -49,7 +62,6 @@ const DayList = styled.ul`
 
   & > li:last-child {
     flex: 1;
-    text-align: right;
   }
 `;
 
@@ -59,7 +71,7 @@ const DateList = styled.ul`
 `;
 
 const DateItem = styled.li`
-  font-size: ${(props) => (props.size ? '1.2rem' : '1.4rem')};
+  ${(props) => (props.size ? 'font-size: 1.2rem; margin-top: 0.3rem; font-weight: 500;' : 'font-size: 1.4rem')};
 `;
 
 const Percent = styled.span`
@@ -67,4 +79,15 @@ const Percent = styled.span`
   margin-left: 0.4rem;
 `;
 
-export { CommentDiv, CommentTitle, DateItem, DateList, DayList, Percent, WeekList };
+const TempList = styled.ul`
+  display: flex;
+  flex-direction: row;
+  justify-content: flex-end;
+  gap: 0.2rem;
+
+  & > li:nth-child(2) {
+    opacity: 0.4;
+  }
+`;
+
+export { CommentDiv, CommentTitle, DateItem, DateList, DayList, Percent, StandardList, TempList, WeekList };
