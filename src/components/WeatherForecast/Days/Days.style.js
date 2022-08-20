@@ -84,7 +84,7 @@ const Timeline = styled.ul`
   overflow-y: hidden;
   text-align: center;
   margin: 7.4rem 0 3.6rem 2.4rem;
-  padding: 0 1rem 1.7rem 0;
+  padding: 0 2.4rem 1.7rem 0;
 
   &::-webkit-scrollbar {
     height: 0.6rem;

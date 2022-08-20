@@ -16,6 +16,7 @@ const CommentTitle = styled.p`
   font-size: 1.8rem;
   font-weight: bold;
   padding: 2.3rem 1.1rem;
+  text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.24);
 `;
 
 const WeekList = styled.ul`
@@ -39,7 +40,7 @@ const DayList = styled.ul`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 3rem;
+  gap: 2.5rem;
   font-size: 1.6rem;
 
   li > img {
@@ -61,4 +62,9 @@ const DateItem = styled.li`
   font-size: ${(props) => (props.size ? '1.2rem' : '1.4rem')};
 `;
 
-export { CommentDiv, CommentTitle, DateItem, DateList, DayList, WeekList };
+const Percent = styled.span`
+  ${({ theme }) => theme.fonts.cap};
+  margin-left: 0.4rem;
+`;
+
+export { CommentDiv, CommentTitle, DateItem, DateList, DayList, Percent, WeekList };
