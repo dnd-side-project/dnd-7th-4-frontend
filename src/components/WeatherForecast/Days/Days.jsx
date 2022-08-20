@@ -24,7 +24,6 @@ const getTime = (item) => {
 const Days = () => {
   const tabName = useRecoilValue(tabMenuAtom);
   const content = useRecoilValue(weatherWithSelect);
-  console.log(content);
 
   if (tabName !== '이번주') {
     return (
