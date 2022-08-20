@@ -5,61 +5,63 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 15rem;
-  height: 19.2rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 1.2rem;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  height: 18rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2.4rem;
+  margin-bottom: 0.7rem;
   color: white;
 `;
-
-const Title = styled.h1`
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-top: 1.8rem;
-  opacity: 0.6;
-`;
-
-const Texts = styled.div`
-  display: flex;
-  flex-direction: column;
-  align-items: center;
+const Comments = styled.ul`
+  width: 11.8rem;
+  height: 6.9rem;
+  font-size: 2.2rem;
+  font-weight: 700;
   line-height: 130%;
-  letter-spacing: 0.015rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-top: 1.8rem;
+  margin: 1.6rem;
 `;
-
-const Text = styled.span``;
+const Comment = styled.li``;
 const Infos = styled.div`
   display: flex;
-  justify-content: space-between;
-  width: 9.5rem;
-  margin-top: 0.9rem;
+  align-items: center;
+  width: 11.8rem;
+  height: 4.6rem;
+  margin-top: 2.2rem;
+  margin-bottom: 1.6rem;
 `;
 
-const Info = styled.div`
+const Info = styled.ul`
+  width: 4.9rem;
   display: flex;
   flex-direction: column;
-  align-items: center;
+  margin-right: 2.3rem;
 `;
 
 const Img = styled.img`
-  width: 3.5rem;
-  height: 3.5rem;
+  width: 4.6rem;
+  height: 4.6rem;
   background-color: grey;
-  margin-bottom: 0.7rem;
 `;
 
-const ImgTitle = styled.h3`
-  font-size: 1.3rem;
+const InfoTitle = styled.li`
+  width: 4.9rem;
+  height: 1.7rem;
+  font-size: 1.4rem;
   font-weight: 500;
   margin-bottom: 0.5rem;
 `;
 
-const ImgText = styled.span`
-  font-size: 1rem;
+const InfoTexts = styled.ul`
+  display: flex;
+  align-items: center;
+  font-size: 1.4rem;
   font-weight: 500;
+  opacity: 0.6;
+`;
+const InfoText = styled.li`
+  margin-right: 0.3rem;
+`;
+const InfoUnit = styled.li`
+  font-size: 1.2rem;
 `;
 
-export { Img, ImgText, ImgTitle, Info, Infos, Text, Texts, Title, Wrapper };
+export { Comment, Comments, Img, Info, Infos, InfoText, InfoTexts, InfoTitle, InfoUnit, Wrapper };
