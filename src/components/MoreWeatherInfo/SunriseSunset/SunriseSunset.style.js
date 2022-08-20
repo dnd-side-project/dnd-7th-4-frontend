@@ -5,44 +5,56 @@ const Wrapper = styled.div`
   flex-direction: column;
   align-items: center;
   width: 15rem;
-  height: 19.2rem;
-  background-color: rgba(0, 0, 0, 0.6);
-  border-radius: 1.2rem;
-  box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.2);
+  height: 18rem;
+  background: rgba(0, 0, 0, 0.1);
+  border-radius: 2.4rem;
+  margin-bottom: 0.7rem;
   color: white;
 `;
-const Title = styled.h1`
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-top: 1.8rem;
-  opacity: 0.6;
+const Comments = styled.ul`
+  width: 11.8rem;
+  height: 6.9rem;
+  font-size: 2.2rem;
+  font-weight: 700;
+  line-height: 130%;
+  margin: 1.6rem;
 `;
-const Texts = styled.div`
+const Comment = styled.li``;
+const Infos = styled.div`
+  display: flex;
+  align-items: center;
+  width: 11.8rem;
+  height: 4.6rem;
+  margin-top: 2.2rem;
+  margin-bottom: 1.6rem;
+`;
+
+const Info = styled.ul`
   display: flex;
   flex-direction: column;
-  align-items: center;
-  line-height: 130%;
-  letter-spacing: 0.015rem;
-  font-size: 1.6rem;
-  font-weight: 600;
-  margin-top: 2.5rem;
 `;
-const Text = styled.span``;
-const Img = styled.img`
-  width: 8.2rem;
-  height: 3.5rem;
-  background-color: grey;
-  margin-top: 2.3rem;
-`;
-const Time = styled.div`
-  display: flex;
-  justify-content: space-between;
-  width: 11rem;
-  font-size: 1.2rem;
-  font-weight: 500;
-  margin-top: 0.6rem;
-`;
-const Sunrise = styled.span``;
-const Sunset = styled.span``;
 
-export { Img, Sunrise, Sunset, Text, Texts, Time, Title, Wrapper };
+const InfoTitle = styled.li`
+  width: 2.5rem;
+  height: 1.7rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+`;
+
+const InfoTexts = styled.ul`
+  width: 3.7rem;
+  height: 1.7rem;
+  font-size: 1.4rem;
+  font-weight: 500;
+  margin-bottom: 0.5rem;
+  margin-left: 5.6rem;
+`;
+const InfoText = styled.li`
+  margin-right: 0.3rem;
+`;
+const InfoUnit = styled.li`
+  font-size: 1.2rem;
+`;
+
+export { Comment, Comments, Info, Infos, InfoText, InfoTexts, InfoTitle, InfoUnit, Wrapper };
