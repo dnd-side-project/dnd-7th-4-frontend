@@ -20,7 +20,6 @@ const getDate = (item) => {
 
 const ThisWeek = () => {
   const content = useRecoilValue(weatherWithSelect);
-  console.log(content);
 
   return (
     <>
