@@ -21,15 +21,19 @@ const ThisWeek = () => {
   };
 
   return (
-    <section>
-      <S.CommentDiv>
-        <S.CommentTitle>화요일, 목요일에는 우산 챙기세요.</S.CommentTitle>
-      </S.CommentDiv>
+    <S.Section>
       <S.WeekList>
         <li>
           <S.StandardList>
             <li>오전</li>
             <li>오후</li>
+            <li>
+              <S.TempList>
+                <li>최저</li>
+                <li>/</li>
+                <li>최고</li>
+              </S.TempList>
+            </li>
           </S.StandardList>
         </li>
         {Object.keys(content).map((item) => (
@@ -60,7 +64,7 @@ const ThisWeek = () => {
           </li>
         ))}
       </S.WeekList>
-    </section>
+    </S.Section>
   );
 };
 
