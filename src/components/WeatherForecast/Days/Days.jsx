@@ -8,6 +8,19 @@ import { useRecoilValue } from 'recoil';
 import ThisWeek from '../ThisWeek';
 import * as S from './Days.style';
 
+// HELP:: Days 컴포넌트 내부로 옮기는게 나을까요?
+const getTime = (item) => {
+  let time = '';
+  if (parseInt(item, 10) === 12) {
+    time = `오후 ${item}시`;
+  } else if (parseInt(item, 10) > 12) {
+    time = `오후 ${item - 12}시`;
+  } else {
+    time = `오전 ${item}시`;
+  }
+  return time;
+};
+
 const Days = () => {
   const tabName = useRecoilValue(tabMenuAtom);
   const content = useRecoilValue(weatherWithSelect);
@@ -30,7 +43,12 @@ const Days = () => {
                 <S.Item sign>º</S.Item>
               </S.Wrapper>
             </S.InfListItem>
-            <S.InfListItem diff>어제 {content['전날기온차이']}º</S.InfListItem>
+            <S.InfListItem diff>
+              {String(content['전날기온차이']).includes('-')
+                ? `어제 ${content['전날기온차이']}`
+                : `어제 +${content['전날기온차이']}`}
+              º
+            </S.InfListItem>
           </S.InfList>
           <S.CommentWrapper>
             <S.Comment>
@@ -43,9 +61,9 @@ const Days = () => {
             {Object.keys(content['시간별정보']).map((item) => (
               <li key={item}>
                 <S.ItemList>
-                  <li>{item}시</li>
+                  <li>{getTime(item)}</li>
                   <li>
-                    <img src={testImg} alt="구름 조금 아이콘" />
+                    <img src={testImg} alt={content['시간별정보'][item][1]} />
                   </li>
                   <li>{content['시간별정보'][item][0]}º</li>
                 </S.ItemList>
