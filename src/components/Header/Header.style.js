@@ -1,3 +1,4 @@
+import arrow from '@Assets/icon/arrow-white.svg';
 import styled, { css } from 'styled-components';
 
 const Header = styled.header`
@@ -21,6 +22,19 @@ const Title = styled.li`
   filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
   font-size: 1.6rem;
   font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+  position: relative;
+
+  &::after {
+    content: '';
+    position: absolute;
+    top: 0.6rem;
+    right: -1.3rem;
+    width: 0.6rem;
+    height: 0.3rem;
+    background: url(${arrow}) center/cover;
+    transform: rotate(270deg);
+    filter: inherit;
+  }
 `;
 
 const Item = styled.li`
