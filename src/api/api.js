@@ -10,4 +10,13 @@ const getData = async (location) => {
   return res.data;
 };
 
-export { getData };
+// 임시 작성
+const getLocationData = async (keyword) => {
+  const res = await axios.get(`${BASE_URL}/search`, {
+    params: keyword,
+  });
+  // ex) Object.values(response.data.data)[0].하늘상태
+  return res.data;
+};
+
+export { getData, getLocationData };
