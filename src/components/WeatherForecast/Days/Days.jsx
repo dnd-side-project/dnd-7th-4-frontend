@@ -8,27 +8,26 @@ import { useRecoilValue } from 'recoil';
 import ThisWeek from '../ThisWeek';
 import * as S from './Days.style';
 
-// HELP:: Days 컴포넌트 내부로 옮기는게 나을까요?
-const getTime = (item) => {
-  let time = '';
-  if (parseInt(item, 10) === 12) {
-    time = `오후 ${item}시`;
-  } else if (parseInt(item, 10) > 12) {
-    time = `오후 ${item - 12}시`;
-  } else {
-    time = `오전 ${item}시`;
-  }
-  return time;
-};
-
 const Days = () => {
   const tabName = useRecoilValue(tabMenuAtom);
   const content = useRecoilValue(weatherWithSelect);
 
+  const getTime = (item) => {
+    let time = '';
+    if (parseInt(item, 10) === 12) {
+      time = `오후 ${item}시`;
+    } else if (parseInt(item, 10) > 12) {
+      time = `오후 ${item - 12}시`;
+    } else {
+      time = `오전 ${item}시`;
+    }
+    return time;
+  };
+
   if (tabName !== '이번주') {
     return (
       content && (
-        <>
+        <section>
           <S.InfList>
             <S.InfListItem minmax>
               <S.Wrapper>
@@ -70,7 +69,7 @@ const Days = () => {
               </li>
             ))}
           </S.Timeline>
-        </>
+        </section>
       )
     );
   }
