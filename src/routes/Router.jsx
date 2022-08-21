@@ -1,5 +1,5 @@
 import MoreWeatherInfo from '@Components/MoreWeatherInfo';
-import Alram from '@Pages/Alram';
+import Alarm from '@Pages/Alarm';
 import ExamplePage from '@Pages/ExamplePage';
 import Home from '@Pages/Home';
 import LocationPage from '@Pages/LocationPage';
@@ -14,7 +14,7 @@ const Router = () => (
       <Route path="/" element={<Home />} />
       <Route path="/location" element={<LocationPage />} />
       <Route path="/example" element={<ExamplePage />} />
-      <Route path="/alram" element={<Alram />} />
+      <Route path="/alarm" element={<Alarm />} />
       <Route path="/login" element={<LoginPage />} />
       <Route path="/oauth/kakao/callback" element={<Auth />} />
       <Route path="/more-weather" element={<MoreWeatherInfo />} />
