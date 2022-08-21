@@ -26,7 +26,7 @@ const LocationSearch = () => {
   return (
     <>
       <S.LocationHeader>
-        <S.LocationTitle>{value ? `지역 추가` : `지역 리스트`}</S.LocationTitle>
+        <S.LocationTitle>지역 목록</S.LocationTitle>
         <S.LocationEditBtn onClick={onClickEdit}>{!edit ? `편집` : `완료`}</S.LocationEditBtn>
       </S.LocationHeader>
       <S.LocationSearchDiv>
