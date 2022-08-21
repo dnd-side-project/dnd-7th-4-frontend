@@ -31,7 +31,7 @@ const Header = () => {
                 </Link>
               </S.Item>
               <S.Item noshadow>
-                <Link to="/alram">
+                <Link to="/alarm">
                   <S.Img src={kakaotalk} alt="알림 페이지" kakao />
                 </Link>
               </S.Item>
