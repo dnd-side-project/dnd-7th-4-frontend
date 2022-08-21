@@ -55,9 +55,9 @@ const groundColors = {
 };
 
 const weatherImg = {
-  맑음: `url(${sunny}) no-repeat -3.4rem -32rem, url(${sunnySubtractFront}) no-repeat -2rem 48rem, url(${sunnySubtractBack}) no-repeat 10rem 48rem`,
-  구름많음: `url(${cloudy}) no-repeat 2.6rem 3.2rem, url(${cloudySubtractFront}) no-repeat -2rem 48rem, url(${cloudySubtractBack}) no-repeat 10rem 48rem`,
-  흐림: `url(${veryCloudy}) no-repeat  -16.3rem -13rem, url(${cloudySubtractFront}) no-repeat -2rem 48rem, url(${cloudySubtractBack}) no-repeat 10rem 48rem`,
+  맑음: `url(${sunny}) no-repeat -3.4rem -32rem, url(${sunnySubtractFront}) no-repeat -3rem 48rem, url(${sunnySubtractBack}) no-repeat 10rem 48rem`,
+  구름많음: `url(${cloudy}) no-repeat 2.6rem 3.2rem, url(${cloudySubtractFront}) no-repeat -3rem 48rem, url(${cloudySubtractBack}) no-repeat 10rem 48rem`,
+  흐림: `url(${veryCloudy}) no-repeat  -16.3rem -13rem, url(${cloudySubtractFront}) no-repeat -3rem 48rem, url(${cloudySubtractBack}) no-repeat 10rem 48rem`,
   약한비: `url(${wet}) no-repeat -10rem -20rem`,
   중간비: `url(${rainy}) no-repeat -10rem -20rem`,
   강한비: `url(${heavyRain}) no-repeat -10rem -20rem`,
