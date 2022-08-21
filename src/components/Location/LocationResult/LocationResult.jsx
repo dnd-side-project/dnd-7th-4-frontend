@@ -1,12 +1,12 @@
-import { getLocationData } from '@Apis/api';
+// import { postLocationData } from '@Apis/api';
 import locationEditAtom from '@Recoil/location/locationEdit';
 import locationValueAtom from '@Recoil/location/locationValue';
-import { useQuery } from '@tanstack/react-query';
+import axios from 'axios';
+// import { useMutation } from '@tanstack/react-query';
 import { memo, useEffect, useState } from 'react';
 import isEqual from 'react-fast-compare';
 import { useRecoilValue } from 'recoil';
 
-// import { ReactComponent as deleteIcon } from '../../../assets/icon/delete.svg';
 import * as S from './LocationResult.style';
 
 const LocationResult = () => {
@@ -18,20 +18,43 @@ const LocationResult = () => {
   const value = useRecoilValue(locationValueAtom);
   const edit = useRecoilValue(locationEditAtom);
 
-  const { isLoading, data } = useQuery(['weather'], () => getLocationData({ city: '서울특별시', district: '종로구' }));
+  const postLocationData = async () => {
+    const res = await axios.post(
+      `https://weathertogo.shop/search`,
+      {
+        data: value,
+      },
+      [value],
+    );
+    setPlaces(Object.entries(res.data.data));
+    return res.data;
+  };
+
+  useEffect(() => {
+    postLocationData();
+  }, [value]);
 
   const DeleteRegion = () => {
     setModal(false);
   };
-  useEffect(() => {
-    if (!isLoading) {
-      setPlaces(data);
-    }
-  }, [isLoading, data]);
 
-  // PinnedPlaces, SearchPlace 임시 더미 데이터
+  // PinnedPlaces 임시 더미 데이터
   useEffect(() => {
     setPinned([
+      {
+        id: 1,
+        name: '서울시 마포구',
+        temp: 25,
+        word: '맑음',
+      },
+      {
+        id: 2,
+        name: '경기도 일산동구',
+        temp: 25,
+        word: '맑음',
+      },
+    ]);
+    setPlaces([
       {
         id: 1,
         name: '서울시 마포구',
@@ -74,10 +97,10 @@ const LocationResult = () => {
             ))
           : // 장소 검색 결과 띄워주는 창
             places.map((result) => (
-              <S.LocationSearchPlace key={result.id} name={result.name} icon={result.icon} temp={result.temp}>
-                <S.LocationSearchPlaceName>{result.name}</S.LocationSearchPlaceName>
-                <S.LocationSearchPlaceIcon>{result.icon}</S.LocationSearchPlaceIcon>
-                <S.LocationSearchPlaceTemp>{result.temp}</S.LocationSearchPlaceTemp>
+              <S.LocationSearchPlace key={result}>
+                <S.LocationSearchPlaceName>{result[0]}</S.LocationSearchPlaceName>
+                <S.LocationSearchPlaceIcon src={result[1].이미지url} />
+                <S.LocationSearchPlaceTemp>{result[1].기온}</S.LocationSearchPlaceTemp>
               </S.LocationSearchPlace>
             ))}
       </S.LocationResult>

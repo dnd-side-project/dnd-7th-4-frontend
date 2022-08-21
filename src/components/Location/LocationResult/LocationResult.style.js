@@ -25,7 +25,6 @@ const LocationPinnedPlace = styled.div`
   margin: 0 auto;
   margin-bottom: 1.8rem;
   border-radius: 2rem;
-  background: linear-gradient(180deg, #f2bb4f 73.39%, #f7c440 83.01%, #edd087 93.58%);
   box-shadow: 0rem 0rem 0.7rem rgba(0, 0, 0, 0.2);
   ${({ value }) => (value ? `display: hidden` : null)};
 `;
@@ -88,7 +87,7 @@ const LocationSearchPlaceName = styled.h1`
   line-height: 1.6rem;
   letter-spacing: 0.015rem;
 `;
-const LocationSearchPlaceIcon = styled.h1`
+const LocationSearchPlaceIcon = styled.img`
   display: flex;
   align-items: center;
   position: absolute;
