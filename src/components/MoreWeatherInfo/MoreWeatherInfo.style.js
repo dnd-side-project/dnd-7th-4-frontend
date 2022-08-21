@@ -10,4 +10,9 @@ const Wrapper = styled.section`
   margin: 0 auto;
 `;
 
-export { Wrapper };
+const Section = styled.section`
+  background: ${({ skyState, theme }) =>
+    Object.keys(theme.groundColors).includes(skyState) ? theme.groundColors[skyState] : null};
+`;
+
+export { Section, Wrapper };
