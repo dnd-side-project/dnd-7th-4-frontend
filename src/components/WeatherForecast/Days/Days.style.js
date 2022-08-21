@@ -58,7 +58,8 @@ const CommentWrapper = styled.div`
   height: 16rem;
   border-radius: 3rem;
   text-align: center;
-  background: rgba(115, 194, 239, 0.3);
+  background: ${({ skyState, theme }) =>
+    Object.keys(theme.commentOpacity).includes(skyState) ? theme.commentOpacity[skyState] : null};
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
 `;
 

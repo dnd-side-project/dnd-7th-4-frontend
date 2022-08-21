@@ -1,6 +1,6 @@
 import testImg from '@Assets/icon/logo-symbol.svg';
 import tabMenuAtom from '@Recoil/tabMenu';
-import { weatherWithSelect } from '@Recoil/weather';
+import { skyWithSelect, weatherWithSelect } from '@Recoil/weather';
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 import { useRecoilValue } from 'recoil';
@@ -11,6 +11,7 @@ import * as S from './Days.style';
 const Days = () => {
   const tabName = useRecoilValue(tabMenuAtom);
   const content = useRecoilValue(weatherWithSelect);
+  const skyState = useRecoilValue(skyWithSelect);
 
   const getTime = (item) => {
     let time = '';
@@ -49,7 +50,7 @@ const Days = () => {
               º
             </S.InfListItem>
           </S.InfList>
-          <S.CommentWrapper>
+          <S.CommentWrapper skyState={skyState}>
             <S.Comment>
               <li>{content['세부코멘트']['메인']['코멘트'].split('/')[0]}</li>
               <li>{content['세부코멘트']['메인']['코멘트'].split('/')[1]}</li>

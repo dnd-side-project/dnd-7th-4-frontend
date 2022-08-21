@@ -9,4 +9,9 @@ const Wrapper = styled.div`
   gap: 1.1rem;
 `;
 
-export { Wrapper };
+const Section = styled.section`
+  background: ${({ skyState, theme }) =>
+    Object.keys(theme.groundColors).includes(skyState) ? theme.groundColors[skyState] : null};
+`;
+
+export { Section, Wrapper };
