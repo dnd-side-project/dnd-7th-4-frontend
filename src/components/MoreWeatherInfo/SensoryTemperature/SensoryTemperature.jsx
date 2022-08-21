@@ -1,16 +1,23 @@
+/* eslint-disable no-unused-vars */
+/* eslint-disable react/prop-types */
+/* eslint-disable unused-imports/no-unused-vars */
 import { memo } from 'react';
 import { isEqual } from 'react-fast-compare';
 
 import * as S from './SensoryTemperature.style';
 
-const SensoryTemperature = () => (
+const SensoryTemperature = ({ data, status }) => (
   <S.Wrapper>
-    <S.Title>체감온도</S.Title>
-    <S.Texts>
-      <S.Text>실제온도와</S.Text>
-      <S.Text>비슷해요.</S.Text>
-    </S.Texts>
-    <S.Info>28°</S.Info>
+    <S.Comments>
+      <S.Comment>{data?.코멘트}</S.Comment>
+    </S.Comments>
+    <S.Infos>
+      <S.Info>
+        <S.InfoTitle>체감온도</S.InfoTitle>
+        <S.InfoTexts>{status}º</S.InfoTexts>
+      </S.Info>
+      <S.Img src={data?.이미지url} alt="체감온도 아이콘" />
+    </S.Infos>
   </S.Wrapper>
 );
 
