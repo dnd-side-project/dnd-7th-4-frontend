@@ -1,10 +1,10 @@
 import styled, { css } from 'styled-components';
 
-const HearderNav = styled.nav`
-  padding: 49px 0 42px 0;
+const Header = styled.header`
+  padding: 1.9rem 2.2rem 3.8rem 2.4rem;
 `;
 
-const HeaderList = styled.ul`
+const List = styled.ul`
   display: flex;
   justify-content: space-between;
   align-items: center;
@@ -15,13 +15,23 @@ const HeaderList = styled.ul`
     css`
       gap: 1rem;
     `}
-
-  &>li {
-    font-size: 1.4rem;
-  }
 `;
 
-const HeaderButton = styled.button`
+const Title = styled.li`
+  filter: drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));
+  font-size: 1.6rem;
+  font-weight: ${({ theme }) => theme.fontWeights.semiBold};
+`;
+
+const Item = styled.li`
+  filter: ${(props) => (props.noshadow ? null : `drop-shadow(2px 2px 2px rgba(0, 0, 0, 0.25));`)};
+`;
+
+const Img = styled.img`
+  width: ${(props) => (props.kakao ? '2.2rem' : '2.4rem')};
+`;
+
+const Button = styled.button`
   border: none;
   background: none;
   cursor: pointer;
@@ -32,4 +42,4 @@ const HeaderButton = styled.button`
   }
 `;
 
-export { HeaderButton, HeaderList, HearderNav };
+export { Button, Header, Img, Item, List, Title };

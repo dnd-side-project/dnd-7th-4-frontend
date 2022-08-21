@@ -1,7 +1,6 @@
-import alarm from '@Assets/icon/alarm.svg';
-// eslint-disable-next-line
-import navMenu from '@Assets/icon/menu.svg';
-import share from '@Assets/icon/share.svg';
+import kakaotalk from '@Assets/icon/kakao.svg';
+import menu from '@Assets/icon/menu-white.svg';
+import share from '@Assets/icon/share-white.svg';
 import SlideMenu from '@Components/SlideMenu';
 import slideMenuAtom from '@Recoil/slideMenu';
 import { memo, useCallback } from 'react';
@@ -18,36 +17,36 @@ const Header = () => {
 
   // CHECK:: 공유 페이지는 아직 작업 전이라 임의로 /example 연결해둠
   return (
-    <>
-      <S.HearderNav>
-        <S.HeaderList>
-          <li>
+    <S.Header>
+      <nav>
+        <S.List>
+          <S.Title>
             <Link to="/location">위치 페이지</Link>
-          </li>
+          </S.Title>
           <li>
-            <S.HeaderList sub>
-              <li>
-                <Link to="/alram">
-                  <img src={alarm} alt="알림 페이지" />
-                </Link>
-              </li>
-              <li>
+            <S.List sub>
+              <S.Item>
                 <Link to="/example">
-                  <img src={share} alt="공유 페이지" />
+                  <S.Img src={share} alt="공유 페이지" />
                 </Link>
-              </li>
-              <li>
-                <S.HeaderButton onClick={() => setSlide(true)}>
-                  {/* <img src={navMenu} alt="슬라이드 메뉴 버튼" /> */}
-                </S.HeaderButton>
-              </li>
-            </S.HeaderList>
+              </S.Item>
+              <S.Item noshadow>
+                <Link to="/alram">
+                  <S.Img src={kakaotalk} alt="알림 페이지" kakao />
+                </Link>
+              </S.Item>
+              <S.Item>
+                <S.Button onClick={() => setSlide(true)}>
+                  <S.Img src={menu} alt="슬라이드 메뉴 버튼" />
+                </S.Button>
+              </S.Item>
+            </S.List>
           </li>
-        </S.HeaderList>
-      </S.HearderNav>
+        </S.List>
+      </nav>
 
       {slide && renderSlideMenu()}
-    </>
+    </S.Header>
   );
 };
 
