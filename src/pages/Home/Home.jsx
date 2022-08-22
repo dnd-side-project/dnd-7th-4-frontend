@@ -2,6 +2,7 @@ import { getData } from '@Apis/api';
 import Footer from '@Components/Footer';
 import Header from '@Components/Header';
 import MoreWeatherInfo from '@Components/MoreWeatherInfo';
+import Splash from '@Components/Splash';
 import WeatherForecast from '@Components/WeatherForecast';
 import weatherAtom, { skyWithSelect } from '@Recoil/weather';
 import { useQuery } from '@tanstack/react-query';
@@ -29,14 +30,18 @@ const Home = () => {
   return (
     <>
       {/* CHECK:: Container(div)는 개발시 편의를 위해 임의로 설정해둠 */}
-      <S.Container skyState={skyState}>
-        <Header />
-        <main>
-          <WeatherForecast />
-          <MoreWeatherInfo />
-        </main>
-        <Footer />
-      </S.Container>
+      {isLoading ? (
+        <Splash />
+      ) : (
+        <S.Container skyState={skyState}>
+          <Header />
+          <main>
+            <WeatherForecast />
+            <MoreWeatherInfo />
+          </main>
+          <Footer />
+        </S.Container>
+      )}
     </>
   );
 };
