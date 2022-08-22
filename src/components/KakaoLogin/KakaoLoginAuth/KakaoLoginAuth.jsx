@@ -16,7 +16,7 @@ const KakaoLoginAuth = () => {
           window.localStorage.setItem('refresh', refreshToken);
           window.localStorage.setItem('nickname', nickname);
         });
-        navigate('/alram');
+        navigate('/alarm');
       } catch (e) {
         //
       }
