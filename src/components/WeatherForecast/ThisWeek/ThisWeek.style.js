@@ -1,31 +1,17 @@
 import styled from 'styled-components';
-// import sunnyGround from '@Assets/image/sunny-ground.svg';
 
-const CommentDiv = styled.div`
-  width: 30rem;
-  border-radius: 3rem;
-  background: rgba(115, 194, 239, 0.3);
-  margin: 3.8rem auto 0;
-  color: #fff;
-  text-align: center;
-  font-size: 1.4rem;
-  box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
-`;
-
-const CommentTitle = styled.p`
-  font-size: 1.8rem;
-  font-weight: bold;
-  padding: 2.3rem 1.1rem;
-  text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.24);
+const Section = styled.section`
+  margin-top: 4.8rem;
+  padding-bottom: 1.6rem;
 `;
 
 const WeekList = styled.ul`
   font-size: 1.4rem;
-  width: 31rem;
+  width: 32rem;
+  margin: 0 auto;
   background: rgba(0, 0, 0, 0.11);
   border-radius: 2.4rem;
-  margin: 2.9rem auto;
-  padding: 1.2rem 0 1rem 0;
+  padding: 2.4rem 0 1.7rem 0;
 
   & > li:not(:first-child) {
     padding: 1rem 1.6rem 1rem 1.4rem;
@@ -43,10 +29,9 @@ const WeekList = styled.ul`
 const StandardList = styled.ul`
   display: flex;
   flex-direction: row;
-  margin-left: 8rem;
-  gap: 5.5rem;
-  ${({ theme }) => theme.fonts.cap};
-  opacity: 0.5;
+  margin: 0 0 2.1rem 8rem;
+  gap: 5.3rem;
+  ${({ theme }) => theme.fonts.subtit1};
 `;
 
 const DayList = styled.ul`
@@ -57,7 +42,8 @@ const DayList = styled.ul`
   font-size: 1.6rem;
 
   li > img {
-    width: 2.4rem;
+    width: 3.3rem;
+    height: 3.3rem;
   }
 
   & > li:last-child {
@@ -90,4 +76,4 @@ const TempList = styled.ul`
   }
 `;
 
-export { CommentDiv, CommentTitle, DateItem, DateList, DayList, Percent, StandardList, TempList, WeekList };
+export { DateItem, DateList, DayList, Percent, Section, StandardList, TempList, WeekList };

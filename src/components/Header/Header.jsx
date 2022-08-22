@@ -1,4 +1,6 @@
+/* eslint-disable jsx-a11y/alt-text */
 import kakaotalk from '@Assets/icon/kakao.svg';
+import logoTxt from '@Assets/icon/logo-txt.svg';
 import menu from '@Assets/icon/menu-white.svg';
 import share from '@Assets/icon/share-white.svg';
 import SlideMenu from '@Components/SlideMenu';
@@ -21,7 +23,8 @@ const Header = () => {
       <nav>
         <S.List>
           <S.Title>
-            <Link to="/location">위치 페이지</Link>
+            {/* <Link to="/location">위치 페이지</Link> */}
+            <img src={logoTxt} width="75rem" />
           </S.Title>
           <li>
             <S.List sub>
@@ -31,7 +34,7 @@ const Header = () => {
                 </Link>
               </S.Item>
               <S.Item noshadow>
-                <Link to="/alram">
+                <Link to="/alarm">
                   <S.Img src={kakaotalk} alt="알림 페이지" kakao />
                 </Link>
               </S.Item>

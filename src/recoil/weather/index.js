@@ -1,7 +1,7 @@
 import atom from './atom';
-// eslint-disable-next-line import/no-named-as-default, import/no-named-as-default-member
 import weatherWithSelect from './withSelect';
+import skyWithSelect from './withSelectSky';
 
-export { weatherWithSelect };
+export { skyWithSelect, weatherWithSelect };
 
 export default atom;

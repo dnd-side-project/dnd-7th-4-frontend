@@ -1,5 +1,5 @@
-import arrowRight from '@Assets/icon/back.svg';
-import styled from 'styled-components';
+import arrow from '@Assets/icon/arrow-gray.svg';
+import styled, { css } from 'styled-components';
 
 const Background = styled.div`
   position: absolute;
@@ -10,10 +10,11 @@ const Background = styled.div`
   height: 100%;
   background: rgba(33, 38, 41, 0.5);
   cursor: pointer;
+  z-index: 10;
 `;
 
 // CHECK:: div가 최선인가?
-const Menu = styled.div`
+const Content = styled.div`
   color: #000;
   width: 26rem;
   height: 100%;
@@ -21,12 +22,13 @@ const Menu = styled.div`
   position: absolute;
   top: 0;
   right: 0;
-  transform: translateX(100%);
   transition: transform 0.5s ease-in;
-
-  &.in {
-    transform: translateX(0%);
-  }
+  ${(props) =>
+    props.slide &&
+    css`
+      transform: translateX(0);
+      transition: transform 0.5s ease-in;
+    `};
 `;
 
 const UserState = styled.ul`
@@ -37,30 +39,32 @@ const UserState = styled.ul`
   cursor: default;
 `;
 
-const LoginInf = styled.ul`
+const UserInf = styled.ul`
   display: flex;
   height: 100%;
   flex-direction: column;
   justify-content: center;
-  gap: 0.2rem;
+  align-items: flex-start;
+  gap: 0.4rem;
 `;
 
-const NoLoginTxt = styled.li`
-  font-size: 1.2rem;
-  color: #b7b7b7;
+const Name = styled.li`
+  ${({ theme }) => theme.fonts.cap};
+  color: ${(props) => (props.logout ? '#B7B7B7' : '#5E5E5E')};
 `;
 
-const LoginToKaKao = styled.button`
+const LoginBtn = styled.button`
   border: transparent;
   background: none;
   padding: 0;
   color: #68bfef;
-  font-size: 1.8rem;
+  font-family: inherit;
+  font-size: ${(props) => (props.logout ? '1.8rem' : '1.2rem')};
   font-weight: bold;
   cursor: pointer;
 `;
 
-const MenuList = styled.ul`
+const Menu = styled.ul`
   font-size: 1.4rem;
 
   & > li {
@@ -70,7 +74,7 @@ const MenuList = styled.ul`
   }
 `;
 
-const MenuItem = styled.li`
+const Item = styled.li`
   &::after {
     content: '';
     position: absolute;
@@ -78,8 +82,43 @@ const MenuItem = styled.li`
     top: 2rem;
     width: 0.4rem;
     height: 0.8rem;
-    background: url(${arrowRight}) center;
+    background: url(${arrow}) center/cover;
   }
 `;
 
-export { Background, LoginInf, LoginToKaKao, Menu, MenuItem, MenuList, NoLoginTxt, UserState };
+const AlarmInf = styled.ul`
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+`;
+
+const ToggleBtn = styled.button`
+  width: 2.8rem;
+  height: 1.6rem;
+  background: ${(props) => (props.alarm ? '#68BFEF' : '#E0E0E0')};
+  border-radius: 5rem;
+  border: transparent;
+  position: relative;
+  cursor: pointer;
+`;
+
+const Toggle = styled.span`
+  font-size: 0;
+  display: block;
+  width: 1.2rem;
+  height: 1.2rem;
+  border-radius: 50%;
+  background: #fff;
+  position: absolute;
+  left: 0.2rem;
+  top: 0.2rem;
+  transition: all 0.2s ease-in-out;
+  ${(props) =>
+    props.alarm &&
+    css`
+      transform: translateX(1.2rem);
+      transition: all 0.2s ease-in-out;
+    `}
+`;
+
+export { AlarmInf, Background, Content, Item, LoginBtn, Menu, Name, Toggle, ToggleBtn, UserInf, UserState };

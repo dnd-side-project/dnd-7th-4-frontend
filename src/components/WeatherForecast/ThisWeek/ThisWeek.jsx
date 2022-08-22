@@ -12,25 +12,28 @@ import * as S from './ThisWeek.style';
 
 dayjs.locale('ko');
 
-// HELP:: ThisWeek 컴포넌트 내부로 옮기는게 나을까요?
-const getDate = (item) => {
-  const date = dayjs().add(item, 'day').format('dd/M.DD');
-  return date;
-};
-
 const ThisWeek = () => {
   const content = useRecoilValue(weatherWithSelect);
 
+  const getDate = (item) => {
+    const date = dayjs().add(item, 'day').format('dd/M.DD');
+    return date;
+  };
+
   return (
-    <>
-      <S.CommentDiv>
-        <S.CommentTitle>화요일, 목요일에는 우산 챙기세요.</S.CommentTitle>
-      </S.CommentDiv>
+    <S.Section>
       <S.WeekList>
         <li>
           <S.StandardList>
             <li>오전</li>
             <li>오후</li>
+            <li>
+              <S.TempList>
+                <li>최저</li>
+                <li>/</li>
+                <li>최고</li>
+              </S.TempList>
+            </li>
           </S.StandardList>
         </li>
         {Object.keys(content).map((item) => (
@@ -61,7 +64,7 @@ const ThisWeek = () => {
           </li>
         ))}
       </S.WeekList>
-    </>
+    </S.Section>
   );
 };
 

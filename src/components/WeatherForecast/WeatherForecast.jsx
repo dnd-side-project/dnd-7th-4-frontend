@@ -9,9 +9,9 @@ import ForecastTab from './ForecastTab';
 // import * as S from './WeatherForecast.style';
 
 const WeatherForecast = () => (
-  <main>
+  <>
     <ForecastTab />
     <Days />
-  </main>
+  </>
 );
 export default memo(WeatherForecast, isEqual);
