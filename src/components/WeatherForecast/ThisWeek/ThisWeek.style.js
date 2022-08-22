@@ -2,6 +2,7 @@ import styled from 'styled-components';
 
 const Section = styled.section`
   margin-top: 4.8rem;
+  padding-bottom: 1.6rem;
 `;
 
 const WeekList = styled.ul`
