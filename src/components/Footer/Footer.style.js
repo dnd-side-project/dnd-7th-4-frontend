@@ -1,12 +1,16 @@
 import styled from 'styled-components';
 
-const Wrapper = styled.footer`
+const Footer = styled.footer`
+  background: ${({ skyState, theme }) =>
+    Object.keys(theme.groundColors).includes(skyState) ? theme.groundColors[skyState] : null};
+`;
+
+const Wrapper = styled.div`
   width: 31.1rem;
   padding-top: 0.7rem;
   padding-bottom: 1.6rem;
   border-top: 1px solid rgba(255, 255, 255, 0.15);
   margin: 0 auto;
-  margin-top: 1.6rem;
 `;
 
 const Infos = styled.ul`
@@ -23,4 +27,4 @@ const Infos = styled.ul`
 const Title = styled.li``;
 const Info = styled.li``;
 
-export { Info, Infos, Title, Wrapper };
+export { Footer, Info, Infos, Title, Wrapper };
