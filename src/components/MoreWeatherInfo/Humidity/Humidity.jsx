@@ -9,7 +9,8 @@ import * as S from './Humidity.style';
 const Humidity = ({ data, status }) => (
   <S.Wrapper>
     <S.Comments>
-      <S.Comment>{data?.코멘트}</S.Comment>
+      <S.Comment>{data?.코멘트.split('/')[0]}</S.Comment>
+      <S.Comment>{data?.코멘트.split('/')[1]}</S.Comment>
     </S.Comments>
     <S.Infos>
       <S.Info>

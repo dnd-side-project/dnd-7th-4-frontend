@@ -39,7 +39,6 @@ const Info = styled.ul`
 const Img = styled.img`
   width: 4.6rem;
   height: 4.6rem;
-  background-color: grey;
 `;
 
 const InfoTitle = styled.li`
