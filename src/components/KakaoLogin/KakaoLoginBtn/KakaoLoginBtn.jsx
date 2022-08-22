@@ -4,7 +4,7 @@ import * as S from './KakaoLoginBtn.style';
 
 const KakaoLoginBtn = () => {
   const REST_API_KEY = process.env.REACT_APP_KAKAO_APP_KEY;
-  const REDIRECT_URI = 'https://weathertogo.shop/account/kakao/oauth';
+  const REDIRECT_URI = 'http://localhost:3000/account/kakao/oauth';
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   return (
