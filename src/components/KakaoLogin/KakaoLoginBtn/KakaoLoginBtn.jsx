@@ -1,4 +1,6 @@
 import kakaoIcon from '@Assets/icon/kakao-login.png';
+import { memo } from 'react';
+import isEqual from 'react-fast-compare';
 
 import * as S from './KakaoLoginBtn.style';
 
@@ -16,4 +18,4 @@ const KakaoLoginBtn = () => {
   );
 };
 
-export default KakaoLoginBtn;
+export default memo(KakaoLoginBtn, isEqual);
