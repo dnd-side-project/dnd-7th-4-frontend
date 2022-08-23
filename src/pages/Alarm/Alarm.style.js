@@ -47,7 +47,7 @@ const Icon = styled.li`
   }
 `;
 
-const Title = styled.p`
+const Title = styled.div`
   font-size: 2rem;
   font-weight: 700;
   line-height: 150%;
