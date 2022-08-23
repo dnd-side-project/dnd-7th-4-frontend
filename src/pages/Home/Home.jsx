@@ -1,4 +1,5 @@
 import { getData } from '@Apis/api';
+import Footer from '@Components/Footer';
 import Header from '@Components/Header';
 import MoreWeatherInfo from '@Components/MoreWeatherInfo';
 import WeatherForecast from '@Components/WeatherForecast';
@@ -34,6 +35,7 @@ const Home = () => {
           <WeatherForecast />
           <MoreWeatherInfo />
         </main>
+        <Footer />
       </S.Container>
     </>
   );

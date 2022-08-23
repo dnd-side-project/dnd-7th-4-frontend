@@ -17,14 +17,14 @@ const MoreWeatherInfo = () => {
 
   return (
     <S.Section skyState={skyState}>
-      <S.Wrapper>
-        <AirPollution airPollution={weatherInfo?.미세먼지} />
-        <SensoryTemperature />
-        <Humidity />
-        <Wind />
-        <Rainfall />
-        <SunriseSunset />
-      </S.Wrapper>
+      <Wrapper>
+        <AirPollution data={weatherInfo?.세부코멘트.미세먼지} status={weatherInfo?.미세먼지} />
+        <Rainfall data={weatherInfo?.세부코멘트.강수} status={weatherInfo?.현재['1시간강수량']} />
+        <SensoryTemperature data={weatherInfo?.세부코멘트.체감온도} status={weatherInfo?.체감온도} />
+        <Humidity data={weatherInfo?.세부코멘트.습도} status={weatherInfo?.현재['습도']} />
+        <Wind data={weatherInfo?.세부코멘트.바람} status={weatherInfo?.현재['풍속']} />
+        <SunriseSunset data={weatherInfo?.세부코멘트.일몰일출} status={weatherInfo?.일몰일출} />
+      </Wrapper>
     </S.Section>
   );
 };
