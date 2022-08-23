@@ -1,7 +1,5 @@
-/* eslint-disable */
 import 'dayjs/locale/ko';
 
-import testImg from '@Assets/icon/logo-symbol.svg';
 import { weatherWithSelect } from '@Recoil/weather';
 import dayjs from 'dayjs';
 import { memo } from 'react';
@@ -46,12 +44,24 @@ const ThisWeek = () => {
                 </S.DateList>
               </li>
               <li>
-                <img src={testImg} alt={content[item]['오전하늘상태']} />
-                <S.Percent>{content[item]['오전강수확률']}%</S.Percent>
+                <S.ImgList>
+                  <li>
+                    <img src={content[item]['오전하늘이미지']} alt={content[item]['오전하늘상태']} />
+                  </li>
+                  <li>
+                    <S.Percent>{content[item]['오전강수확률']}%</S.Percent>
+                  </li>
+                </S.ImgList>
               </li>
               <li>
-                <img src={testImg} alt={content[item]['오후하늘상태']} />
-                <S.Percent>{content[item]['오후강수확률']}%</S.Percent>
+                <S.ImgList>
+                  <li>
+                    <img src={content[item]['오후하늘이미지']} alt={content[item]['오후하늘상태']} />
+                  </li>
+                  <li>
+                    <S.Percent>{content[item]['오후강수확률']}%</S.Percent>
+                  </li>
+                </S.ImgList>
               </li>
               <li>
                 <S.TempList>

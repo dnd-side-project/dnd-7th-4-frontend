@@ -1,4 +1,3 @@
-import testImg from '@Assets/icon/logo-symbol.svg';
 import tabMenuAtom from '@Recoil/tabMenu';
 import { skyWithSelect, weatherWithSelect } from '@Recoil/weather';
 import { memo } from 'react';
@@ -45,9 +44,8 @@ const Days = () => {
             </S.InfListItem>
             <S.InfListItem diff>
               {String(content['전날기온차이']).includes('-')
-                ? `어제 ${content['전날기온차이']}`
-                : `어제 +${content['전날기온차이']}`}
-              º
+                ? `어제 ${content['전날기온차이']}º`
+                : `어제 +${content['전날기온차이']}º`}
             </S.InfListItem>
           </S.InfList>
           <S.CommentWrapper skyState={skyState}>
@@ -63,7 +61,7 @@ const Days = () => {
                 <S.ItemList>
                   <li>{getTime(item)}</li>
                   <li>
-                    <img src={testImg} alt={content['시간별정보'][item][1]} />
+                    <img src={content['시간별정보'][item][4]} alt={content['시간별정보'][item][1]} />
                   </li>
                   <li>{content['시간별정보'][item][0]}º</li>
                 </S.ItemList>
