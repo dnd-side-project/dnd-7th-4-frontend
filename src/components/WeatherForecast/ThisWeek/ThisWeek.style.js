@@ -41,8 +41,8 @@ const DayList = styled.ul`
   font-size: 1.6rem;
 
   li > img {
-    width: 3.3rem;
-    height: 3.3rem;
+    width: 3rem;
+    height: 3rem;
   }
 
   & > li:last-child {
@@ -57,6 +57,11 @@ const DateList = styled.ul`
 
 const DateItem = styled.li`
   ${(props) => (props.size ? 'font-size: 1.2rem; margin-top: 0.4rem; font-weight: 500;' : 'font-size: 1.4rem')};
+`;
+
+const ImgList = styled.ul`
+  display: flex;
+  align-items: center;
 `;
 
 const Percent = styled.span`
@@ -75,4 +80,4 @@ const TempList = styled.ul`
   }
 `;
 
-export { DateItem, DateList, DayList, Percent, Section, StandardList, TempList, WeekList };
+export { DateItem, DateList, DayList, ImgList, Percent, Section, StandardList, TempList, WeekList };
