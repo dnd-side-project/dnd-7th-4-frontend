@@ -16,7 +16,7 @@ const skyWithSelect = selector({
         skyState = get(weatherAtom)?.data?.내일?.현재?.하늘상태;
         break;
       case '이번주':
-        skyState = '맑음';
+        skyState = '이번주';
         break;
       default:
     }

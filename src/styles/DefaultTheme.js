@@ -43,6 +43,7 @@ const skyColors = {
   약한비: 'linear-gradient(180deg, #7BA3BF 0%, #88A7B7 25.52%, #7EB8C0 100%)',
   중간비: 'linear-gradient(180deg, #6A8BA2 0%, #5A849A 25.52%, #3F7B88 100%)',
   강한비: 'linear-gradient(180deg, #4A607C 0%, #5C7380 18.75%, #597A81 100%)',
+  이번주: 'linear-gradient(180deg, #68BEEF 2.25%, #9BD6F8 27.1%)',
 };
 
 const groundColors = {
@@ -52,6 +53,7 @@ const groundColors = {
   약한비: 'linear-gradient(180deg, #7698B0 0%, #5B839F 10.07%)',
   중간비: 'linear-gradient(180deg, #496E89 0%, #3C627D 10.07%)',
   강한비: 'linear-gradient(180deg, #4F6373 0%, #3E5568 25.1%)',
+  이번주: 'rgba(112, 188, 143, 1)',
 };
 
 const weatherImg = {
@@ -61,6 +63,7 @@ const weatherImg = {
   약한비: `url(${wet}) no-repeat -10rem -20rem`,
   중간비: `url(${rainy}) no-repeat -10rem -20rem`,
   강한비: `url(${heavyRain}) no-repeat -10rem -20rem`,
+  이번주: `url(${sunnySubtractFront}) no-repeat -3rem 48rem, url(${sunnySubtractBack}) no-repeat 10rem 48rem`,
 };
 
 const commentOpacity = {
