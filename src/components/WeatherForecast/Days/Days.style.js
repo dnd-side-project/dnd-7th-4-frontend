@@ -84,8 +84,8 @@ const Timeline = styled.ul`
   overflow-x: scroll;
   overflow-y: hidden;
   text-align: center;
-  margin: 7.4rem 0 3.6rem 2.4rem;
-  padding: 0 2.4rem 1.7rem 0;
+  margin: 6.3rem 0 4rem 2.4rem;
+  padding: 0 2.4rem 1.8rem 0;
 
   &::-webkit-scrollbar {
     height: 0.6rem;
@@ -108,13 +108,26 @@ const ItemList = styled.ul`
     opacity: 0.8;
   }
 
-  & > li:last-child {
-    font-size: 1.6rem;
-  }
-
-  & > li > img {
+  & > li:nth-child(2) {
     width: 5rem;
     height: 5rem;
+    background: rgba(0, 0, 0, 0.4);
+    border-radius: 2.5rem;
+    position: relative;
+    margin: 0.5rem 0 0.7rem 0;
+  }
+
+  & > li:nth-child(2) > img {
+    width: 3rem;
+    height: 3rem;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+  }
+
+  & > li:last-child {
+    font-size: 1.6rem;
   }
 `;
 
