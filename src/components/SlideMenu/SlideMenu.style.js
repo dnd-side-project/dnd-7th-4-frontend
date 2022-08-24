@@ -37,6 +37,12 @@ const UserState = styled.ul`
   padding: 3.3rem 0 1.9rem 2.2rem;
   border-bottom: 1px solid #e8e8e8;
   cursor: default;
+
+  & > li > img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+  }
 `;
 
 const UserInf = styled.ul`

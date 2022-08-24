@@ -1,13 +1,14 @@
 import { postSetAlarm } from '@Apis/api';
 import defaultProfile from '@Assets/icon/default-profile.svg';
 import errorAtom from '@Recoil/error';
+import setAlarmLocationAtom from '@Recoil/setAlarmLocation';
 import slideMenuAtom from '@Recoil/slideMenu';
 import userAtom from '@Recoil/user';
 import { useMutation } from '@tanstack/react-query';
 import { memo, useEffect, useRef } from 'react';
 import isEqual from 'react-fast-compare';
-import { useNavigate } from 'react-router-dom';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { Link, useNavigate } from 'react-router-dom';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import * as S from './SlideMenu.style';
 
@@ -21,6 +22,8 @@ const SlideMenu = () => {
 
   const [user, setUser] = useRecoilState(userAtom);
   const setError = useSetRecoilState(errorAtom);
+
+  const alarmLocation = useRecoilValue(setAlarmLocationAtom);
 
   const navigate = useNavigate();
 
@@ -84,7 +87,7 @@ const SlideMenu = () => {
       <S.Content slide={slide}>
         <S.UserState>
           <li>
-            <img src={user.login ? user.userProfile : defaultProfile} alt="사용자 프로필" />
+            <img src={user.login ? user.profile_img : defaultProfile} alt="사용자 프로필" />
           </li>
           <li>
             <S.UserInf>
@@ -118,7 +121,10 @@ const SlideMenu = () => {
             </S.AlarmInf>
           </li>
           <S.Item>카톡 날씨알리미란?</S.Item>
-          <S.Item>내 알리미 위치</S.Item>
+          <S.Item>
+            <Link to="alarm-location">내 알리미 위치</Link>
+            <span>{alarmLocation}</span>
+          </S.Item>
         </S.Menu>
       </S.Content>
     </S.Background>
