@@ -1,23 +1,48 @@
+import { postSetAlarm } from '@Apis/api';
 import alram from '@Assets/icon/alarm.svg';
 import leftArrow from '@Assets/icon/left-arrow.svg';
 import rain from '@Assets/icon/rain.svg';
 import sun from '@Assets/icon/sun.svg';
 import sunCloudy from '@Assets/icon/sun-with-cloud.svg';
-import { memo, useState } from 'react';
+import KakaoLoginBtn from '@Components/KakaoLogin/KakaoLoginBtn';
+import errorAtom from '@Recoil/error';
+import userAtom from '@Recoil/user';
+import { useMutation } from '@tanstack/react-query';
+import { memo, useEffect } from 'react';
 import isEqual from 'react-fast-compare';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import * as S from './Alarm.style';
 
-// 유저의 로그인 상태, 카카오톡 알림 설정 유무에 따라 Alram 화면이 변화한다.
-// 주석 추가
-
 const Alarm = () => {
-  const [user, setUser] = useState({
-    id: 1,
-    login: true,
-    alarm: true,
+  const [user, setUser] = useRecoilState(userAtom);
+  const setError = useSetRecoilState(errorAtom);
+  const { mutate, error } = useMutation(postSetAlarm, {
+    onSuccess: async ({ data }) => {
+      const {
+        data: { kakao_alarm: alarm },
+      } = await data;
+      setUser((prevUser) => ({ ...prevUser, alarm }));
+    },
   });
+  const navigate = useNavigate();
+
+  useEffect(() => {
+    setUser(JSON.parse(window.localStorage.getItem('user')));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('user', JSON.stringify({ ...user }));
+  }, [user]);
+
+  useEffect(() => {
+    if (error) {
+      setError('404');
+      navigate('/error');
+    }
+  }, [error]);
+
   const contents = [
     {
       main: '날씨알리미를 사용해보세요!',
@@ -42,7 +67,9 @@ const Alarm = () => {
     } else {
       setUser((prevUser) => ({ ...prevUser, alarm: true }));
     }
+    mutate(user.access);
   };
+
   return (
     <S.Container>
       <header>
@@ -64,17 +91,33 @@ const Alarm = () => {
             </S.Icon>
           </S.Icons>
           <img src={alram} alt="알람 아이콘" />
-          <S.Title>{user.alarm ? contents[1].main : contents[2].main}</S.Title>
-          <S.Texts>
-            <p>{user.alarm ? contents[1].sub : contents[2].sub}</p>
-            <p>{user.alarm ? '' : contents[2].sub2}</p>
-          </S.Texts>
+          {user.login ? (
+            <S.Title>{user.alarm ? contents[1].main : contents[2].main}</S.Title>
+          ) : (
+            <S.Title>{contents[0].main}</S.Title>
+          )}
+          {user.login ? (
+            <S.Texts>
+              <p>{user.alarm ? contents[1].sub : contents[2].sub}</p>
+              <p>{user.alarm ? '' : contents[2].sub2}</p>
+            </S.Texts>
+          ) : (
+            <S.Texts>
+              <p>{contents[0].sub}</p>
+              <p>{contents[0].sub2}</p>
+            </S.Texts>
+          )}
           {user.login ? (
             <S.Button onClick={changeAlarm} alarm={user.alarm}>
-              <S.ButtonText alarm={user.alarm}>{user.alarm ? 'ON' : 'OFF'}</S.ButtonText>
+              <S.ButtonText on="true">ON</S.ButtonText>
               <S.ButtonCircle alarm={user.alarm} />
+              <S.ButtonText off="true">OFF</S.ButtonText>
             </S.Button>
-          ) : null}
+          ) : (
+            <S.kakaoButton>
+              <KakaoLoginBtn />
+            </S.kakaoButton>
+          )}
         </S.Wrapper>
       </main>
     </S.Container>

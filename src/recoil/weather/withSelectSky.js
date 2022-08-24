@@ -7,13 +7,13 @@ const skyWithSelect = selector({
   key: 'skyWithSelect',
   get: ({ get }) => {
     const tabMenuName = get(tabMenuAtom);
-    let skyState = get(weatherAtom)?.data?.오늘?.현재?.하늘상태;
+    let skyState = get(weatherAtom)?.data?.오늘?.배경이미지;
     switch (tabMenuName) {
       case '오늘':
-        skyState = get(weatherAtom)?.data?.오늘?.현재?.하늘상태;
+        skyState = get(weatherAtom)?.data?.오늘?.배경이미지;
         break;
       case '내일':
-        skyState = get(weatherAtom)?.data?.내일?.현재?.하늘상태;
+        skyState = get(weatherAtom)?.data?.내일?.배경이미지;
         break;
       case '이번주':
         skyState = '이번주';

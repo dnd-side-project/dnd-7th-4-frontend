@@ -1,5 +1,3 @@
-function PrivateRouter() {
-  return;
-}
+function PrivateRouter() {}
 
 export default PrivateRouter;
