@@ -54,7 +54,7 @@ const Title = styled.div`
   letter-spacing: 0.15px;
   margin-bottom: 1.4rem;
 `;
-const Texts = styled.p`
+const Texts = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -66,7 +66,11 @@ const Texts = styled.p`
   margin-bottom: 2.6rem;
   color: #7d7d7d;
 `;
+const kakaoButton = styled.div`
+  display: flex;
+`;
 const Button = styled.button`
+  position: relative;
   display: flex;
   width: 11.6rem;
   height: 5.5rem;
@@ -78,20 +82,20 @@ const Button = styled.button`
   transition: background 1s ease-in-out;
 `;
 const ButtonText = styled.p`
-  width: 2.4rem;
-  height: 2.4rem;
   font-weight: 600;
   font-size: 1.6rem;
   line-height: 150%;
   text-align: center;
   letter-spacing: 0.15px;
   margin: 1.6rem 0;
-  margin-left: 2.3rem;
-  margin-right: 1.7rem;
-  transform: ${(props) => (props.alarm ? '' : 'translateX(3.5rem)')};
+  margin-left: ${(props) => (props.off ? null : '2.1rem')};
+  margin-right: ${(props) => (props.off ? null : '1.7rem')};
   color: white;
 `;
 const ButtonCircle = styled.div`
+  position: absolute;
+  top: 0;
+  right: 0.7rem;
   width: 4.4rem;
   height: 4.4rem;
   background: #f0f0f0;
@@ -99,8 +103,8 @@ const ButtonCircle = styled.div`
   border-radius: 50%;
   margin: 0.5rem 0;
   padding-right: ${(props) => (props.alarm ? '0.8rem' : '0')};
-  transform: ${(props) => (props.alarm ? '' : 'translateX(-6.5rem)')};
+  transform: ${(props) => (props.alarm ? '' : 'translateX(-5.8rem)')};
   transition: transform 0.5s ease-in-out;
 `;
 
-export { Button, ButtonCircle, ButtonText, Container, Icon, Icons, Texts, Title, Wrapper };
+export { Button, ButtonCircle, ButtonText, Container, Icon, Icons, kakaoButton, Texts, Title, Wrapper };

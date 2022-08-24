@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const KakaoLoginBtn = styled.button`
-  position: absolute;
+  /* position: absolute; */
   border: none;
   background-color: inherit;
 `;
