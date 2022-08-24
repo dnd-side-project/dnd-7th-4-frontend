@@ -49,7 +49,6 @@ const Wrapper = styled.ul`
 const Item = styled.li`
   ${(props) => (props.divider ? 'opacity: 0.2;' : null)}
   ${(props) => (props.sign ? 'font-size: 4.4rem;' : null)}
-}
 `;
 
 const CommentWrapper = styled.div`

@@ -2,7 +2,7 @@ import styled from 'styled-components';
 
 const Wrapper = styled.div`
   width: 36rem;
-  height: 78rem;
+  height: 100vh;
   background: ${({ theme }) => theme.skyColors.맑음};
   position: relative;
 

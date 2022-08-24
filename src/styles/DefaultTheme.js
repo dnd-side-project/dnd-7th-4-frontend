@@ -75,6 +75,10 @@ const commentOpacity = {
   강한비: 'rgba(66, 87, 108, 0.3)',
 };
 
+const size = {
+  small: `(max-width: 480px)`,
+};
+
 const DefaultTheme = {
   colors,
   fonts,
@@ -83,6 +87,7 @@ const DefaultTheme = {
   groundColors,
   weatherImg,
   commentOpacity,
+  size,
 };
 
 export default DefaultTheme;
