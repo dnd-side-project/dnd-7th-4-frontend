@@ -50,7 +50,7 @@ const UserInf = styled.ul`
 
 const Name = styled.li`
   ${({ theme }) => theme.fonts.cap};
-  color: ${(props) => (props.logout ? '#B7B7B7' : '#5E5E5E')};
+  color: ${(props) => (props.login ? '#B7B7B7' : '#5E5E5E')};
 `;
 
 const LoginBtn = styled.button`
@@ -59,7 +59,7 @@ const LoginBtn = styled.button`
   padding: 0;
   color: #68bfef;
   font-family: inherit;
-  font-size: ${(props) => (props.logout ? '1.8rem' : '1.2rem')};
+  font-size: ${(props) => (props.login ? '1.8rem' : '1.2rem')};
   font-weight: bold;
   cursor: pointer;
 `;
