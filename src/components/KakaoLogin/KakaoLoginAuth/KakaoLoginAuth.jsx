@@ -23,6 +23,7 @@ const KakaoLoginAuth = () => {
           // eslint-disable-next-line camelcase
           window.localStorage.setItem(
             'user',
+            // eslint-disable-next-line camelcase
             JSON.stringify({ nickname, profile_img, access, refresh, alarm: true, login: true }),
           );
         });
