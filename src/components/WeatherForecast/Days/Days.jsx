@@ -27,7 +27,7 @@ const Days = () => {
   if (tabName !== '이번주') {
     return (
       content && (
-        <section>
+        <S.Section>
           <S.InfList>
             <S.InfListItem minmax>
               <S.Wrapper>
@@ -55,6 +55,7 @@ const Days = () => {
             </S.Comment>
             <S.Caption>{content['세부코멘트']['메인']['캡션']}</S.Caption>
           </S.CommentWrapper>
+          {tabName === '오늘' ? <S.TodayAnimation skyState={skyState} /> : <S.TomorrowAnimation skyState={skyState} />}
           <S.Timeline>
             {Object.keys(content['시간별정보']).map((item) => (
               <li key={item}>
@@ -68,7 +69,7 @@ const Days = () => {
               </li>
             ))}
           </S.Timeline>
-        </section>
+        </S.Section>
       )
     );
   }
