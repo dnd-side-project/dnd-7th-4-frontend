@@ -57,9 +57,9 @@ const groundColors = {
 };
 
 const groundHeights = {
-  약한비: '8rem',
-  중간비: '14rem',
-  강한비: '20rem',
+  약한비: '19rem',
+  중간비: '24rem',
+  강한비: '30rem',
 };
 
 const groundGradients = {
