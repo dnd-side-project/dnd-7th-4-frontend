@@ -1,9 +1,11 @@
 import cloudy from '@Assets/images/cloudy.svg';
-import cloudySubtractBack from '@Assets/images/cloudySubtractBack.svg';
-import cloudySubtractFront from '@Assets/images/cloudySubtractFront.svg';
+import cloudyGround from '@Assets/images/cloudyGround.svg';
+import cloudyGroundBack from '@Assets/images/cloudyGroundBack.svg';
 import heavyRain from '@Assets/images/heavyRain.svg';
 import rainy from '@Assets/images/rainy.svg';
 import sunny from '@Assets/images/sunny.svg';
+import sunnyGround from '@Assets/images/sunnyGround.svg';
+import sunnyGroundBack from '@Assets/images/sunnyGroundBack.svg';
 import sunnySubtractBack from '@Assets/images/sunnySubtractBack.svg';
 import sunnySubtractFront from '@Assets/images/sunnySubtractFront.svg';
 import veryCloudy from '@Assets/images/veryCloudy.svg';
@@ -69,13 +71,19 @@ const groundGradients = {
 };
 
 const weatherImgs = {
-  맑음: `url(${sunny}) no-repeat -3.4rem -32rem, url(${sunnySubtractFront}) no-repeat -3rem 48rem, url(${sunnySubtractBack}) no-repeat 10rem 48rem`,
-  구름많음: `url(${cloudy}) no-repeat 2.6rem 3.2rem, url(${cloudySubtractFront}) no-repeat -3rem 48rem, url(${cloudySubtractBack}) no-repeat 10rem 48rem`,
-  흐림: `url(${veryCloudy}) no-repeat  -16.3rem -13rem, url(${cloudySubtractFront}) no-repeat -3rem 48rem, url(${cloudySubtractBack}) no-repeat 10rem 48rem`,
+  맑음: `url(${sunny}) no-repeat -3.4rem -32rem`,
+  구름많음: `url(${cloudy}) no-repeat 2.6rem 3.2rem`,
+  흐림: `url(${veryCloudy}) no-repeat  -16.3rem -13rem`,
   약한비: `url(${wet}) no-repeat -10rem -20rem`,
   중간비: `url(${rainy}) no-repeat -10rem -20rem`,
   강한비: `url(${heavyRain}) no-repeat -10rem -20rem`,
   이번주: `url(${sunnySubtractFront}) no-repeat -3rem 48rem, url(${sunnySubtractBack}) no-repeat 10rem 48rem`,
+};
+
+const groundImgs = {
+  맑음: `url(${sunnyGround}) no-repeat -3rem 0rem, url(${sunnyGroundBack}) no-repeat 10rem 0.4rem`,
+  구름많음: `url(${cloudyGround}) no-repeat -3rem 0rem, url(${cloudyGroundBack}) no-repeat 10rem 0.4rem`,
+  흐림: `url(${cloudyGround}) no-repeat -3rem 0rem, url(${cloudyGroundBack}) no-repeat 10rem 0.4rem`,
 };
 
 const commentOpacities = {
@@ -102,7 +110,7 @@ const DefaultTheme = {
   groundHeights,
   groundGradients,
   size,
-
+  groundImgs,
 };
 
 export default DefaultTheme;
