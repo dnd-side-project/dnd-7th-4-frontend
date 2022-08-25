@@ -7,6 +7,7 @@ import Splash from '@Components/Splash';
 import UpdateTime from '@Components/UpdateTIme';
 import WeatherForecast from '@Components/WeatherForecast';
 import errorAtom from '@Recoil/error';
+import slideMenuAtom from '@Recoil/slideMenu';
 import weatherAtom, { skyWithSelect } from '@Recoil/weather';
 import { useQuery } from '@tanstack/react-query';
 import { memo, useEffect } from 'react';
@@ -39,14 +40,14 @@ const Home = () => {
   }, [isLoading, data]);
 
   const skyState = useRecoilValue(skyWithSelect);
+  const slide = useRecoilValue(slideMenuAtom);
 
   return (
     <Background>
-      {/* CHECK:: Container(div)는 개발시 편의를 위해 임의로 설정해둠 */}
       {isLoading ? (
         <Splash />
       ) : (
-        <S.Container skyState={skyState}>
+        <S.Container skyState={skyState} slide={slide}>
           <Header />
           <main>
             <WeatherForecast />
