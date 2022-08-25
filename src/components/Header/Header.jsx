@@ -1,6 +1,5 @@
 /* eslint-disable jsx-a11y/alt-text */
 import kakaotalk from '@Assets/icon/kakao.svg';
-import logoTxt from '@Assets/icon/logo-txt.svg';
 import menu from '@Assets/icon/menu-white.svg';
 import share from '@Assets/icon/share-white.svg';
 import SlideMenu from '@Components/SlideMenu';
@@ -14,7 +13,7 @@ import * as S from './Header.style';
 
 const Header = () => {
   const [slide, setSlide] = useRecoilState(slideMenuAtom);
-
+  const nowRegion = window.localStorage.getItem('region');
   const renderSlideMenu = useCallback(() => <SlideMenu />, []);
 
   // CHECK:: 공유 페이지는 아직 작업 전이라 임의로 /example 연결해둠
@@ -23,8 +22,7 @@ const Header = () => {
       <nav>
         <S.List>
           <S.Title>
-            {/* <Link to="/location">위치 페이지</Link> */}
-            <img src={logoTxt} width="75rem" />
+            <Link to="/location">{nowRegion ? `${nowRegion}` : `위치 페이지`}</Link>
           </S.Title>
           <li>
             <S.List sub>
