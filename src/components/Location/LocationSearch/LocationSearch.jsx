@@ -27,13 +27,15 @@ const LocationSearch = () => {
     <>
       <S.LocationHeader>
         <S.LocationTitle>지역 목록</S.LocationTitle>
-        <S.LocationEditBtn onClick={onClickEdit}>{!edit ? `편집` : `완료`}</S.LocationEditBtn>
+        <S.LocationEditBtn value={value} onClick={onClickEdit}>
+          {!value && !edit ? `편집` : `완료`}
+        </S.LocationEditBtn>
       </S.LocationHeader>
       <S.LocationSearchDiv>
         <S.LocationSearchWrapper>
           <S.LocationForm onSubmit={onSubmit}>
             <S.LocationInput onChange={onChange} value={value} />
-            <S.LocationSearchBtn>icon</S.LocationSearchBtn>
+            <S.LocationSearchIcon />
           </S.LocationForm>
         </S.LocationSearchWrapper>
       </S.LocationSearchDiv>
