@@ -1,24 +1,88 @@
+import { postSetAlarm } from '@Apis/api';
 import defaultProfile from '@Assets/icon/default-profile.svg';
+import errorAtom from '@Recoil/error';
+import setAlarmLocationAtom from '@Recoil/setAlarmLocation';
 import slideMenuAtom from '@Recoil/slideMenu';
-import { memo, useRef, useState } from 'react';
+import userAtom from '@Recoil/user';
+import { useMutation } from '@tanstack/react-query';
+import { memo, useEffect, useRef } from 'react';
 import isEqual from 'react-fast-compare';
-import { useRecoilState } from 'recoil';
+import { Link, useNavigate } from 'react-router-dom';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import * as S from './SlideMenu.style';
 
-// CHECK:: 나의 계정, 카톡 날씨알리미란은 페이지 생기면 Link 추가
-// CHECK:: 로그인 기능 완료 되면 관련 recoil 이용하기
 const SlideMenu = () => {
-  // const setSlide = useSetRecoilState(slideMenuAtom);
-  const [slide, setSlide] = useRecoilState(slideMenuAtom);
-  const [alarm, setAlarm] = useState(false);
-  const [login, setLogin] = useState(false);
+  const REST_API_KEY = process.env.REACT_APP_KAKAO_APP_KEY;
+  const REDIRECT_URI = 'http://localhost:3000/account/kakao/oauth';
+  const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
+  const [slide, setSlide] = useRecoilState(slideMenuAtom);
   const bgRef = useRef();
 
-  const user = {
-    name: '김하루',
-    userProfile: '',
+  const [user, setUser] = useRecoilState(userAtom);
+  const setError = useSetRecoilState(errorAtom);
+
+  const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
+
+  useEffect(() => {
+    setalarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('alarmLocation', JSON.stringify(alarmLocation));
+  }, [alarmLocation]);
+
+  const navigate = useNavigate();
+
+  const { mutate, error } = useMutation(postSetAlarm, {
+    onSuccess: async ({ data }) => {
+      const {
+        data: { kakao_alarm: alarm },
+      } = await data;
+      setUser((prevUser) => ({ ...prevUser, alarm }));
+    },
+  });
+
+  useEffect(() => {
+    setUser(JSON.parse(window.localStorage.getItem('user')));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('user', JSON.stringify({ ...user }));
+  }, [user]);
+
+  useEffect(() => {
+    if (error) {
+      setError('404');
+      navigate('/error');
+    }
+  }, [error]);
+
+  // CHECK:: localStorage에서 아예 삭제하면 boolean값을 이용한 조건부 렌더링이 안됨
+  // useEffect(() => {
+  //   if(!user.login && !user.alarm) {
+  //     window.localStorage.removeItem('user');
+  //   }
+  // }, [user])
+
+  const changeAlarm = (e) => {
+    e.preventDefault();
+    if (user.alarm) {
+      setUser((prevUser) => ({ ...prevUser, alarm: false }));
+    } else {
+      setUser((prevUser) => ({ ...prevUser, alarm: true }));
+    }
+    mutate(user.access);
+  };
+
+  const handleLogout = (e) => {
+    e.preventDefault();
+    if (user.login) {
+      setUser((prevUser) => ({ ...prevUser, login: false }));
+    } else {
+      setUser((prevUser) => ({ ...prevUser, login: true }));
+    }
   };
 
   return (
@@ -31,39 +95,44 @@ const SlideMenu = () => {
       <S.Content slide={slide}>
         <S.UserState>
           <li>
-            <img src={login ? user.userProfile : defaultProfile} alt="사용자 프로필" />
+            <img src={user.login ? user.profile_img : defaultProfile} alt="사용자 프로필" />
           </li>
           <li>
             <S.UserInf>
-              {login ? (
+              {user.login ? (
                 <>
-                  <S.Name>{user.name}</S.Name>
-                  <S.LoginBtn onClick={() => setLogin(false)}>로그아웃</S.LoginBtn>
+                  <S.Name>{user.nickname}</S.Name>
+                  <S.LoginBtn onClick={handleLogout}>로그아웃</S.LoginBtn>
                 </>
               ) : (
                 <>
-                  <S.Name logout>로그인하고 알림 받아보세요</S.Name>
-                  <S.LoginBtn onClick={() => setLogin(true)} logout>
-                    카카오로 로그인
-                  </S.LoginBtn>
+                  <S.Name login>로그인하고 알림 받아보세요</S.Name>
+                  <a href={KAKAO_AUTH_URL}>
+                    <S.LoginBtn type="submit" login>
+                      카카오로 로그인
+                    </S.LoginBtn>
+                  </a>
                 </>
               )}
             </S.UserInf>
           </li>
         </S.UserState>
         <S.Menu>
-          <S.Item>나의 계정</S.Item>
           <li>
             <S.AlarmInf>
               <li>카톡 날씨알리미</li>
               <li>
-                <S.ToggleBtn onClick={() => setAlarm(!alarm)} alarm={alarm}>
-                  <S.Toggle alarm={alarm}>날씨 알리미 설정 버튼</S.Toggle>
+                <S.ToggleBtn onClick={changeAlarm} alarm={user.alarm}>
+                  <S.Toggle alarm={user.alarm}>날씨 알리미 설정 버튼</S.Toggle>
                 </S.ToggleBtn>
               </li>
             </S.AlarmInf>
           </li>
           <S.Item>카톡 날씨알리미란?</S.Item>
+          <S.Item>
+            <Link to="alarm-location">내 알리미 위치</Link>
+            <S.LocationName>{alarmLocation}</S.LocationName>
+          </S.Item>
         </S.Menu>
       </S.Content>
     </S.Background>
