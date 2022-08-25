@@ -1,8 +1,10 @@
 import { getData } from '@Apis/api';
+import Background from '@Components/Background';
 import Footer from '@Components/Footer';
 import Header from '@Components/Header';
 import MoreWeatherInfo from '@Components/MoreWeatherInfo';
 import Splash from '@Components/Splash';
+import UpdateTime from '@Components/UpdateTIme';
 import WeatherForecast from '@Components/WeatherForecast';
 import errorAtom from '@Recoil/error';
 import weatherAtom, { skyWithSelect } from '@Recoil/weather';
@@ -39,7 +41,7 @@ const Home = () => {
   const skyState = useRecoilValue(skyWithSelect);
 
   return (
-    <>
+    <Background>
       {/* CHECK:: Container(div)는 개발시 편의를 위해 임의로 설정해둠 */}
       {isLoading ? (
         <Splash />
@@ -48,12 +50,13 @@ const Home = () => {
           <Header />
           <main>
             <WeatherForecast />
+            <UpdateTime />
             <MoreWeatherInfo />
           </main>
           <Footer />
         </S.Container>
       )}
-    </>
+    </Background>
   );
 };
 

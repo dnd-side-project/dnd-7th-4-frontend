@@ -10,6 +10,10 @@ const Wrapper = styled.div`
   border-radius: 2.4rem;
   margin-bottom: 0.7rem;
   color: white;
+  @media ${({ theme }) => theme.size.small} {
+    width: calc(100vw - 27rem);
+    min-width: 15rem;
+  }
 `;
 const Comments = styled.ul`
   width: 11.8rem;
@@ -59,9 +63,6 @@ const InfoTexts = styled.ul`
 const InfoText = styled.li`
   margin-right: 0.1rem;
 `;
-const InfoUnit = styled.li`
-  font-size: 1.2rem;
-  padding-top: 0.1rem;
-`;
+const InfoUnit = styled.li``;
 
 export { Comment, Comments, Img, Info, Infos, InfoText, InfoTexts, InfoTitle, InfoUnit, Wrapper };

@@ -49,7 +49,6 @@ const Wrapper = styled.ul`
 const Item = styled.li`
   ${(props) => (props.divider ? 'opacity: 0.2;' : null)}
   ${(props) => (props.sign ? 'font-size: 4.4rem;' : null)}
-}
 `;
 
 const CommentWrapper = styled.div`
@@ -61,6 +60,9 @@ const CommentWrapper = styled.div`
   background: ${({ skyState, theme }) =>
     Object.keys(theme.commentOpacity).includes(skyState) ? theme.commentOpacity[skyState] : null};
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+  @media ${({ theme }) => theme.size.small} {
+    width: calc(100vw - 9rem);
+  }
 `;
 
 const Comment = styled.ul`
