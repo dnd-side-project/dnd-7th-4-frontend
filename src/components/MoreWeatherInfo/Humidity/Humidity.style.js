@@ -10,6 +10,10 @@ const Wrapper = styled.div`
   border-radius: 2.4rem;
   margin-bottom: 0.7rem;
   color: white;
+  @media ${({ theme }) => theme.size.small} {
+    width: calc(100vw - 27rem);
+    min-width: 15rem;
+  }
 `;
 const Comments = styled.ul`
   width: 11.8rem;

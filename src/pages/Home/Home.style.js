@@ -12,5 +12,6 @@ export const Container = styled.div`
   @media ${({ theme }) => theme.size.small} {
     width: 100vw;
     min-width: 36rem;
+    /* overflow-y: visible; */
   }
 `;
