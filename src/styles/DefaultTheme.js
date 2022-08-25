@@ -6,8 +6,6 @@ import rainy from '@Assets/images/rainy.svg';
 import sunny from '@Assets/images/sunny.svg';
 import sunnyGround from '@Assets/images/sunnyGround.svg';
 import sunnyGroundBack from '@Assets/images/sunnyGroundBack.svg';
-import sunnySubtractBack from '@Assets/images/sunnySubtractBack.svg';
-import sunnySubtractFront from '@Assets/images/sunnySubtractFront.svg';
 import veryCloudy from '@Assets/images/veryCloudy.svg';
 import wet from '@Assets/images/wet.svg';
 
@@ -77,7 +75,7 @@ const weatherImgs = {
   약한비: `url(${wet}) no-repeat -10rem -20rem`,
   중간비: `url(${rainy}) no-repeat -10rem -20rem`,
   강한비: `url(${heavyRain}) no-repeat -10rem -20rem`,
-  이번주: `url(${sunnySubtractFront}) no-repeat -3rem 48rem, url(${sunnySubtractBack}) no-repeat 10rem 48rem`,
+  이번주: `url(${sunnyGround}) no-repeat -3rem 48rem, url(${sunnyGroundBack}) no-repeat 10rem 48rem`,
 };
 
 const groundImgs = {
