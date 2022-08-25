@@ -1,8 +1,7 @@
 import styled from 'styled-components';
 
 const Section = styled.section`
-  background: ${({ skyState, theme }) =>
-    Object.keys(theme.groundColors).includes(skyState) ? theme.groundColors[skyState] : null};
+  background: ${({ skyState, theme }) => (theme.groundColors[skyState] ? theme.groundColors[skyState] : null)};
 `;
 
 const Wrapper = styled.section`

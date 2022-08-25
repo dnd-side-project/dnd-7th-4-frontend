@@ -25,8 +25,7 @@ const Section = styled.section`
     /* display: flex;
     justify-content: center; */
   }
-  background: ${({ skyState, theme }) =>
-    Object.keys(theme.groundColors).includes(skyState) ? theme.groundColors[skyState] : null};
+  background: ${({ skyState, theme }) => (theme.groundColors[skyState] ? theme.groundColors[skyState] : null)};
 `;
 
 export { Section, Wrapper };
