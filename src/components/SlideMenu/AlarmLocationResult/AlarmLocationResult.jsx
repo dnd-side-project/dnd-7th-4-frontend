@@ -5,10 +5,12 @@ import { useMutation } from '@tanstack/react-query';
 import { useEffect } from 'react';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
+import * as S from './AlarmLocationResult.style';
+
 // eslint-disable-next-line react/prop-types
 const AlarmLocationResult = ({ result }) => {
   const token = useRecoilValue(userAtom).access;
-  const [alarm, setAlarm] = useRecoilState(setAlarmLocationAtom);
+  const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
 
   useEffect(() => {
     console.log(token);
@@ -17,18 +19,18 @@ const AlarmLocationResult = ({ result }) => {
   const { mutate, error } = useMutation(RegisterAlarm, {
     onSuccess: (data) => {
       const location = `${data.data.data['등록된지역'].city} ${data.data.data['등록된지역'].district}`;
-      setAlarm(location);
-      window.localStorage.setItem('location', JSON.stringify(location));
+      setalarmLocation(location);
+      window.localStorage.setItem('alarmLocation', JSON.stringify(location));
     },
   });
 
   useEffect(() => {
-    setAlarm(JSON.parse(window.localStorage.getItem('location')));
+    setalarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
   }, []);
 
   useEffect(() => {
-    window.localStorage.setItem('location', JSON.stringify(alarm));
-  }, [alarm]);
+    window.localStorage.setItem('alarmLocation', JSON.stringify(alarmLocation));
+  }, [alarmLocation]);
 
   useEffect(() => {
     if (error) {
@@ -51,17 +53,15 @@ const AlarmLocationResult = ({ result }) => {
   };
 
   return (
-    <div>
-      <ul>
-        {Object.keys(result).map((item) => (
-          <li key={item}>
-            <button type="submit" onClick={handleSubmit}>
-              {item}
-            </button>
-          </li>
-        ))}
-      </ul>
-    </div>
+    <S.List>
+      {Object.keys(result).map((item) => (
+        <li key={item}>
+          <S.Button type="submit" onClick={handleSubmit}>
+            {item}
+          </S.Button>
+        </li>
+      ))}
+    </S.List>
   );
 };
 
