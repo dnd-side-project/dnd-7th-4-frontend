@@ -26,6 +26,7 @@ const TomorrowAnimation = styled.div`
 
 const Section = styled.section`
   position: relative;
+  overflow: hidden;
 `;
 
 const InfList = styled.ul`
@@ -129,6 +130,14 @@ const Timeline = styled.ul`
   }
 `;
 
+const Mountain = styled.div`
+  background: ${({ skyState, theme }) => (theme.groundImgs[skyState] ? theme.groundImgs['흐림'] : null)};
+  height: 24rem;
+  position: absolute;
+  bottom: -34px;
+  width: 52rem;
+`;
+
 const ItemList = styled.ul`
   line-height: 1.8rem;
   font-size: 1.2rem;
@@ -170,6 +179,7 @@ export {
   InfListItem,
   Item,
   ItemList,
+  Mountain,
   Section,
   Timeline,
   TodayAnimation,

@@ -38,7 +38,7 @@ const DayList = styled.ul`
   display: flex;
   flex-direction: row;
   align-items: center;
-  gap: 2.5rem;
+  gap: 4rem;
   font-size: 1.6rem;
 
   li > img {
@@ -65,9 +65,16 @@ const ImgList = styled.ul`
   align-items: center;
 `;
 
-const Percent = styled.span`
+const ImgItem = styled.li`
   ${({ theme }) => theme.fonts.cap};
   margin-left: 0.4rem;
+  position: relative;
+  &::after {
+    content: attr(data-name);
+    position: absolute;
+    top: 0.9rem;
+    left: 3.8rem;
+  }
 `;
 
 const TempList = styled.ul`
@@ -81,4 +88,4 @@ const TempList = styled.ul`
   }
 `;
 
-export { DateItem, DateList, DayList, ImgList, Percent, Section, StandardList, TempList, WeekList };
+export { DateItem, DateList, DayList, ImgItem, ImgList, Section, StandardList, TempList, WeekList };
