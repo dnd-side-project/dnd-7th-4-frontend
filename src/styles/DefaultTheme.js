@@ -50,13 +50,25 @@ const groundColors = {
   맑음: 'rgba(112, 188, 143, 1)',
   구름많음: 'rgba(130, 177, 149, 1)',
   흐림: 'rgba(130, 177, 149, 1)',
-  약한비: 'linear-gradient(180deg, #7698B0 0%, #5B839F 10.07%)',
-  중간비: 'linear-gradient(180deg, #496E89 0%, #3C627D 10.07%)',
-  강한비: 'linear-gradient(180deg, #4F6373 0%, #3E5568 25.1%)',
+  약한비: 'rgba(91, 131, 159, 1)',
+  중간비: 'rgba(60, 98, 125, 1)',
+  강한비: 'rgba(62, 85, 104, 1)',
   이번주: 'rgba(112, 188, 143, 1)',
 };
 
-const weatherImg = {
+const groundHeights = {
+  약한비: '19rem',
+  중간비: '24rem',
+  강한비: '30rem',
+};
+
+const groundGradients = {
+  약한비: 'linear-gradient(180deg, #7698B0 0%, #5B839F 10.07%)',
+  중간비: 'linear-gradient(180deg, #496E89 0%, #3C627D 10.07%)',
+  강한비: 'linear-gradient(180deg, #4F6373 0%, #3E5568 25.1%)',
+};
+
+const weatherImgs = {
   맑음: `url(${sunny}) no-repeat -3.4rem -32rem, url(${sunnySubtractFront}) no-repeat -3rem 48rem, url(${sunnySubtractBack}) no-repeat 10rem 48rem`,
   구름많음: `url(${cloudy}) no-repeat 2.6rem 3.2rem, url(${cloudySubtractFront}) no-repeat -3rem 48rem, url(${cloudySubtractBack}) no-repeat 10rem 48rem`,
   흐림: `url(${veryCloudy}) no-repeat  -16.3rem -13rem, url(${cloudySubtractFront}) no-repeat -3rem 48rem, url(${cloudySubtractBack}) no-repeat 10rem 48rem`,
@@ -66,7 +78,7 @@ const weatherImg = {
   이번주: `url(${sunnySubtractFront}) no-repeat -3rem 48rem, url(${sunnySubtractBack}) no-repeat 10rem 48rem`,
 };
 
-const commentOpacity = {
+const commentOpacities = {
   맑음: 'rgba(115, 194, 239, 0.3)',
   구름많음: 'rgba(124, 173, 201, 0.3)',
   흐림: 'rgba(115, 149, 168, 0.3)',
@@ -85,9 +97,12 @@ const DefaultTheme = {
   fontWeights,
   skyColors,
   groundColors,
-  weatherImg,
-  commentOpacity,
+  weatherImgs,
+  commentOpacities,
+  groundHeights,
+  groundGradients,
   size,
+
 };
 
 export default DefaultTheme;
