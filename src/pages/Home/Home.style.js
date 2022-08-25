@@ -13,4 +13,5 @@ export const Container = styled.div`
     min-width: 36rem;
     /* overflow-y: visible; */
   }
+  overflow: ${({ slide }) => slide && 'hidden'};
 `;

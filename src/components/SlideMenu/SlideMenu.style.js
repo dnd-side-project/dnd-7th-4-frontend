@@ -10,7 +10,7 @@ const Background = styled.div`
   height: 100%;
   background: rgba(33, 38, 41, 0.5);
   cursor: pointer;
-  z-index: 10;
+  z-index: 20;
 `;
 
 // CHECK:: div가 최선인가?
