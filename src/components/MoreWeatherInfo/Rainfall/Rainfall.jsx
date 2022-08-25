@@ -16,8 +16,7 @@ const Rainfall = ({ data, status }) => (
       <S.Info>
         <S.InfoTitle>강수</S.InfoTitle>
         <S.InfoTexts>
-          <S.InfoText>{status}</S.InfoText>
-          <S.InfoUnit>mm</S.InfoUnit>
+          {status === 0 ? <S.InfoText>강수없음</S.InfoText> : <S.InfoText>{status}</S.InfoText>}
         </S.InfoTexts>
       </S.Info>
       <S.Img src={data?.이미지url} alt="강수 아이콘" />

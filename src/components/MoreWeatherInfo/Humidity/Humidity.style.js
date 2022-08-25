@@ -59,9 +59,6 @@ const InfoTexts = styled.ul`
 const InfoText = styled.li`
   margin-right: 0.1rem;
 `;
-const InfoUnit = styled.li`
-  font-size: 1.2rem;
-  padding-top: 0.1rem;
-`;
+const InfoUnit = styled.li``;
 
 export { Comment, Comments, Img, Info, Infos, InfoText, InfoTexts, InfoTitle, InfoUnit, Wrapper };

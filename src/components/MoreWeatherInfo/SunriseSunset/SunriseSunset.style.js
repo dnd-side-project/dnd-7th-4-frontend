@@ -49,12 +49,10 @@ const InfoTexts = styled.ul`
   font-weight: 500;
   margin-bottom: 0.5rem;
   margin-left: 5.6rem;
-`;
-const InfoText = styled.li`
-  margin-right: 0.3rem;
-`;
-const InfoUnit = styled.li`
-  font-size: 1.2rem;
+  letter-spacing: 0.01rem;
+  :last-child {
+    letter-spacing: 0.1rem;
+  }
 `;
 
-export { Comment, Comments, Info, Infos, InfoText, InfoTexts, InfoTitle, InfoUnit, Wrapper };
+export { Comment, Comments, Info, Infos, InfoTexts, InfoTitle, Wrapper };

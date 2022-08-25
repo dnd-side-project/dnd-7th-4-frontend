@@ -49,18 +49,15 @@ const InfoTitle = styled.li`
   margin-bottom: 0.5rem;
 `;
 
-const InfoTexts = styled.ul`
-  display: flex;
-  align-items: center;
+const InfoText = styled.li`
+  width: 5.5rem;
+  margin-right: 0.3rem;
   font-size: 1.4rem;
   font-weight: 500;
   opacity: 0.6;
-`;
-const InfoText = styled.li`
-  margin-right: 0.3rem;
 `;
 const InfoUnit = styled.li`
   font-size: 1.2rem;
 `;
 
-export { Comment, Comments, Img, Info, Infos, InfoText, InfoTexts, InfoTitle, InfoUnit, Wrapper };
+export { Comment, Comments, Img, Info, Infos, InfoText, InfoTitle, InfoUnit, Wrapper };
