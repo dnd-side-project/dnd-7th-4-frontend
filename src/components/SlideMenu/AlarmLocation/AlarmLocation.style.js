@@ -7,6 +7,10 @@ const Section = styled.section`
   margin: 0 auto;
   height: 100vh;
   background: #fff;
+  @media ${({ theme }) => theme.size.small} {
+    width: 100vw;
+    min-width: 36rem;
+  }
 `;
 
 const Header = styled.header`
