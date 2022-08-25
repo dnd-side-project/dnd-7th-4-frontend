@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { useRecoilState } from 'recoil';
 
 import AlarmLocationResult from '../AlarmLocationResult';
+import * as S from './AlarmLocation.style';
 
 const AlarmLocation = () => {
   const navigate = useNavigate();
@@ -44,23 +45,18 @@ const AlarmLocation = () => {
   };
 
   return (
-    <>
-      <header>
+    <S.Section>
+      <S.Header>
         {/* eslint-disable-next-line react/button-has-type */}
-        <button onClick={() => navigate(-1)}>뒤로가기</button>
+        <S.BackBtn onClick={() => navigate(-1)} />
         <p>위치 설정</p>
-      </header>
-      <form onSubmit={handleSubmit}>
-        <input
-          type="text"
-          placeholder="어떤 어떤 지역의 날씨로 알림을 받을까요?"
-          onChange={onChange}
-          value={value.data}
-        />
+      </S.Header>
+      <S.Form onSubmit={handleSubmit}>
+        <S.Input type="text" placeholder="어떤 지역의 날씨로 알림을 받을까요?" onChange={onChange} value={value.data} />
         {/* eslint-disable-next-line react/button-has-type */}
-      </form>
+      </S.Form>
       <AlarmLocationResult result={result} />
-    </>
+    </S.Section>
   );
 };
 
