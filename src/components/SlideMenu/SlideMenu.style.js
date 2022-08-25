@@ -90,6 +90,11 @@ const Item = styled.li`
     height: 0.8rem;
     background: url(${arrow}) center/cover;
   }
+
+  li > a {
+    width: 100%;
+    display: block;
+  }
 `;
 
 const AlarmInf = styled.ul`
@@ -127,4 +132,25 @@ const Toggle = styled.span`
     `}
 `;
 
-export { AlarmInf, Background, Content, Item, LoginBtn, Menu, Name, Toggle, ToggleBtn, UserInf, UserState };
+const LocationName = styled.span`
+  ${({ theme }) => theme.fonts.cap};
+  color: #a4a4a4;
+  position: absolute;
+  right: 2.6rem;
+  top: 1.8rem;
+`;
+
+export {
+  AlarmInf,
+  Background,
+  Content,
+  Item,
+  LocationName,
+  LoginBtn,
+  Menu,
+  Name,
+  Toggle,
+  ToggleBtn,
+  UserInf,
+  UserState,
+};

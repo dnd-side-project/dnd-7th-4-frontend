@@ -8,7 +8,7 @@ import { useMutation } from '@tanstack/react-query';
 import { memo, useEffect, useRef } from 'react';
 import isEqual from 'react-fast-compare';
 import { Link, useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import * as S from './SlideMenu.style';
 
@@ -23,7 +23,15 @@ const SlideMenu = () => {
   const [user, setUser] = useRecoilState(userAtom);
   const setError = useSetRecoilState(errorAtom);
 
-  const alarmLocation = useRecoilValue(setAlarmLocationAtom);
+  const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
+
+  useEffect(() => {
+    setalarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('alarmLocation', JSON.stringify(alarmLocation));
+  }, [alarmLocation]);
 
   const navigate = useNavigate();
 
@@ -123,7 +131,7 @@ const SlideMenu = () => {
           <S.Item>카톡 날씨알리미란?</S.Item>
           <S.Item>
             <Link to="alarm-location">내 알리미 위치</Link>
-            <span>{alarmLocation}</span>
+            <S.LocationName>{alarmLocation}</S.LocationName>
           </S.Item>
         </S.Menu>
       </S.Content>
