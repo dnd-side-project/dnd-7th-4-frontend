@@ -1,14 +1,15 @@
-import sunnySubtractBack from '@Assets/images/sunnySubtractBack.svg';
-import sunnySubtractFront from '@Assets/images/sunnySubtractFront.svg';
 import styled from 'styled-components';
 
 const Container = styled.div`
   position: relative;
   width: 36rem;
-  height: 69rem;
+  height: 100vh;
   padding: 0 2rem;
-  background: url(${sunnySubtractFront}) no-repeat -3rem 58rem, url(${sunnySubtractBack}) no-repeat 10rem 58rem,
-    ${({ theme }) => theme.skyColors.맑음};
+  background-color: white;
+  @media ${({ theme }) => theme.size.small} {
+    width: 100vw;
+    min-width: 36rem;
+  }
   header {
     position: relative;
     text-align: left;
@@ -16,22 +17,13 @@ const Container = styled.div`
     margin-bottom: ${(props) => props.error === 'api' && '16rem'};
     margin-bottom: ${(props) => props.error === '404' && '12.1rem'};
   }
-  ::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.25);
-  }
 `;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 32.5rem;
+  /* width: 32.5rem; */
 `;
 const Icon = styled.img`
   margin-bottom: ${(props) => props.error === 'api' && '4rem'};
@@ -43,28 +35,25 @@ const Title = styled.div`
   display: flex;
   flex-direction: column;
   align-items: center;
-  color: white;
-  font-size: 2.4rem;
+  color: black;
+  font-size: ${(props) => props.error === 'api' && '2.4rem'};
+  font-size: ${(props) => props.error === '404' && '2rem'};
   font-weight: 700;
   line-height: 150%;
-  margin-bottom: 1rem;
-  text-shadow: 0px 3px 5px rgba(0, 0, 0, 0.24);
-  z-index: 999;
+  margin-bottom: 1.6rem;
+  text-align: center;
 `;
 const Texts = styled.p`
   display: flex;
   flex-direction: column;
   align-items: center;
   height: 4.2rem;
-  color: white;
+  color: #9f9f9f;
   font-size: 1.4rem;
   font-weight: 400;
   line-height: 150%;
   letter-spacing: 0.15px;
-  margin-bottom: ${(props) => props.error === 'api' && '6.7rem'};
-  margin-bottom: ${(props) => props.error === '404' && '5.4rem'};
-  text-shadow: 1px 2px 3px rgba(0, 0, 0, 0.25);
-  z-index: 999;
+  margin-bottom: 4rem;
 `;
 const Button = styled.button`
   display: flex;

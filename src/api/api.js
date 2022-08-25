@@ -1,3 +1,5 @@
+/* eslint-disable no-return-await */
+/* eslint-disable arrow-body-style */
 import axios from 'axios';
 
 const BASE_URL = 'https://weathertogo.shop';
@@ -19,4 +21,12 @@ const getLocationData = async (keyword) => {
   return res.data;
 };
 
-export { getData, getLocationData };
+const postSetAlarm = async (token) => {
+  return await axios.post(`${BASE_URL}/account/alarm`, null, {
+    headers: {
+      Authorization: `Bearer ${token}`,
+    },
+  });
+};
+
+export { getData, getLocationData, postSetAlarm };

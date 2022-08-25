@@ -87,6 +87,10 @@ const commentOpacities = {
   강한비: 'rgba(66, 87, 108, 0.3)',
 };
 
+const size = {
+  small: `(max-width: 480px)`,
+};
+
 const DefaultTheme = {
   colors,
   fonts,
@@ -97,6 +101,8 @@ const DefaultTheme = {
   commentOpacities,
   groundHeights,
   groundGradients,
+  size,
+
 };
 
 export default DefaultTheme;
