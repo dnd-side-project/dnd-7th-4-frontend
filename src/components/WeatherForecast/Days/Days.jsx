@@ -60,6 +60,7 @@ const Days = () => {
             <S.Caption>{content['세부코멘트']['메인']['캡션']}</S.Caption>
           </S.CommentWrapper>
           {tabName === '오늘' ? <S.TodayAnimation skyState={skyState} /> : <S.TomorrowAnimation skyState={skyState} />}
+          <S.Mountain skyState={skyState} />
           <S.Timeline>
             {Object.keys(content['시간별정보']).map((item) => (
               <li key={item}>
