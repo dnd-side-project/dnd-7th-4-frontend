@@ -14,8 +14,12 @@ const Days = () => {
 
   const getTime = (item) => {
     let time = '';
-    if (parseInt(item, 10) === 12) {
+    if (parseInt(item, 10) === 0 || parseInt(item, 10) === 24) {
+      time = `오전 12시`;
+    } else if (parseInt(item, 10) === 12) {
       time = `오후 ${item}시`;
+    } else if (parseInt(item, 10) > 23) {
+      time = `오전 ${item - 24}시`;
     } else if (parseInt(item, 10) > 12) {
       time = `오후 ${item - 12}시`;
     } else {
