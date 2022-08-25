@@ -4,6 +4,9 @@ import styled from 'styled-components';
 
 const Section = styled.section`
   width: 36rem;
+  margin: 0 auto;
+  height: 100vh;
+  background: #fff;
 `;
 
 const Header = styled.header`
