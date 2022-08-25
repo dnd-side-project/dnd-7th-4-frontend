@@ -7,13 +7,14 @@ import Splash from '@Components/Splash';
 import UpdateTime from '@Components/UpdateTIme';
 import WeatherForecast from '@Components/WeatherForecast';
 import errorAtom from '@Recoil/error';
+import setAlarmLocationAtom from '@Recoil/setAlarmLocation';
 import slideMenuAtom from '@Recoil/slideMenu';
 import weatherAtom, { skyWithSelect } from '@Recoil/weather';
 import { useQuery } from '@tanstack/react-query';
 import { memo, useEffect } from 'react';
 import isEqual from 'react-fast-compare';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import * as S from './Home.style';
 
@@ -41,6 +42,15 @@ const Home = () => {
 
   const skyState = useRecoilValue(skyWithSelect);
   const slide = useRecoilValue(slideMenuAtom);
+  const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
+
+  useEffect(() => {
+    setalarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
+  }, []);
+
+  useEffect(() => {
+    window.localStorage.setItem('alarmLocation', JSON.stringify(alarmLocation));
+  }, [alarmLocation]);
 
   return (
     <Background>
