@@ -3,6 +3,7 @@ import setAlarmLocationAtom from '@Recoil/setAlarmLocation';
 import userAtom from '@Recoil/user';
 import { useMutation } from '@tanstack/react-query';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
 import * as S from './AlarmLocationResult.style';
