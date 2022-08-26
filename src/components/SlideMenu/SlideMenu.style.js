@@ -130,7 +130,7 @@ const Toggle = styled.span`
   background: #fff;
   position: absolute;
   left: 0.2rem;
-  top: 0.2rem;
+  top: 0.17rem;
   transition: all 0.2s ease-in-out;
   ${(props) =>
     props.alarm &&
