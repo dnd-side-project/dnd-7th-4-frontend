@@ -1,3 +1,4 @@
+import SearchIcon from '@Assets/icon/location-search.svg';
 import styled from 'styled-components';
 
 const LocationHeader = styled.div`
@@ -15,7 +16,6 @@ const LocationTitle = styled.header`
   width: 12rem;
   height: 2.2rem;
   color: #000000;
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 1.8rem;
@@ -32,14 +32,13 @@ const LocationEditBtn = styled.button`
   border: 0;
   background: inherit;
   color: #8d8d8d;
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 500;
   font-size: 1.4rem;
   line-height: 1.7rem;
   text-align: center;
   letter-spacing: 0.01rem;
-  ${({ edit }) => (edit ? `background: red` : null)};
+  cursor: pointer;
 `;
 const LocationSearchDiv = styled.div`
   display: flex;
@@ -55,7 +54,7 @@ const LocationSearchWrapper = styled.div`
   position: absolute;
   top: 0rem;
   left: 0rem;
-  width: 26.7rem;
+  width: 31.2rem;
   height: 4rem;
   border-radius: 1rem;
   background: #ffffff;
@@ -63,22 +62,19 @@ const LocationSearchWrapper = styled.div`
   filter: drop-shadow(0.1rem 0.1rem 0.7rem rgba(0, 0, 0, 0.15));
 `;
 const LocationForm = styled.form``;
-const LocationSearchBtn = styled.button`
+const LocationSearchIcon = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
   position: absolute;
-  top: 0.4rem;
-  left: 28rem;
-  width: 3.2rem;
-  height: 3.2rem;
-  border: none;
-  border-radius: 100%;
-  background: #5d9eff;
-  color: #fefdfe;
-  &:hover {
-    color: black;
-  }
+  width: 2.223rem;
+  left: 1.5rem;
+  top: 0.888rem;
+  height: 2.223rem;
+  flex: none;
+  order: 0;
+  flex-grow: 0;
+  background: url(${SearchIcon}) no-repeat;
 `;
 const LocationInput = styled.input.attrs(() => ({
   type: 'text',
@@ -86,12 +82,11 @@ const LocationInput = styled.input.attrs(() => ({
 }))`
   top: 1rem;
   position: absolute;
-  width: 23rem;
+  width: 20rem;
   height: 1.7rem;
-  margin-left: 1.5rem;
+  margin-left: 4.223rem;
   border: inherit;
   color: black;
-  font-family: 'Pretendard';
   font-style: normal;
   font-weight: 400;
   font-size: 1.2rem;
@@ -104,8 +99,8 @@ export {
   LocationForm,
   LocationHeader,
   LocationInput,
-  LocationSearchBtn,
   LocationSearchDiv,
+  LocationSearchIcon,
   LocationSearchWrapper,
   LocationTitle,
 };

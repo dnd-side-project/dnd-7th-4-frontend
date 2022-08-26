@@ -13,7 +13,7 @@ import * as S from './Header.style';
 
 const Header = () => {
   const [slide, setSlide] = useRecoilState(slideMenuAtom);
-
+  const nowRegion = window.localStorage.getItem('region');
   const renderSlideMenu = useCallback(() => <SlideMenu />, []);
 
   // CHECK:: 공유 페이지는 아직 작업 전이라 임의로 /example 연결해둠
@@ -22,7 +22,7 @@ const Header = () => {
       <nav>
         <S.List>
           <S.Title>
-            <Link to="/location">위치 페이지</Link>
+            <Link to="/location">{nowRegion ? `${nowRegion}` : `위치 페이지`}</Link>
           </S.Title>
           <li>
             <S.List sub>
