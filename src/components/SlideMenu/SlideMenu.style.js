@@ -92,7 +92,7 @@ const Item = styled.li`
     content: '';
     position: absolute;
     right: 1.7rem;
-    top: 2rem;
+    top: 2.2rem;
     width: 0.4rem;
     height: 0.8rem;
     background: url(${arrow}) center/cover;
@@ -145,7 +145,7 @@ const LocationName = styled.span`
   color: #a4a4a4;
   position: absolute;
   right: 2.6rem;
-  top: 1.8rem;
+  top: 0rem;
 `;
 
 export {
