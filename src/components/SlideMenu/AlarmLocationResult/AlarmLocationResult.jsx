@@ -3,15 +3,12 @@ import setAlarmLocationAtom from '@Recoil/setAlarmLocation';
 import userAtom from '@Recoil/user';
 import { useMutation } from '@tanstack/react-query';
 import { useEffect } from 'react';
-import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
 import * as S from './AlarmLocationResult.style';
 
 // eslint-disable-next-line react/prop-types
 const AlarmLocationResult = ({ result }) => {
-  const navigate = useNavigate();
-
   const token = useRecoilValue(userAtom).access;
   const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
 
@@ -53,7 +50,6 @@ const AlarmLocationResult = ({ result }) => {
     // console.log(keyward);
     // console.log(token);
     mutate(data);
-    navigate(-1);
   };
 
   return (
