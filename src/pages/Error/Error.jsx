@@ -1,6 +1,7 @@
 import errorCloud from '@Assets/icon/error-cloud.svg';
 import error404 from '@Assets/icon/error404.svg';
 import leftArrow from '@Assets/icon/left-arrow.svg';
+import Background from '@Components/Background';
 import errorAtom from '@Recoil/error';
 import { skyWithSelect } from '@Recoil/weather';
 import { useEffect, useState } from 'react';
@@ -27,7 +28,7 @@ const Error = () => {
       setContent(() => ({
         img: error404,
         alt: '잘못된 페이지 아이콘',
-        title: '요청하신 페이지를/찾을 수 없습니다',
+        title: '요청하신 페이지를 찾을 수 없습니다',
         text: '접속하신 URL을 다시 확인해주세요',
         button: '홈으로 돌아가기',
       }));
@@ -35,26 +36,28 @@ const Error = () => {
   }, [error]);
 
   return (
-    <S.Container skyState={skyState} error={error}>
-      <header>
-        <Link to="/">
-          <img src={leftArrow} alt="나가기 아이콘" />
-        </Link>
-      </header>
-      <main>
-        <S.Wrapper>
-          <S.Icon src={content.img} alt={content.alt} error={error} />
-          <S.Title>
-            <p>{content.title.split('/')[0]}</p>
-            <p>{content.title.split('/')[1]}</p>
-          </S.Title>
-          <S.Texts error={error}>{content.text}</S.Texts>
-          <S.Button>
-            <Link to="/">{content.button}</Link>
-          </S.Button>
-        </S.Wrapper>
-      </main>
-    </S.Container>
+    <Background>
+      <S.Container skyState={skyState} error={error}>
+        <header>
+          <Link to="/">
+            <img src={leftArrow} alt="나가기 아이콘" />
+          </Link>
+        </header>
+        <main>
+          <S.Wrapper>
+            <S.Icon src={content.img} alt={content.alt} error={error} />
+            <S.Title error={error}>
+              <p>{content.title.split('/')[0]}</p>
+              <p>{content.title.split('/')[1]}</p>
+            </S.Title>
+            <S.Texts error={error}>{content.text}</S.Texts>
+            <S.Button>
+              <Link to="/">{content.button}</Link>
+            </S.Button>
+          </S.Wrapper>
+        </main>
+      </S.Container>
+    </Background>
   );
 };
 

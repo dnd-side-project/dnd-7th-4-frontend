@@ -43,26 +43,18 @@ const ThisWeek = () => {
                   <S.DateItem size="true">{getDate(item).split('/')[1]}</S.DateItem>
                 </S.DateList>
               </li>
-              <li>
-                <S.ImgList>
-                  <li>
-                    <img src={content[item]['오전하늘이미지']} alt={content[item]['오전하늘상태']} />
-                  </li>
-                  <li>
-                    <S.Percent>{content[item]['오전강수확률']}%</S.Percent>
-                  </li>
-                </S.ImgList>
-              </li>
-              <li>
-                <S.ImgList>
-                  <li>
-                    <img src={content[item]['오후하늘이미지']} alt={content[item]['오후하늘상태']} />
-                  </li>
-                  <li>
-                    <S.Percent>{content[item]['오후강수확률']}%</S.Percent>
-                  </li>
-                </S.ImgList>
-              </li>
+              <S.ImgItem
+                data-name={content[item]['오전강수확률'] >= '40' ? `${content[item]['오전강수확률']}%` : null}
+                percent={content[item]['오전강수확률']}
+              >
+                <img src={content[item]['오전하늘이미지']} alt={content[item]['오전하늘상태']} />
+              </S.ImgItem>
+              <S.ImgItem
+                data-name={content[item]['오전강수확률'] >= '40' ? `${content[item]['오전강수확률']}%` : null}
+                percent={content[item]['오전강수확률']}
+              >
+                <img src={content[item]['오후하늘이미지']} alt={content[item]['오후하늘상태']} />
+              </S.ImgItem>
               <li>
                 <S.TempList>
                   <li>{content[item]['최저기온'].split('.')[0]}º</li>

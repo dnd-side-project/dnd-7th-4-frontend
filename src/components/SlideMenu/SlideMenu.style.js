@@ -10,7 +10,7 @@ const Background = styled.div`
   height: 100%;
   background: rgba(33, 38, 41, 0.5);
   cursor: pointer;
-  z-index: 10;
+  z-index: 20;
 `;
 
 // CHECK:: div가 최선인가?
@@ -37,6 +37,12 @@ const UserState = styled.ul`
   padding: 3.3rem 0 1.9rem 2.2rem;
   border-bottom: 1px solid #e8e8e8;
   cursor: default;
+
+  & > li > img {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+  }
 `;
 
 const UserInf = styled.ul`
@@ -50,7 +56,7 @@ const UserInf = styled.ul`
 
 const Name = styled.li`
   ${({ theme }) => theme.fonts.cap};
-  color: ${(props) => (props.logout ? '#B7B7B7' : '#5E5E5E')};
+  color: ${(props) => (props.login ? '#B7B7B7' : '#5E5E5E')};
 `;
 
 const LoginBtn = styled.button`
@@ -59,7 +65,7 @@ const LoginBtn = styled.button`
   padding: 0;
   color: #68bfef;
   font-family: inherit;
-  font-size: ${(props) => (props.logout ? '1.8rem' : '1.2rem')};
+  font-size: ${(props) => (props.login ? '1.8rem' : '1.2rem')};
   font-weight: bold;
   cursor: pointer;
 `;
@@ -83,6 +89,11 @@ const Item = styled.li`
     width: 0.4rem;
     height: 0.8rem;
     background: url(${arrow}) center/cover;
+  }
+
+  li > a {
+    width: 100%;
+    display: block;
   }
 `;
 
@@ -121,4 +132,25 @@ const Toggle = styled.span`
     `}
 `;
 
-export { AlarmInf, Background, Content, Item, LoginBtn, Menu, Name, Toggle, ToggleBtn, UserInf, UserState };
+const LocationName = styled.span`
+  ${({ theme }) => theme.fonts.cap};
+  color: #a4a4a4;
+  position: absolute;
+  right: 2.6rem;
+  top: 1.8rem;
+`;
+
+export {
+  AlarmInf,
+  Background,
+  Content,
+  Item,
+  LocationName,
+  LoginBtn,
+  Menu,
+  Name,
+  Toggle,
+  ToggleBtn,
+  UserInf,
+  UserState,
+};

@@ -3,7 +3,7 @@ import styled from 'styled-components';
 
 const Container = styled.div`
   width: 36rem;
-  height: 78rem;
+  height: 100vh;
   padding: 0 2rem;
   background-color: #fafafa;
   header {
@@ -11,13 +11,16 @@ const Container = styled.div`
     padding-top: 2.2rem;
     margin-bottom: 7.4rem;
   }
+  @media ${({ theme }) => theme.size.small} {
+    width: 100vw;
+    min-width: 36rem;
+  }
 `;
 const Wrapper = styled.div`
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  width: 32.5rem;
   img {
     margin-bottom: 4.4rem;
   }

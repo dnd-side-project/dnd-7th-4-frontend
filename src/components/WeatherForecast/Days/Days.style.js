@@ -1,4 +1,33 @@
-import styled, { css } from 'styled-components';
+import styled, { css, keyframes } from 'styled-components';
+
+const Up = (skyState, theme) => keyframes`
+  0% {
+    height: 0;
+  }
+  100% {
+    height: ${theme.groundHeights[skyState]};
+`;
+
+const TodayAnimation = styled.div`
+  position: absolute;
+  bottom: -40px;
+  background: ${({ skyState, theme }) => (theme.groundGradients[skyState] ? theme.groundGradients[skyState] : null)};
+  width: 100%;
+  animation ${({ skyState, theme }) => Up(skyState, theme)} 1s ease-in-out forwards;
+`;
+
+const TomorrowAnimation = styled.div`
+  position: absolute;
+  bottom: -40px;
+  background: ${({ skyState, theme }) => (theme.groundGradients[skyState] ? theme.groundGradients[skyState] : null)};
+  width: 100%;
+  animation ${({ skyState, theme }) => Up(skyState, theme)} 1s ease-in-out forwards;
+`;
+
+const Section = styled.section`
+  position: relative;
+  overflow: hidden;
+`;
 
 const InfList = styled.ul`
   text-align: center;
@@ -49,7 +78,6 @@ const Wrapper = styled.ul`
 const Item = styled.li`
   ${(props) => (props.divider ? 'opacity: 0.2;' : null)}
   ${(props) => (props.sign ? 'font-size: 4.4rem;' : null)}
-}
 `;
 
 const CommentWrapper = styled.div`
@@ -58,9 +86,11 @@ const CommentWrapper = styled.div`
   height: 16rem;
   border-radius: 3rem;
   text-align: center;
-  background: ${({ skyState, theme }) =>
-    Object.keys(theme.commentOpacity).includes(skyState) ? theme.commentOpacity[skyState] : null};
+  background: ${({ skyState, theme }) => (theme.commentOpacities[skyState] ? theme.commentOpacities[skyState] : null)};
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
+  @media ${({ theme }) => theme.size.small} {
+    width: calc(100vw - 9rem);
+  }
 `;
 
 const Comment = styled.ul`
@@ -78,6 +108,8 @@ const Caption = styled.p`
 `;
 
 const Timeline = styled.ul`
+  position: relative;
+  z-index: 10;
   display: flex;
   flex-direction: row;
   gap: 2.4rem;
@@ -96,6 +128,14 @@ const Timeline = styled.ul`
     background: rgba(255, 255, 255, 0.5);
     border-radius: 0.3rem;
   }
+`;
+
+const Mountain = styled.div`
+  background: ${({ skyState, theme }) => (theme.groundImgs[skyState] ? theme.groundImgs['흐림'] : null)};
+  height: 24rem;
+  position: absolute;
+  bottom: -34px;
+  width: 52rem;
 `;
 
 const ItemList = styled.ul`
@@ -131,4 +171,18 @@ const ItemList = styled.ul`
   }
 `;
 
-export { Caption, Comment, CommentWrapper, InfList, InfListItem, Item, ItemList, Timeline, Wrapper };
+export {
+  Caption,
+  Comment,
+  CommentWrapper,
+  InfList,
+  InfListItem,
+  Item,
+  ItemList,
+  Mountain,
+  Section,
+  Timeline,
+  TodayAnimation,
+  TomorrowAnimation,
+  Wrapper,
+};

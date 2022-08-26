@@ -14,10 +14,18 @@ const KakaoLoginAuth = () => {
         await axios.get(`https://weathertogo.shop/account/kakao/oauth?code=${code}`).then((response) => {
           const {
             nickname,
+            // eslint-disable-next-line camelcase
+            profile_img,
             django_token: { access, refresh },
           } = response.data;
-          setUser(() => ({ nickname, access, refresh, alarm: true, login: true }));
-          window.localStorage.setItem('user', JSON.stringify({ nickname, access, refresh, alarm: true, login: true }));
+          // eslint-disable-next-line camelcase
+          setUser(() => ({ nickname, profile_img, access, refresh, alarm: true, login: true }));
+          // eslint-disable-next-line camelcase
+          window.localStorage.setItem(
+            'user',
+            // eslint-disable-next-line camelcase
+            JSON.stringify({ nickname, profile_img, access, refresh, alarm: true, login: true }),
+          );
         });
         navigate('/');
       } catch (e) {

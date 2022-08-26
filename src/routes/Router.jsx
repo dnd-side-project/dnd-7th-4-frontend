@@ -1,4 +1,5 @@
 import KakaoLoginAuth from '@Components/KakaoLogin/KakaoLoginAuth';
+import AlarmLocation from '@Components/SlideMenu/AlarmLocation';
 import Alarm from '@Pages/Alarm';
 import Error from '@Pages/Error';
 import Home from '@Pages/Home';
@@ -11,6 +12,7 @@ const Router = () => (
       <Route path="/" element={<Home />} />
       <Route path="/location" element={<LocationPage />} />
       <Route path="/alarm" element={<Alarm />} />
+      <Route path="/alarm-location" element={<AlarmLocation />} />
       <Route path="/account/kakao/oauth" element={<KakaoLoginAuth />} />
       <Route path="*" element={<Error />} />
     </Routes>

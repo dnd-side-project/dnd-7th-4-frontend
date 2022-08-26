@@ -29,4 +29,22 @@ const postSetAlarm = async (token) => {
   });
 };
 
-export { getData, getLocationData, postSetAlarm };
+const getLocation = async (keyword) => {
+  return await axios.post(`${BASE_URL}/search`, keyword, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
+const RegisterAlarm = async (data) => {
+  console.log(data.keyword, data.token);
+  return await axios.post(`${BASE_URL}/account/alarm/region`, JSON.stringify(data.keyword), {
+    headers: {
+      Authorization: `Bearer ${data.token}`,
+      'Content-Type': 'application/json',
+    },
+  });
+};
+
+export { getData, getLocation, getLocationData, postSetAlarm, RegisterAlarm };
