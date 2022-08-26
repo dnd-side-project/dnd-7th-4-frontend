@@ -15,8 +15,8 @@ import * as S from './LocationResult.style';
 
 // 1) 500 에러 해결 ok
 // 2) 중복 지역 모달창 표시 ok
-// 3) 현재 위치 최상단 고정
-// 4) '현재 위치' 글자 한 박자 늦게 뜨는 거 해결
+// 3) 현재 위치 최상단 고정 ok
+// 4) '현재 위치' 컴포넌트 한 박자 늦게 뜨는 거 해결
 // 5) api 파일 분리 / 리팩토링
 // 6) 유저 인증 (비회원은 시간남으면 구현)
 
@@ -91,10 +91,15 @@ const LocationResult = () => {
     const res1 = await axios.post(`https://weathertogo.shop/find/region`, JSON.stringify({ longitude, latitude }), {
       headers,
     });
-    nowRegion.current = `${res1.data.data.city} ${res1.data.data.distinct.replace(' ', '')}`;
+    if (res1.data) {
+      nowRegion.current = `${res1.data.data.city} ${res1.data.data.distinct.replace(' ', '')}`;
+    } else {
+      nowRegion.current = `서울특별시 광진구`;
+    }
+
     const res2 = await axios.post(
       `https://weathertogo.shop/account/region`,
-      JSON.stringify({ city: res1.data.data.city, district: res1.data.data.distinct.replace(' ', '') }),
+      JSON.stringify({ city: nowRegion.current.split(' ')[0], district: nowRegion.current.split(' ')[1] }),
       {
         headers,
       },

@@ -22,6 +22,7 @@ const LocationPinnedPlace = styled.div`
   width: 31.2rem;
   height: 9.3rem;
   margin: 0 auto;
+  top: 10.8rem;
   margin-bottom: 1.8rem;
   border-radius: 2rem;
   box-shadow: 0.15rem 0.1rem 0rem rgba(0, 0, 0, 0.15);
@@ -30,7 +31,8 @@ const LocationPinnedPlace = styled.div`
 `;
 const LocationPinnedNowPlace = styled.div`
   display: ${({ value }) => (value ? `hidden` : null)};
-  position: relative;
+  position: absolute;
+  left: 2.4rem;
   width: 31.2rem;
   height: 9.3rem;
   margin: 0 auto;
@@ -38,7 +40,7 @@ const LocationPinnedNowPlace = styled.div`
   border-radius: 2rem;
   box-shadow: 0.15rem 0.1rem 0rem rgba(0, 0, 0, 0.15);
   background: url(${({ src }) => `${src}`});
-  ${({ edit }) => (edit ? `cursor: null; pointer-events: none;` : `cursor: pointer;`)}// background: red
+  ${({ edit }) => (edit ? `cursor: null; pointer-events: none;` : `cursor: pointer;`)}
 `;
 const LocationNowRegion = styled.div`
   position: absolute;
