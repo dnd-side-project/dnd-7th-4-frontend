@@ -38,6 +38,7 @@ const LocationResult = () => {
   const edit = useRecoilValue(locationEditAtom);
   const [value, setValue] = useRecoilState(locationValueAtom);
 
+  // const accessToken = JSON.parse(window.localStorage.getItem('user')).access;
   const accessToken = JSON.parse(window.localStorage.getItem('user')).access;
   const headers = {
     'Content-Type': `application/json`,
@@ -124,7 +125,7 @@ const LocationResult = () => {
   const getRegionMain = () => {
     if (!edit) {
       window.localStorage.setItem('region', locationRef.current.region);
-      navigate('/');
+      navigate('/main');
     }
   };
 

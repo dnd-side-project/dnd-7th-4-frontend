@@ -1,3 +1,4 @@
+/* eslint-disable prefer-destructuring */
 import { getData } from '@Apis/api';
 import Background from '@Components/Background';
 import Footer from '@Components/Footer';
@@ -19,16 +20,20 @@ import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 import * as S from './Home.style';
 
 const Home = () => {
-  // CHECK:: Server State와 Client State를 명확히 구분해주어야 하지만 우리 api특성상 Server State를 Global State로 관리할 필요가 있다.
+  const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
+  const skyState = useRecoilValue(skyWithSelect);
+  const slide = useRecoilValue(slideMenuAtom);
   const setError = useSetRecoilState(errorAtom);
   const setWeather = useSetRecoilState(weatherAtom);
-  // CHECK:: 현재 사용자의 위치 정보를 받아 저장하고 사용해줄 필요가 있음.
-  // CHECK:: params를 locationValueAtom 참조해서 변경
 
   const city = window.localStorage.getItem('region').split(' ')[0];
   const district = window.localStorage.getItem('region').split(' ')[1];
-  const { isLoading, data, error } = useQuery(['weather'], () => getData({ city, district }));
+  const { isLoading, data: weatherData, error } = useQuery(['weather'], () => getData({ city, district }));
   const navigate = useNavigate();
+
+  useEffect(() => {
+    setalarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
+  }, []);
 
   useEffect(() => {
     if (error) {
@@ -39,17 +44,9 @@ const Home = () => {
 
   useEffect(() => {
     if (!isLoading) {
-      setWeather(data);
+      setWeather(weatherData);
     }
-  }, [isLoading, data]);
-
-  const skyState = useRecoilValue(skyWithSelect);
-  const slide = useRecoilValue(slideMenuAtom);
-  const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
-
-  useEffect(() => {
-    setalarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
-  }, []);
+  }, [isLoading, weatherData]);
 
   useEffect(() => {
     window.localStorage.setItem('alarmLocation', JSON.stringify(alarmLocation));

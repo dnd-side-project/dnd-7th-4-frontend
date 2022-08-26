@@ -27,7 +27,7 @@ const KakaoLoginAuth = () => {
             JSON.stringify({ nickname, profile_img, access, refresh, alarm: true, login: true }),
           );
         });
-        navigate('/');
+        navigate('/main');
       } catch (e) {
         //
       }

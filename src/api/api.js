@@ -6,6 +6,7 @@ const BASE_URL = 'https://weathertogo.shop';
 
 // eslint-disable-next-line consistent-return
 const getData = async (location) => {
+  // console.log(location);
   const res = await axios.get(`${BASE_URL}/main`, {
     params: location,
   });
@@ -19,6 +20,17 @@ const getLocationData = async (keyword) => {
   });
   // ex) Object.values(response.data.data)[0].하늘상태
   return res.data;
+};
+
+// Authorization: `Bearer ${accessToken}`,
+const postFindRegion = async ({ lon: longitude, lat: latitude }) => {
+  console.log(longitude, latitude);
+  const res = await axios.post(`${BASE_URL}/find/region`, JSON.stringify({ longitude, latitude }), {
+    headers: {
+      'Content-Type': `application/json`,
+    },
+  });
+  return res;
 };
 
 const postSetAlarm = async (token) => {
@@ -38,7 +50,6 @@ const getLocation = async (keyword) => {
 };
 
 const RegisterAlarm = async (data) => {
-  console.log(data.keyword, data.token);
   return await axios.post(`${BASE_URL}/account/alarm/region`, JSON.stringify(data.keyword), {
     headers: {
       Authorization: `Bearer ${data.token}`,
@@ -47,4 +58,4 @@ const RegisterAlarm = async (data) => {
   });
 };
 
-export { getData, getLocation, getLocationData, postSetAlarm, RegisterAlarm };
+export { getData, getLocation, getLocationData, postFindRegion, postSetAlarm, RegisterAlarm };
