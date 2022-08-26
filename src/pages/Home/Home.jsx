@@ -24,7 +24,10 @@ const Home = () => {
   const setWeather = useSetRecoilState(weatherAtom);
   // CHECK:: 현재 사용자의 위치 정보를 받아 저장하고 사용해줄 필요가 있음.
   // CHECK:: params를 locationValueAtom 참조해서 변경
-  const { isLoading, data, error } = useQuery(['weather'], () => getData({ city: '서울특별시', district: '종로구' }));
+
+  const city = window.localStorage.getItem('region').split(' ')[0];
+  const district = window.localStorage.getItem('region').split(' ')[1];
+  const { isLoading, data, error } = useQuery(['weather'], () => getData({ city, district }));
   const navigate = useNavigate();
 
   useEffect(() => {
