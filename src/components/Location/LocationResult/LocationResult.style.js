@@ -173,6 +173,7 @@ const LocationModalQuestion = styled.h1`
   line-height: 150%;
   text-align: center;
   letter-spacing: 0.03rem;
+  ${({ alert }) => (alert ? `width: 16rem; left: 3.5rem; top: 4.5rem;` : null)};
 `;
 const LocationModalCancel = styled.button`
   position: absolute;
@@ -190,7 +191,8 @@ const LocationModalCancel = styled.button`
   border: none;
   background: inherit;
   opacity: 0.4;
-  ${({ alert }) => (alert ? `left: 15.4rem; color: blue;` : null)};
+  cursor: pointer;
+  ${({ alert }) => (alert ? `left: 16.4rem; color: blue;` : null)};
 `;
 const LocationModalDelete = styled.button`
   position: absolute;

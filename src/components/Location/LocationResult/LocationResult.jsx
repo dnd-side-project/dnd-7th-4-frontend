@@ -143,7 +143,6 @@ const LocationResult = () => {
       const lat = position.coords.latitude;
       window.localStorage.setItem('location', JSON.stringify({ lon, lat }));
       postFindRegion();
-      getLocationPinnedList();
     });
   }, []);
 
@@ -166,9 +165,7 @@ const LocationResult = () => {
       <S.LocationModalWrapper modal={modal.alertModal}>
         {modal.alertModal ? (
           <S.LocationModal modal={modal.alertModal}>
-            <S.LocationModalQuestion alert={alert}>
-              이미 등록된 지역 <br /> 입니다.
-            </S.LocationModalQuestion>
+            <S.LocationModalQuestion alert={alert}>이미 등록된 지역입니다.</S.LocationModalQuestion>
             <S.LocationModalCancel
               alert={alert}
               onClick={() => setModal((prevModal) => ({ ...prevModal, alertModal: false }))}
