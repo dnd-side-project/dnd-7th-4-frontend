@@ -130,7 +130,7 @@ const SlideMenu = () => {
           </li>
           <S.Item>카톡 날씨알리미란?</S.Item>
           <S.Item>
-            <Link to="alarm-location">내 알리미 위치</Link>
+            <Link to="/alarm-location">내 알리미 위치</Link>
             <S.LocationName>{alarmLocation}</S.LocationName>
           </S.Item>
         </S.Menu>
