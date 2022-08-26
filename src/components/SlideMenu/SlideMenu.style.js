@@ -42,6 +42,7 @@ const UserState = styled.ul`
     width: 52px;
     height: 52px;
     border-radius: 50%;
+    object-fit: cover;
   }
 `;
 
@@ -74,9 +75,15 @@ const Menu = styled.ul`
   font-size: 1.4rem;
 
   & > li {
-    padding: 1.7rem 1.6rem 1.7rem 2rem;
+    padding: 0 1.6rem 0 2rem;
     border-bottom: 1px solid #e8e8e8;
     position: relative;
+    line-height: 5rem;
+  }
+
+  & > li > a {
+    display: block;
+    width: 100%;
   }
 `;
 
@@ -110,6 +117,7 @@ const ToggleBtn = styled.button`
   border-radius: 5rem;
   border: transparent;
   position: relative;
+  padding-top: 1rem;
   cursor: pointer;
 `;
 
@@ -122,7 +130,7 @@ const Toggle = styled.span`
   background: #fff;
   position: absolute;
   left: 0.2rem;
-  top: 0.2rem;
+  top: 0.17rem;
   transition: all 0.2s ease-in-out;
   ${(props) =>
     props.alarm &&

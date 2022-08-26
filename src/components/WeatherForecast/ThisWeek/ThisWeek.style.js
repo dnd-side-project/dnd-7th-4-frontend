@@ -23,15 +23,20 @@ const WeekList = styled.ul`
 
   & > li:first-child {
     border-bottom: 0;
+    margin-bottom: 2.1rem;
   }
 `;
 
 const StandardList = styled.ul`
   display: flex;
   flex-direction: row;
-  margin: 0 0 2.1rem 8rem;
-  gap: 5.3rem;
-  ${({ theme }) => theme.fonts.subtit1};
+  gap: 4.7rem;
+  ${({ theme }) => theme.fonts.subtit2};
+  margin: 0 1.5rem 0 8rem;
+
+  & > li(:last-child) {
+    flex: 1;
+  }
 `;
 
 const DayList = styled.ul`
@@ -67,7 +72,6 @@ const ImgList = styled.ul`
 
 const ImgItem = styled.li`
   ${({ theme }) => theme.fonts.cap};
-  margin-left: 0.4rem;
   position: relative;
   &::after {
     content: attr(data-name);

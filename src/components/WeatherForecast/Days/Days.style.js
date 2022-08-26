@@ -131,7 +131,7 @@ const Timeline = styled.ul`
 `;
 
 const Mountain = styled.div`
-  background: ${({ skyState, theme }) => (theme.groundImgs[skyState] ? theme.groundImgs['흐림'] : null)};
+  background: ${({ skyState, theme }) => (theme.groundImgs[skyState] ? theme.groundImgs[skyState] : null)};
   height: 24rem;
   position: absolute;
   bottom: -34px;

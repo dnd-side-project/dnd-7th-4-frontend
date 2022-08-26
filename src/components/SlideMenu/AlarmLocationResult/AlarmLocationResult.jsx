@@ -10,6 +10,8 @@ import * as S from './AlarmLocationResult.style';
 
 // eslint-disable-next-line react/prop-types
 const AlarmLocationResult = ({ result }) => {
+  const navigate = useNavigate();
+
   const token = useRecoilValue(userAtom).access;
   const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
   const navigate = useNavigate();
@@ -43,6 +45,7 @@ const AlarmLocationResult = ({ result }) => {
     // console.log(keyward);
     // console.log(token);
     mutate(data);
+    navigate(-1);
   };
 
   return (
