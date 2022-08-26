@@ -3,6 +3,7 @@ import setAlarmLocationAtom from '@Recoil/setAlarmLocation';
 import userAtom from '@Recoil/user';
 import { useMutation } from '@tanstack/react-query';
 import { useEffect } from 'react';
+import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue } from 'recoil';
 
 import * as S from './AlarmLocationResult.style';
@@ -11,16 +12,14 @@ import * as S from './AlarmLocationResult.style';
 const AlarmLocationResult = ({ result }) => {
   const token = useRecoilValue(userAtom).access;
   const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    console.log(token);
-  }, []);
-
-  const { mutate, error } = useMutation(RegisterAlarm, {
+  const { mutate } = useMutation(RegisterAlarm, {
     onSuccess: (data) => {
       const location = `${data.data.data['등록된지역'].city} ${data.data.data['등록된지역'].district}`;
       setalarmLocation(location);
       window.localStorage.setItem('alarmLocation', JSON.stringify(location));
+      navigate('/main');
     },
   });
 
@@ -31,12 +30,6 @@ const AlarmLocationResult = ({ result }) => {
   useEffect(() => {
     window.localStorage.setItem('alarmLocation', JSON.stringify(alarmLocation));
   }, [alarmLocation]);
-
-  useEffect(() => {
-    if (error) {
-      console.log(error);
-    }
-  }, [error]);
 
   const handleSubmit = (e) => {
     e.preventDefault();
