@@ -6,7 +6,7 @@ const Section = styled.section`
   width: 36rem;
   margin: 0 auto;
   height: 100vh;
-  background: #fff;
+  background: #fafafa;
   @media ${({ theme }) => theme.size.small} {
     width: 100vw;
     min-width: 36rem;
@@ -19,6 +19,7 @@ const Header = styled.header`
   padding: 2.4rem 0 1.2rem 1.8rem;
   ${({ theme }) => theme.fonts.subtit1};
   border-bottom: 1px solid #e8e8e8;
+  background: #fff;
 `;
 
 const BackBtn = styled.button`

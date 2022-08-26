@@ -43,6 +43,7 @@ const AlarmLocation = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     mutate(JSON.stringify(value));
+    setValue('');
   };
 
   return (
