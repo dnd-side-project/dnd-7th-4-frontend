@@ -1,35 +1,37 @@
 import { getLocation } from '@Apis/api';
 import Background from '@Components/Background';
-import alarmLocationAtom from '@Recoil/alarmLocation';
+import alarmLocationListAtom from '@Recoil/alarmLocationList';
+import alarmLocationValueAtom from '@Recoil/alarmLocationValue';
 import { useMutation } from '@tanstack/react-query';
-import { memo, useCallback, useEffect, useState } from 'react';
+import { memo, useCallback, useEffect } from 'react';
 import isEqual from 'react-fast-compare';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState } from 'recoil';
+import { useRecoilState, useSetRecoilState } from 'recoil';
 
 import AlarmLocationResult from '../AlarmLocationResult';
 import * as S from './AlarmLocation.style';
 
 const AlarmLocation = () => {
   const navigate = useNavigate();
-  const [value, setValue] = useRecoilState(alarmLocationAtom);
-  const [result, setResult] = useState({});
+  const [value, setValue] = useRecoilState(alarmLocationValueAtom);
+  const setList = useSetRecoilState(alarmLocationListAtom);
+
+  useEffect(() => {
+    setValue({ data: '' });
+    setList({});
+  }, []);
 
   const onChange = useCallback(
     (e) => {
       setValue({ data: e.target.value });
-      setResult({});
+      setList({});
     },
     [value],
   );
 
-  // useEffect(() => {
-  //   console.log(JSON.stringify(value));
-  // }, [value]);
-
   const { mutate, error } = useMutation(getLocation, {
     onSuccess: (data) => {
-      setResult(data.data.data);
+      setList(data.data.data);
       console.log(data.data.data);
     },
   });
@@ -43,7 +45,6 @@ const AlarmLocation = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     mutate(JSON.stringify(value));
-    setValue('');
   };
 
   return (
@@ -63,7 +64,7 @@ const AlarmLocation = () => {
           />
           {/* eslint-disable-next-line react/button-has-type */}
         </S.Form>
-        <AlarmLocationResult result={result} />
+        <AlarmLocationResult />
       </S.Section>
     </Background>
   );

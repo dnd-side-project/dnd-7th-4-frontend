@@ -1,7 +1,7 @@
 import { postSetAlarm } from '@Apis/api';
 import defaultProfile from '@Assets/icon/default-profile.svg';
+import alarmLocationAtom from '@Recoil/alarmLocation';
 import errorAtom from '@Recoil/error';
-import setAlarmLocationAtom from '@Recoil/setAlarmLocation';
 import slideMenuAtom from '@Recoil/slideMenu';
 import userAtom from '@Recoil/user';
 import { useMutation } from '@tanstack/react-query';
@@ -23,7 +23,7 @@ const SlideMenu = () => {
   const [user, setUser] = useRecoilState(userAtom);
   const setError = useSetRecoilState(errorAtom);
 
-  const alarmLocation = useRecoilValue(setAlarmLocationAtom);
+  const alarmLocation = useRecoilValue(alarmLocationAtom);
 
   const navigate = useNavigate();
 
