@@ -5,7 +5,7 @@ import errorAtom from '@Recoil/error';
 import slideMenuAtom from '@Recoil/slideMenu';
 import userAtom from '@Recoil/user';
 import { useMutation } from '@tanstack/react-query';
-import { memo, useEffect, useRef } from 'react';
+import { memo, useCallback, useEffect, useRef } from 'react';
 import isEqual from 'react-fast-compare';
 import { Link, useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
@@ -14,7 +14,7 @@ import * as S from './SlideMenu.style';
 
 const SlideMenu = () => {
   const REST_API_KEY = process.env.REACT_APP_KAKAO_APP_KEY;
-  const REDIRECT_URI = 'http://localhost:3000/account/kakao/oauth';
+  const REDIRECT_URI = 'https://www.weathercomment.com/account/kakao/oauth';
   const KAKAO_AUTH_URL = `https://kauth.kakao.com/oauth/authorize?client_id=${REST_API_KEY}&redirect_uri=${REDIRECT_URI}&response_type=code`;
 
   const [slide, setSlide] = useRecoilState(slideMenuAtom);
@@ -70,6 +70,10 @@ const SlideMenu = () => {
     }
   };
 
+  const handleLogin = useCallback(() => {
+    window.location.href = `${KAKAO_AUTH_URL}`;
+  }, []);
+
   return (
     <S.Background
       ref={bgRef}
@@ -92,11 +96,9 @@ const SlideMenu = () => {
               ) : (
                 <>
                   <S.Name login>로그인하고 알림 받아보세요</S.Name>
-                  <a href={KAKAO_AUTH_URL}>
-                    <S.LoginBtn type="submit" login>
-                      카카오로 로그인
-                    </S.LoginBtn>
-                  </a>
+                  <S.LoginBtn type="button" login onClick={handleLogin}>
+                    카카오로 로그인
+                  </S.LoginBtn>
                 </>
               )}
             </S.UserInf>
