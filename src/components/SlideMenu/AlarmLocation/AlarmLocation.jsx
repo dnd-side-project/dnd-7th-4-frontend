@@ -1,7 +1,7 @@
 import { getLocation } from '@Apis/api';
 import Background from '@Components/Background';
-import alarmLocationListAtom from '@Recoil/alarmLocationList';
-import alarmLocationValueAtom from '@Recoil/alarmLocationValue';
+import alarmLocationListAtom from '@Recoil/alarmLocation/alarmLocationList';
+import alarmLocationValueAtom from '@Recoil/alarmLocation/alarmLocationValue';
 import { useMutation } from '@tanstack/react-query';
 import { memo, useCallback, useEffect } from 'react';
 import isEqual from 'react-fast-compare';

@@ -1,8 +1,8 @@
 import { RegisterAlarm } from '@Apis/api';
 import Modal from '@Components/Modal';
 import alarmLocationAtom from '@Recoil/alarmLocation';
-import alarmLocationListAtom from '@Recoil/alarmLocationList';
-import alarmLocationValueAtom from '@Recoil/alarmLocationValue';
+import alarmLocationListAtom from '@Recoil/alarmLocation/alarmLocationList';
+import alarmLocationValueAtom from '@Recoil/alarmLocation/alarmLocationValue';
 import userAtom from '@Recoil/user';
 import { useMutation } from '@tanstack/react-query';
 import { useCallback, useEffect, useState } from 'react';
