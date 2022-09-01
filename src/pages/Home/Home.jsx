@@ -15,12 +15,12 @@ import { useQuery } from '@tanstack/react-query';
 import { memo, useEffect } from 'react';
 import isEqual from 'react-fast-compare';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import * as S from './Home.style';
 
 const Home = () => {
-  const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
+  const setAlarmLocation = useSetRecoilState(setAlarmLocationAtom);
   const skyState = useRecoilValue(skyWithSelect);
   const slide = useRecoilValue(slideMenuAtom);
   const setError = useSetRecoilState(errorAtom);
@@ -32,7 +32,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setalarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
+    setAlarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
   }, []);
 
   useEffect(() => {
@@ -47,10 +47,6 @@ const Home = () => {
       setWeather(weatherData);
     }
   }, [isLoading, weatherData]);
-
-  useEffect(() => {
-    window.localStorage.setItem('alarmLocation', JSON.stringify(alarmLocation));
-  }, [alarmLocation]);
 
   return (
     <Background>

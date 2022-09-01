@@ -11,21 +11,21 @@ import * as S from './AlarmLocationResult.style';
 // eslint-disable-next-line react/prop-types
 const AlarmLocationResult = ({ result }) => {
   const token = useRecoilValue(userAtom).access;
-  const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
+  const [alarmLocation, setAlarmLocation] = useRecoilState(setAlarmLocationAtom);
   const navigate = useNavigate();
 
   const { mutate } = useMutation(RegisterAlarm, {
     onSuccess: (data) => {
       const location = `${data.data.data['등록된지역'].city} ${data.data.data['등록된지역'].district}`;
-      setalarmLocation(location);
+      setAlarmLocation(location);
       window.localStorage.setItem('alarmLocation', JSON.stringify(location));
       navigate('/main');
     },
   });
 
   useEffect(() => {
-    setalarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
-  }, []);
+    setAlarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
+  }, [alarmLocation]);
 
   useEffect(() => {
     window.localStorage.setItem('alarmLocation', JSON.stringify(alarmLocation));
@@ -40,8 +40,6 @@ const AlarmLocationResult = ({ result }) => {
       },
       token,
     };
-    // console.log(keyward);
-    // console.log(token);
     mutate(data);
   };
 

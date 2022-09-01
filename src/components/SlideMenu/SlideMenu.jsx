@@ -8,7 +8,7 @@ import { useMutation } from '@tanstack/react-query';
 import { memo, useEffect, useRef } from 'react';
 import isEqual from 'react-fast-compare';
 import { Link, useNavigate } from 'react-router-dom';
-import { useRecoilState, useSetRecoilState } from 'recoil';
+import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
 import * as S from './SlideMenu.style';
 
@@ -23,15 +23,7 @@ const SlideMenu = () => {
   const [user, setUser] = useRecoilState(userAtom);
   const setError = useSetRecoilState(errorAtom);
 
-  const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
-
-  useEffect(() => {
-    setalarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
-  }, []);
-
-  useEffect(() => {
-    window.localStorage.setItem('alarmLocation', JSON.stringify(alarmLocation));
-  }, [alarmLocation]);
+  const alarmLocation = useRecoilValue(setAlarmLocationAtom);
 
   const navigate = useNavigate();
 
@@ -58,13 +50,6 @@ const SlideMenu = () => {
       navigate('/error');
     }
   }, [error]);
-
-  // CHECK:: localStorage에서 아예 삭제하면 boolean값을 이용한 조건부 렌더링이 안됨
-  // useEffect(() => {
-  //   if(!user.login && !user.alarm) {
-  //     window.localStorage.removeItem('user');
-  //   }
-  // }, [user])
 
   const changeAlarm = (e) => {
     e.preventDefault();
