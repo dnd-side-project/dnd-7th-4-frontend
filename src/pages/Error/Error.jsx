@@ -3,7 +3,7 @@ import error404 from '@Assets/icon/error404.svg';
 import leftArrow from '@Assets/icon/left-arrow.svg';
 import Background from '@Components/Background';
 import errorAtom from '@Recoil/error';
-import { skyWithSelect } from '@Recoil/weather';
+import { weatherWithBackImg } from '@Recoil/weather';
 import { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { useRecoilValue } from 'recoil';
@@ -11,7 +11,7 @@ import { useRecoilValue } from 'recoil';
 import * as S from './Error.style';
 
 const Error = () => {
-  const skyState = useRecoilValue(skyWithSelect);
+  const backImg = useRecoilValue(weatherWithBackImg);
   const error = useRecoilValue(errorAtom);
   const [content, setContent] = useState({ img: '', alt: '', title: '', text: '', button: '' });
 
@@ -37,7 +37,7 @@ const Error = () => {
 
   return (
     <Background>
-      <S.Container skyState={skyState} error={error}>
+      <S.Container backImg={backImg} error={error}>
         <header>
           <Link to="/">
             <img src={leftArrow} alt="나가기 아이콘" />

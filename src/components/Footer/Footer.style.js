@@ -1,7 +1,7 @@
 import styled from 'styled-components';
 
 const Footer = styled.footer`
-  background: ${({ skyState, theme }) => (theme.groundColors[skyState] ? theme.groundColors[skyState] : null)};
+  background: ${({ backImg, theme }) => (theme.groundColors[backImg] ? theme.groundColors[backImg] : null)};
 `;
 
 const Wrapper = styled.div`

@@ -5,8 +5,8 @@ export const Container = styled.div`
   height: 100vh;
   color: #fff;
   position: relative;
-  background: ${({ skyState, theme }) => (theme.weatherImgs[skyState] ? theme.weatherImgs[skyState] : null)},
-    ${({ skyState, theme }) => (theme.skyColors[skyState] ? theme.skyColors[skyState] : null)};
+  background: ${({ backImg, theme }) => (theme.weatherImgs[backImg] ? theme.weatherImgs[backImg] : null)},
+    ${({ backImg, theme }) => (theme.skyColors[backImg] ? theme.skyColors[backImg] : null)};
   overflow-y: scroll;
   @media ${({ theme }) => theme.size.small} {
     width: 100vw;

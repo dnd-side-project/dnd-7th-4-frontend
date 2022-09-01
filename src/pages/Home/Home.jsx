@@ -10,7 +10,7 @@ import WeatherForecast from '@Components/WeatherForecast';
 import alarmLocationAtom from '@Recoil/alarmLocation';
 import errorAtom from '@Recoil/error';
 import slideMenuAtom from '@Recoil/slideMenu';
-import weatherAtom, { skyWithSelect } from '@Recoil/weather';
+import weatherAtom, { weatherWithBackImg } from '@Recoil/weather';
 import { useQuery } from '@tanstack/react-query';
 import { memo, useEffect } from 'react';
 import isEqual from 'react-fast-compare';
@@ -21,7 +21,7 @@ import * as S from './Home.style';
 
 const Home = () => {
   const setAlarmLocation = useSetRecoilState(alarmLocationAtom);
-  const skyState = useRecoilValue(skyWithSelect);
+  const backImg = useRecoilValue(weatherWithBackImg);
   const slide = useRecoilValue(slideMenuAtom);
   const setError = useSetRecoilState(errorAtom);
   const setWeather = useSetRecoilState(weatherAtom);
@@ -53,7 +53,7 @@ const Home = () => {
       {isLoading ? (
         <Splash />
       ) : (
-        <S.Container skyState={skyState} slide={slide}>
+        <S.Container backImg={backImg} slide={slide}>
           <Header />
           <main>
             <WeatherForecast />
