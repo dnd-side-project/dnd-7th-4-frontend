@@ -34,7 +34,7 @@ const StandardList = styled.ul`
   ${({ theme }) => theme.fonts.subtit2};
   margin: 0 1.5rem 0 8rem;
 
-  & > li(:last-child) {
+  & > li:last-child {
     flex: 1;
   }
 `;
