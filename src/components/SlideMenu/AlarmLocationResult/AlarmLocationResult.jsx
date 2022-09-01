@@ -1,10 +1,11 @@
 import { RegisterAlarm } from '@Apis/api';
+import Modal from '@Components/Modal';
 import alarmLocationAtom from '@Recoil/alarmLocation';
 import alarmLocationListAtom from '@Recoil/alarmLocationList';
 import alarmLocationValueAtom from '@Recoil/alarmLocationValue';
 import userAtom from '@Recoil/user';
 import { useMutation } from '@tanstack/react-query';
-import { useEffect } from 'react';
+import { useCallback, useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
 
@@ -17,6 +18,8 @@ const AlarmLocationResult = () => {
   const setValue = useSetRecoilState(alarmLocationValueAtom);
   const [list, setList] = useRecoilState(alarmLocationListAtom);
   const navigate = useNavigate();
+  const [modal, setModal] = useState(false);
+  const renderModal = useCallback(() => <Modal setModal={setModal} />, []);
 
   useEffect(() => {
     setAlarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
@@ -38,7 +41,7 @@ const AlarmLocationResult = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     if (e.target.textContent === alarmLocation) {
-      alert('이미 등록된 지역입니다.');
+      setModal(true);
       setValue({ data: '' });
       setList({});
     } else {
@@ -54,15 +57,18 @@ const AlarmLocationResult = () => {
   };
 
   return (
-    <S.List>
-      {Object.keys(list).map((item) => (
-        <li key={item}>
-          <S.Button type="submit" onClick={handleSubmit}>
-            {item}
-          </S.Button>
-        </li>
-      ))}
-    </S.List>
+    <>
+      <S.List>
+        {Object.keys(list).map((item) => (
+          <li key={item}>
+            <S.Button type="submit" onClick={handleSubmit}>
+              {item}
+            </S.Button>
+          </li>
+        ))}
+      </S.List>
+      {modal && renderModal()}
+    </>
   );
 };
 
