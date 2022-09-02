@@ -1,5 +1,5 @@
 import tabMenuAtom from '@Recoil/tabMenu';
-import { skyWithSelect, weatherWithSelect } from '@Recoil/weather';
+import { weatherWithBackImg, weatherWithSelect } from '@Recoil/weather';
 import { memo } from 'react';
 import isEqual from 'react-fast-compare';
 import { useRecoilValue } from 'recoil';
@@ -10,7 +10,7 @@ import * as S from './Days.style';
 const Days = () => {
   const tabName = useRecoilValue(tabMenuAtom);
   const content = useRecoilValue(weatherWithSelect);
-  const skyState = useRecoilValue(skyWithSelect);
+  const backImg = useRecoilValue(weatherWithBackImg);
 
   const getTime = (item) => {
     let time = '';
@@ -52,15 +52,15 @@ const Days = () => {
                 : `어제 +${content['전날기온차이']}º`}
             </S.InfListItem>
           </S.InfList>
-          <S.CommentWrapper skyState={skyState}>
+          <S.CommentWrapper backImg={backImg}>
             <S.Comment>
               <li>{content['세부코멘트']['메인']['코멘트'].split('/')[0]}</li>
               <li>{content['세부코멘트']['메인']['코멘트'].split('/')[1]}</li>
             </S.Comment>
             <S.Caption>{content['세부코멘트']['메인']['캡션']}</S.Caption>
           </S.CommentWrapper>
-          {tabName === '오늘' ? <S.TodayAnimation skyState={skyState} /> : <S.TomorrowAnimation skyState={skyState} />}
-          <S.Mountain skyState={skyState} />
+          {tabName === '오늘' ? <S.TodayAnimation backImg={backImg} /> : <S.TomorrowAnimation backImg={backImg} />}
+          <S.Mountain backImg={backImg} />
           <S.Timeline>
             {Object.keys(content['시간별정보']).map((item) => (
               <li key={item}>

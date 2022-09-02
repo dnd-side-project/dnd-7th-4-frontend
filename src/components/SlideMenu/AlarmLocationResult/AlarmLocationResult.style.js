@@ -27,6 +27,7 @@ const Button = styled.button`
   background: transparent;
   font-family: inherit;
   font-size: 1.6rem;
+  color: black;
   width: 100%;
   text-align: left;
   cursor: pointer;

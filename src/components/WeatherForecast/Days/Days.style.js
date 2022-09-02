@@ -1,27 +1,27 @@
 import styled, { css, keyframes } from 'styled-components';
 
-const Up = (skyState, theme) => keyframes`
+const Up = (backImg, theme) => keyframes`
   0% {
     height: 0;
   }
   100% {
-    height: ${theme.groundHeights[skyState]};
+    height: ${theme.groundHeights[backImg]};
 `;
 
 const TodayAnimation = styled.div`
   position: absolute;
   bottom: -40px;
-  background: ${({ skyState, theme }) => (theme.groundGradients[skyState] ? theme.groundGradients[skyState] : null)};
+  background: ${({ backImg, theme }) => (theme.groundGradients[backImg] ? theme.groundGradients[backImg] : null)};
   width: 100%;
-  animation ${({ skyState, theme }) => Up(skyState, theme)} 1s ease-in-out forwards;
+  animation ${({ backImg, theme }) => Up(backImg, theme)} 1s ease-in-out forwards;
 `;
 
 const TomorrowAnimation = styled.div`
   position: absolute;
   bottom: -40px;
-  background: ${({ skyState, theme }) => (theme.groundGradients[skyState] ? theme.groundGradients[skyState] : null)};
+  background: ${({ backImg, theme }) => (theme.groundGradients[backImg] ? theme.groundGradients[backImg] : null)};
   width: 100%;
-  animation ${({ skyState, theme }) => Up(skyState, theme)} 1s ease-in-out forwards;
+  animation ${({ backImg, theme }) => Up(backImg, theme)} 1s ease-in-out forwards;
 `;
 
 const Section = styled.section`
@@ -86,7 +86,7 @@ const CommentWrapper = styled.div`
   height: 16rem;
   border-radius: 3rem;
   text-align: center;
-  background: ${({ skyState, theme }) => (theme.commentOpacities[skyState] ? theme.commentOpacities[skyState] : null)};
+  background: ${({ backImg, theme }) => (theme.commentOpacities[backImg] ? theme.commentOpacities[backImg] : null)};
   box-shadow: 1px 2px 3px rgba(0, 0, 0, 0.2);
   @media ${({ theme }) => theme.size.small} {
     width: calc(100vw - 9rem);
@@ -131,7 +131,7 @@ const Timeline = styled.ul`
 `;
 
 const Mountain = styled.div`
-  background: ${({ skyState, theme }) => (theme.groundImgs[skyState] ? theme.groundImgs[skyState] : null)};
+  background: ${({ backImg, theme }) => (theme.groundImgs[backImg] ? theme.groundImgs[backImg] : null)};
   height: 24rem;
   position: absolute;
   bottom: -34px;

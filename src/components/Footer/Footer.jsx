@@ -1,13 +1,13 @@
-import { skyWithSelect } from '@Recoil/weather';
+import { weatherWithBackImg } from '@Recoil/weather';
 import { useRecoilValue } from 'recoil';
 
 import * as S from './Footer.style';
 
 const Footer = () => {
-  const skyState = useRecoilValue(skyWithSelect);
+  const backImg = useRecoilValue(weatherWithBackImg);
 
   return (
-    <S.Footer skyState={skyState}>
+    <S.Footer backImg={backImg}>
       <S.Wrapper>
         <S.Infos>
           <S.Title>

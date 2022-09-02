@@ -1,5 +1,5 @@
 import tabMenuAtom from '@Recoil/tabMenu';
-import { skyWithSelect, weatherWithSelect } from '@Recoil/weather';
+import { weatherWithBackImg, weatherWithSelect } from '@Recoil/weather';
 import { memo } from 'react';
 import { isEqual } from 'react-fast-compare';
 import { useRecoilValue } from 'recoil';
@@ -15,11 +15,11 @@ import Wind from './Wind';
 const MoreWeatherInfo = () => {
   const tabMenu = useRecoilValue(tabMenuAtom);
   const weatherInfo = useRecoilValue(weatherWithSelect);
-  const skyState = useRecoilValue(skyWithSelect);
+  const backImg = useRecoilValue(weatherWithBackImg);
 
   if (tabMenu !== '이번주') {
     return (
-      <S.Section skyState={skyState}>
+      <S.Section backImg={backImg}>
         <S.Wrapper>
           <AirPollution data={weatherInfo?.세부코멘트.미세먼지} status={weatherInfo?.미세먼지} />
           <Rainfall data={weatherInfo?.세부코멘트.강수} status={weatherInfo?.현재['1시간강수량']} />

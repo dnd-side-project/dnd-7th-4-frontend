@@ -7,21 +7,21 @@ import MoreWeatherInfo from '@Components/MoreWeatherInfo';
 import Splash from '@Components/Splash';
 import UpdateTime from '@Components/UpdateTIme';
 import WeatherForecast from '@Components/WeatherForecast';
+import alarmLocationAtom from '@Recoil/alarmLocation';
 import errorAtom from '@Recoil/error';
-import setAlarmLocationAtom from '@Recoil/setAlarmLocation';
 import slideMenuAtom from '@Recoil/slideMenu';
-import weatherAtom, { skyWithSelect } from '@Recoil/weather';
+import weatherAtom, { weatherWithBackImg } from '@Recoil/weather';
 import { useQuery } from '@tanstack/react-query';
 import { memo, useEffect } from 'react';
 import isEqual from 'react-fast-compare';
 import { useNavigate } from 'react-router-dom';
-import { useRecoilState, useRecoilValue, useSetRecoilState } from 'recoil';
+import { useRecoilValue, useSetRecoilState } from 'recoil';
 
 import * as S from './Home.style';
 
 const Home = () => {
-  const [alarmLocation, setalarmLocation] = useRecoilState(setAlarmLocationAtom);
-  const skyState = useRecoilValue(skyWithSelect);
+  const setAlarmLocation = useSetRecoilState(alarmLocationAtom);
+  const backImg = useRecoilValue(weatherWithBackImg);
   const slide = useRecoilValue(slideMenuAtom);
   const setError = useSetRecoilState(errorAtom);
   const setWeather = useSetRecoilState(weatherAtom);
@@ -32,7 +32,7 @@ const Home = () => {
   const navigate = useNavigate();
 
   useEffect(() => {
-    setalarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
+    setAlarmLocation(JSON.parse(window.localStorage.getItem('alarmLocation')));
   }, []);
 
   useEffect(() => {
@@ -48,16 +48,12 @@ const Home = () => {
     }
   }, [isLoading, weatherData]);
 
-  useEffect(() => {
-    window.localStorage.setItem('alarmLocation', JSON.stringify(alarmLocation));
-  }, [alarmLocation]);
-
   return (
     <Background>
       {isLoading ? (
         <Splash />
       ) : (
-        <S.Container skyState={skyState} slide={slide}>
+        <S.Container backImg={backImg} slide={slide}>
           <Header />
           <main>
             <WeatherForecast />
