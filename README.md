@@ -121,7 +121,5 @@ REACT_APP_KAKAO_JAVASCRIPT_KEY=YOUR_JAVASCRIPT_KEY
 
 
 ## 🔒 LICENSE
-dnd-7th-4-frontend is licensed under the
-
-[MIT License](https://github.com/dnd-side-project/dnd-7th-4-frontend/blob/main/LICENSE)
+dnd-7th-4-frontend is licensed under the [MIT License](https://github.com/dnd-side-project/dnd-7th-4-frontend/blob/main/LICENSE)
 
